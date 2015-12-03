@@ -1,1 +1,53 @@
+body{
+	width:70%;
+	margin-left:15%;
+	margin-right:15%;
+	background-color:#FFFFCC;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+}
 
+header{
+	color:#500000;
+	border-bottom:0.2em solid #500000;
+}
+
+nav{
+	margin:0.1em;
+	padding:0.1em;
+	border:0px;
+	border-bottom:0.12em solid #500000;
+}
+
+nav button{
+	color:#500000;
+	background-color:#FFFFCC;
+	border:0px;
+	border-right:0.1em solid #500000;
+}
+
+#corpo{
+	color:#500000;
+}
+
+#corpo img{
+	display:auto;
+	margin:0.4em;
+	
+}
+
+div.scorriroba{
+	position:relative;
+	float:left;
+	margin-right:1em;
+	border:opx;
+	border-top:0.12em solid #500000;
+	border-bottom:0.12em solid #500000;
+	background-color:white;
+	width:35%;
+	height:15em;
+}
+
+div.scorriroba img{
+	margin:auto;
+	padding:0.2em;
+}
