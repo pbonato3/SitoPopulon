@@ -2,31 +2,31 @@ body{
 	width:70%;
 	margin-left:15%;
 	margin-right:15%;
-	background-color:#FFFFCC;
+	background-color:#500000;
 	font-family:"Comic Sans MS", cursive, sans-serif;
 }
 
 header{
-	color:#500000;
-	border-bottom:0.2em solid #500000;
+	color:black;
+	border-bottom:0.2em solid black;
 }
 
 nav{
 	margin:0.1em;
 	padding:0.1em;
 	border:0px;
-	border-bottom:0.12em solid #500000;
+	border-bottom:0.12em solid black;
 }
 
 nav button{
-	color:#500000;
-	background-color:#FFFFCC;
+	color:black;
+	background-color:#500000 ;
 	border:0px;
-	border-right:0.1em solid #500000;
+	border-right:0.1em solid black;
 }
 
 #corpo{
-	color:#500000;
+	color:black;
 }
 
 #corpo img{
@@ -40,9 +40,9 @@ div.scorriroba{
 	float:left;
 	margin-right:1em;
 	border:opx;
-	border-top:0.12em solid #500000;
-	border-bottom:0.12em solid #500000;
-	background-color:white;
+	border-top:0.12em solid black;
+	border-bottom:0.12em solid black;
+	background-color:gray;
 	width:35%;
 	height:15em;
 }
