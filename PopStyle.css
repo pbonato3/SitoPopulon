@@ -11,6 +11,12 @@ header{
 	border-bottom:0.2em solid black;
 }
 
+/*nascondere il titolo*/
+header h1{
+	position:absolute;
+	left:-9999999em;
+}
+
 nav{
 	margin:0.1em;
 	padding:0.1em;
