@@ -6,25 +6,25 @@ body{
 	font-family:"Comic Sans MS", cursive, sans-serif;
 }
 
-header{
+#header{
 	color:black;
 	border-bottom:0.2em solid black;
 }
 
 /*nascondere il titolo*/
-header h1{
+#header h1{
 	position:absolute;
 	left:-9999999em;
 }
 
-nav{
+#nav{
 	margin:0.1em;
 	padding:0.1em;
 	border:0px;
 	border-bottom:0.12em solid black;
 }
 
-nav button{
+#nav button{
 	color:black;
 	background-color:#D3D7E0;
 	border:0px;
