@@ -29,6 +29,7 @@ nav button{
 	background-color:#500000 ;
 	border:0px;
 	border-right:0.1em solid black;
+	cursor:pointer;
 }
 
 #corpo{
