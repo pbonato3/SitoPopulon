@@ -63,3 +63,40 @@ div.scorriroba img{
 	width: auto; 
 	height: 30em;
 }
+
+#content{
+	text-align:justify;
+}
+
+
+#draghirazze{
+	width:16.35%;
+    vertical-align: center;
+    display: inline-block;
+    text-align: center;
+	margin-bottom:2em;
+}
+
+#draghirazze span{
+	display: block;
+}
+
+#mp{
+	margin-bottom:5em;
+}
+
+#mp p{
+	margin-top:1.6em;
+}
+
+#content h1{
+	position:absolute;
+	left:-9999999em;
+}
+
+.titolo{
+    margin: 0 auto;
+    display: block;
+	width:15em;
+	height:auto;
+}
