@@ -18,18 +18,47 @@ body{
 }
 
 #nav{
-	margin:0.1em;
 	padding:0.1em;
+	padding-left:0.1em;
 	border:0px;
 	border-bottom:0.12em solid black;
 }
 
-#nav button{
+#nav ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+#nav ul li{
+	margin:0;
+	padding:0;
+	display:inline-block;
+}
+
+#nav ul li a{
 	color:black;
 	background-color:#D3D7E0;
 	border:0px;
-	border-right:0.1em solid black;
+	padding:0.1em;
+	padding-left:0.5em;
+	padding-right:0.5em;
 	cursor:pointer;
+	text-decoration:none;
+}
+
+#nav ul li a:hover{
+	background-color:#009999;
+}
+
+#nav ul li span{
+	margin-right:-0.3em;
+	color:black;
+	background-color:#009999;
+	border:0px;
+	padding:0.1em;
+	padding-left:0.5em;
+	padding-right:0.5em;
 }
 
 #corpo{
