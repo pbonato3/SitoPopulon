@@ -70,24 +70,15 @@ body{
 #corpo img{
 	display:auto;
 	margin:0.4em;
-	
 }
 
-div.scorriroba{
-	position:relative;
-	float:left;
-	margin-right:1em;
-	border:opx;
-	border-top:0.12em solid black;
-	border-bottom:0.12em solid black;
-	background-color:gray;
-	width:35%;
-	height:15em;
+#corpo h2{
+	text-align:center;
 }
 
-div.scorriroba img{
-	margin:auto;
-	padding:0.2em;
+div.news{
+	padding:2em;
+	border: 0.2em solid black;
 }
 
 .mappa{
