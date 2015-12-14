@@ -1,9 +1,10 @@
 body{
 	width:70%;
-	margin-left:15%;
-	margin-right:15%;
+	margin-left:14%;
+	margin-right:14%;
 	background-color:#D3D7E0;
 	font-family:"Comic Sans MS", cursive, sans-serif;
+	padding:1%;
 }
 
 #header{
@@ -77,6 +78,7 @@ body{
 }
 
 div.news{
+	margin-bottom:2em;
 	padding:2em;
 	border: 0.2em solid black;
 }
