@@ -69,19 +69,44 @@ div.news{
 	padding:2em;
 	border: 0.2em solid black;
 }
-
+/*mappa e poesia*/
 .mappa{
-	width: auto; 
-	height: 30em;
+	width: 50%; 
+	height: auto;
+	float: left;
+	margin-bottom:5em;
 }
 
-#content{
+#mp{
+	margin-bottom:5em;
 	text-align:justify;
 }
 
+#mp p{
+	
+}
+/*contenuto presentazione*/
+#content{
+	text-align:justify;
+	min-height:30em;
+}
 
+
+.titolo{
+    margin: 0 auto;
+    display: block;
+	width:15em;
+	height:auto;
+}
+
+
+#content h1{
+	position:absolute;
+	left:-9999999em;
+}
+/*link alle descrizioni dei draghi*/
 #draghirazze{
-	width:16.35%;
+	width:16%;
     vertical-align: center;
     display: inline-block;
     text-align: center;
@@ -92,27 +117,16 @@ div.news{
 	display: block;
 }
 
-#mp{
-	margin-bottom:5em;
-}
-
-#mp p{
-	margin-top:1.6em;
-}
-
-#content h1{
-	position:absolute;
-	left:-9999999em;
-}
-
-.titolo{
-    margin: 0 auto;
-    display: block;
-	width:15em;
-	height:auto;
-}
-
+/*pagine descrittive dei draghi*/
 
 .idrago{
 	float:left;
+	max-width:30%;
+	margin-bottom:1em;
+}
+
+.irazza{
+	margin:0 auto;
+    display: block;
+	max-width:50%;
 }
