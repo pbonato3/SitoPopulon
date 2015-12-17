@@ -2,9 +2,9 @@ body{
 	width:70%;
 	margin-left:14%;
 	margin-right:14%;
+	padding:1%;
 	background-color:#D3D7E0;
 	font-family:"Comic Sans MS", cursive, sans-serif;
-	padding:1%;
 }
 
 #header{
@@ -12,13 +12,15 @@ body{
 	border-bottom:0.2em solid black;
 }
 
-/*nascondere il titolo*/
+/*nascondere il titolo (c'è ma non si vede perchè lo cacciamo fuori dallo schermo)*/
 #header h1{
 	position:absolute;
 	left:-9999999em;
 }
 
-#nav{
+/* ----------------------- Barra di navigazione------------------------------*/
+
+#nav{		/* barra di navigazione */
 	margin-bottom:1em;
 	padding:0.1em;
 	padding-left:0.1em;
@@ -26,49 +28,66 @@ body{
 	border-bottom:0.12em solid black;
 }
 
-#nav ul{
+#nav ul{		/* lista contenuta nella barra di navigazione */
 	margin:0;
 	padding:0;
 	list-style:none;
 }
 
-#nav ul li{
+#nav ul li{		/* elementi della lista */
 	margin:0;
 	padding:0;
-	display:inline-block;
+	display:inline-block;		/* disposti orizzontalmente, non in verticale */
 }
 
-#nav ul li a{
-	margin-right:-0.3em;
-	color:black;
-	background-color:#D3D7E0;
+#nav ul li a{		/* link della barra di navigazione*/
+	margin-right:-0.3em;		/* trik per vincere i margini imposti dal browser in automatico (margin negativi)*/
+	color:black;				/* togliere il bluetto schifoso del link */
 	border:0px;
 	padding:0.1em;
 	padding-left:0.5em;
 	padding-right:0.5em;
-	cursor:pointer;
-	text-decoration:none;
+	cursor:pointer;			/* cursore a manina(da appurare se sia veramente giusto)*/
+	text-decoration:none;	/* no stottolineatura link */
 }
 
-#nav ul li a:hover{
-	background-color:#009999;
+#nav ul li a:hover{			/* cambio colore background quando il cursore è sopra il link */
+	background-color:#009999;	
 }
 
-#nav ul li span{
-	margin-right:-0.3em;
+#nav ul li span{			/* pagina corrente della barra di navigazione */
+	margin-right:-0.3em;	/* trik per vincere i margini imposti dal browser in automatico (margin negativi)*/
 	color:black;
-	background-color:#009999;
-	border:0px;
+	background-color:#009999;	/* colore diverso dallo sfondo */
+	border:0px;					
 	padding:0.1em;
 	padding-left:0.5em;
 	padding-right:0.5em;
 }
+
+/* ----------------------- News della home------------------------------*/
+
 
 div.news{
+	height:25em;  /* altezza fissa!! 25 em  uguale all'altezza delle immagini contenute*/
 	margin-bottom:2em;
 	padding:2em;
 	border: 0.2em solid black;
+	background-color:white;		/*Se volessimo fare le cose fatte bene questo dovrebbe poter essere scelto dinamicamente*/
+	
+	/* Impostazioni per un'eventuale immagine di sfondo */
+	background-repeat:none;
+	background-size:contain;
+	
 }
+
+div.news img{
+	display:block;
+	float: left; /* immagini a sinistra  con testo che scorre a destra*/
+	height: 25em; /* immagini di altezza fissa 25em e larghezza proporzionale */
+	margin-right:2em;
+}
+
 /*mappa e poesia*/
 .mappa{
 	width: 50%; 
