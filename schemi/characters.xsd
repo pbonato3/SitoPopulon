@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="characters" type="characters"/>
+
+	<xs:complexType name="characters">
+		<xs:sequence>
+			<xs:element name="character" type="character" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="character">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="race" type="xs:string" />
+			<xs:element name="age" type="xs:integer" />
+			<xs:element name="body" type="stats" />
+			<xs:element name="mind" type="stats" />
+			<xs:element name="heart" type="stats" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="stats">
+		<xs:sequence>
+			<xs:element name="value" type="xs:integer"/>
+			<xs:element name="ability" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>
