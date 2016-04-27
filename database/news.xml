@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notizie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="news.xsd">
+	<notizia>
+		<titolo> Notizia 1 </titolo>
+		<data> 2016-04-27 </data>
+		<luogo> Luogo 1 </luogo>
+	</notizia>
+	<notizia>
+		<titolo> Notizia 2 </titolo>
+		<data> 2016-04-28 </data>
+		<ora> 19:20:00 </ora>
+		<luogo> Luogo 2 </luogo>
+	</notizia>
+</notizie>

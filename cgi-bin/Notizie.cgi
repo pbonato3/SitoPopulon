@@ -1,9 +1,26 @@
 #!"C:\xampp\perl\bin\perl.exe"
+
 use CGI;
 use CGI qw(:standard);
 use CGI::Carp qw(fatalsToBrowser);
 
+#creazione oggetto CGI
 my $page = CGI->new;
+
+use XML::LibXML;
+my $file = '../database/news.xml';
+#creazione oggetto parser
+my $parser = XML::LibXML->new();
+#apertura file e lettura input
+my $doc = $parser->parse_file($file);
+#estrazione elemento radice
+my $root= $doc->getDocumentElement;
+my @notizie = $root->findnodes("notizia");
+my @titoli = $root->findnodes("notizia/titolo");
+my @date = $root->findnodes("notizia/data");
+my @orari = $root->findnodes("notizia/ora");
+my @luoghi = $root->findnodes("notizia/luogo");
+
 
 print $page->header,
 $page->start_html( # inizio pagina HTML
@@ -35,9 +52,23 @@ li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n";
 
 #################		content		#################
 
-print $page ->div({-id => 'content'}, p("Si ringrazia Perl per la realizzazione di questa pagina."), 
-p("Non &egrave stato facile capire come fare ma alla fine siamo riusciti."),
-p("Ma questo non toglie che PERL FA CAGARE!")), "\n";
+print "<div id='content'>";
+print "<h2> Notizie </h2>";
+$var=0;
+foreach(@notizie){
+	print "<div>",
+	"<h3>",@notizie[$var]->findnodes("titolo"),"</h3>";
+	$data = @notizie[$var]->findnodes("data");
+	if($data){print "<p> Data:        ",$data,"</p>";}
+	$ora = @notizie[$var]->findnodes("ora");
+	if($ora){print "<p> Ora:        ",$ora,"</p>";}
+	$luogo = @notizie[$var]->findnodes("luogo");
+	if($luogo){print "<p> Luogo:        ",$luogo,"</p>";}
+	print "</div>";
+	$var++;
+}
+
+print "</div>";
 
 	
 print $page->end_html, "\n"; # fine pagina HTML
