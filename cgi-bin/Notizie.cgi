@@ -1,5 +1,4 @@
 #!"C:\xampp\perl\bin\perl.exe"
-
 use CGI;
 use CGI qw(:standard);
 use CGI::Carp qw(fatalsToBrowser);
@@ -56,14 +55,16 @@ print "<div id='content'>";
 print "<h2> Notizie </h2>";
 $var=0;
 foreach(@notizie){
-	print "<div>",
+	print "<div class='news'>",
 	"<h3>",@notizie[$var]->findnodes("titolo"),"</h3>";
 	$data = @notizie[$var]->findnodes("data");
-	if($data){print "<p> Data:        ",$data,"</p>";}
+	if($data){print "<p><span class='newsTag'>Data:</span><span class='newsValue'>",$data,"</span></p>";}
 	$ora = @notizie[$var]->findnodes("ora");
-	if($ora){print "<p> Ora:        ",$ora,"</p>";}
+	if($ora){print "<p><span class='newsTag'>Ora:</span><span class='newsValue'>",$ora,"</span></p>";}
 	$luogo = @notizie[$var]->findnodes("luogo");
-	if($luogo){print "<p> Luogo:        ",$luogo,"</p>";}
+	if($luogo){print "<p><span class='newsTag'>Luogo:</span><span class='newsValue'>",$luogo,"</span></p>";}
+	$descrizione = @notizie[$var]->findnodes("descrizione");
+	if($descrizione){print "<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>",$descrizione,"</p></p>";}
 	print "</div>";
 	$var++;
 }

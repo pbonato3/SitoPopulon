@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="allnews.xsl"?>
 <notizie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="news.xsd">
 	<notizia>
-		<titolo> Notizia 1 </titolo>
-		<data> 2016-04-27 </data>
-		<luogo> Luogo 1 </luogo>
+		<titolo> Dilemmi sorgono! </titolo>
+		<data> 2016-04-28 </data>
+		<ora> 18:14:00 </ora>
+		<luogo> Casa di Paolo</luogo>
+		<descrizione>Come avrete letto nelle notizie precedenti XSL funziona. Il punto è che formano solo una pagina statica a partire da un file xml.
+		Nella fattispecie il barbatrucco è aprire il file xml in questione dal server. Certo non si possono fare query di su misura, ma solo statiche.
+		Quindi ora che fare? Si usano o non si usano? Aiutatemi vi prego! Io ne ho creata una di prova. Per vederla: localhost/populon/database/news.xml </descrizione>
 	</notizia>
 	<notizia>
-		<titolo> Notizia 2 </titolo>
+		<titolo> XSL is real </titolo>
 		<data> 2016-04-28 </data>
-		<ora> 19:20:00 </ora>
-		<luogo> Luogo 2 </luogo>
+		<ora> 17:40:00 </ora>
+		<descrizione>Cari lettori, ho scoperto che xsl si può usare. So che come me non ci credevate ma è così.</descrizione>
+	</notizia>
+	<notizia>
+		<titolo> A cavallo di un cammello (Perl) </titolo>
+		<data> 2016-04-27 </data>
 	</notizia>
 </notizie>

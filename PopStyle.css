@@ -69,9 +69,8 @@ body{
 
 
 div.news{
-	height:25em;  /* altezza fissa!! 25 em  uguale all'altezza delle immagini contenute*/
 	margin-bottom:2em;
-	padding:2em;
+	padding:1em;
 	border: 0.2em solid black;
 	background-color:white;		/*Se volessimo fare le cose fatte bene questo dovrebbe poter essere scelto dinamicamente*/
 	
@@ -86,6 +85,13 @@ div.news img{
 	float: left; /* immagini a sinistra  con testo che scorre a destra*/
 	height: 25em; /* immagini di altezza fissa 25em e larghezza proporzionale */
 	margin-right:2em;
+}
+
+span.newsTag{
+	display: inline-block;
+	width:10em;
+}
+span.newsValue{
 }
 
 /*mappa e poesia*/
