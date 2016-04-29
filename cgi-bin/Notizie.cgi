@@ -3,6 +3,9 @@ use CGI;
 use CGI qw(:standard);
 use CGI::Carp qw(fatalsToBrowser);
 
+use HTTP::Request::Common qw(POST);
+use HTTP::Request::Common qw(GET);
+
 #creazione oggetto CGI
 my $page = CGI->new;
 
@@ -14,11 +17,45 @@ my $parser = XML::LibXML->new();
 my $doc = $parser->parse_file($file);
 #estrazione elemento radice
 my $root= $doc->getDocumentElement;
+#array dei nodi notiza
 my @notizie = $root->findnodes("notizia");
-my @titoli = $root->findnodes("notizia/titolo");
-my @date = $root->findnodes("notizia/data");
-my @orari = $root->findnodes("notizia/ora");
-my @luoghi = $root->findnodes("notizia/luogo");
+
+############## filtra per titolo ##############
+$titolo = $page->param('titolo');
+if($titolo){
+	@temp = ();
+		foreach(@notizie){
+			$t=$_->findnodes("titolo");
+			if($t =~ /$titolo/){push @temp,$_;};
+		};
+	@notizie=@temp;
+}
+############## filtra per data ##############
+$data = $page->param('data');
+if($data){
+	@temp = ();
+		foreach(@notizie){
+			$t=$_->findnodes("data");
+			if($t =~ /$data/){push @temp,$_;};
+		};
+	@notizie=@temp;
+}
+############## filtra per luogo ##############
+$luogo = $page->param('luogo');
+if($luogo){
+	@temp = ();
+		foreach(@notizie){
+			$t=$_->findnodes("luogo");
+			if($t =~ /$luogo/){push @temp,$_;};
+		};
+	@notizie=@temp;
+}
+############## ricerca standard ##############
+if(!$titolo and !$data and !$luogo){
+my $n_notizie = 10; #massimo numero di notize nella pagina standard
+@notizie = $root->findnodes("notizia[position()<=$n_notizie]");
+}
+
 
 
 print $page->header,
@@ -53,20 +90,27 @@ li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n";
 
 print "<div id='content'>";
 print "<h2> Notizie </h2>";
-$var=0;
+
+print "<form action='/populon/cgi-bin/Notizie.cgi' method='GET'>";
+print "<span>Filtro notizie</span>";
+print "<p>Titolo: <input name='titolo' type='text'/></p>";
+print "<p>Data: <input name='data' type='text'/></p>";
+print "<p>Luogo: <input name='luogo' type='text'/></p>";
+print "</p><input type='submit' value='Filtra'/></p>";
+print "</form>";
+
 foreach(@notizie){
 	print "<div class='news'>",
-	"<h3>",@notizie[$var]->findnodes("titolo"),"</h3>";
-	$data = @notizie[$var]->findnodes("data");
+	"<h3>",$_->findnodes("titolo"),"</h3>";
+	$data = $_->findnodes("data");
 	if($data){print "<p><span class='newsTag'>Data:</span><span class='newsValue'>",$data,"</span></p>";}
-	$ora = @notizie[$var]->findnodes("ora");
+	$ora = $_->findnodes("ora");
 	if($ora){print "<p><span class='newsTag'>Ora:</span><span class='newsValue'>",$ora,"</span></p>";}
-	$luogo = @notizie[$var]->findnodes("luogo");
+	$luogo = $_->findnodes("luogo");
 	if($luogo){print "<p><span class='newsTag'>Luogo:</span><span class='newsValue'>",$luogo,"</span></p>";}
-	$descrizione = @notizie[$var]->findnodes("descrizione");
+	$descrizione = $_->findnodes("descrizione");
 	if($descrizione){print "<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>",$descrizione,"</p></p>";}
 	print "</div>";
-	$var++;
 }
 
 print "</div>";
