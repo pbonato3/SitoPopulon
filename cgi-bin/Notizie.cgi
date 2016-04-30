@@ -2,58 +2,55 @@
 use CGI;
 use CGI qw(:standard);
 use CGI::Carp qw(fatalsToBrowser);
-
 use HTTP::Request::Common qw(POST);
 use HTTP::Request::Common qw(GET);
-
-#creazione oggetto CGI
-my $page = CGI->new;
-
 use XML::LibXML;
-my $file = '../database/news.xml';
-#creazione oggetto parser
-my $parser = XML::LibXML->new();
-#apertura file e lettura input
-my $doc = $parser->parse_file($file);
-#estrazione elemento radice
-my $root= $doc->getDocumentElement;
-#array dei nodi notiza
-my @notizie = $root->findnodes("notizia");
+
+my $page = CGI->new;					#creazione oggetto CGI
+my $file = '../database/news.xml';		#salvo il percorso del file xml
+
+my $parser = XML::LibXML->new();		#creazione oggetto parser
+my $doc = $parser->parse_file($file);	#apertura file e lettura input
+my $root= $doc->getDocumentElement;		#estrazione elemento radice
+
+my @notizie = $root->findnodes("notizia");	#array dei nodi notizia, inizzializzato con tutti i nodi. Successivamente va filtrato e usato per l'output
 
 ############## filtra per titolo ##############
-$titolo = $page->param('titolo');
-if($titolo){
-	@temp = ();
-		foreach(@notizie){
-			$t=$_->findnodes("titolo");
-			if($t =~ /$titolo/){push @temp,$_;};
+$titolo = $page->param('titolo');							#prendo il parametro dall'url
+if($titolo){												#se il parametro è vuoto non lo considero
+	@temp = ();												#inizializzo un array temporaneo nel quale mettere le notizie corrispondenti
+		foreach(@notizie){									#scorro l'array delle notizie
+			$value = lc $_->findnodes("titolo");			#salvo il valore del nodo (trasformato in lower case)
+			$search = lc $titolo;							#trasformo in lower case il parametro di ricerca
+			if($value =~ /$search/){push @temp,$_;};		#se il nodo contiene la stringa cercata la inserisco nell'array temporaneo
 		};
-	@notizie=@temp;
+	@notizie=@temp;											#l'array delle notizie è stato filtrato
 }
 ############## filtra per data ##############
-$data = $page->param('data');
-if($data){
-	@temp = ();
-		foreach(@notizie){
-			$t=$_->findnodes("data");
-			if($t =~ /$data/){push @temp,$_;};
+$data = $page->param('data');								#prendo il parametro dall'url
+if($data){													#se il parametro è vuoto non lo considero
+	@temp = ();												#inizializzo un array temporaneo nel quale mettere le notizie corrispondenti
+		foreach(@notizie){									#scorro l'array delle notizie eventualmente filtrato
+			$value = $_->findnodes("data");					#salvo il valore del nodo
+			if($value =~ /$data/){push @temp,$_;};			#se il nodo contiene la stringa cercata la inserisco nell'array temporaneo
 		};
-	@notizie=@temp;
+	@notizie=@temp;											#l'array delle notizie è stato filtrato
 }
 ############## filtra per luogo ##############
-$luogo = $page->param('luogo');
-if($luogo){
-	@temp = ();
-		foreach(@notizie){
-			$t=$_->findnodes("luogo");
-			if($t =~ /$luogo/){push @temp,$_;};
+$luogo = $page->param('luogo');								#prendo il parametro dall'url
+if($luogo){													#se il parametro è vuoto non lo considero
+	@temp = ();												#inizializzo un array temporaneo nel quale mettere le notizie corrispondenti
+		foreach(@notizie){									#scorro l'array delle notizie eventualmente filtrato
+			$value = lc $_->findnodes("luogo");				#salvo il valore del nodo (trasformato in lower case)
+			$search = lc $luogo;							#trasformo in lower case il parametro di ricerca
+			if($value =~ /$search/){push @temp,$_;};		#se il nodo contiene la stringa cercata la inserisco nell'array temporaneo
 		};
-	@notizie=@temp;
+	@notizie=@temp;											#l'array delle notizie è stato filtrato
 }
 ############## ricerca standard ##############
-if(!$titolo and !$data and !$luogo){
-my $n_notizie = 10; #massimo numero di notize nella pagina standard
-@notizie = $root->findnodes("notizia[position()<=$n_notizie]");
+if(!$titolo and !$data and !$luogo){								#non è stato inserito nessun parametro di ricerca
+my $n_notizie = 10; 												#massimo numero di notize nella pagina standard
+@notizie = $root->findnodes("notizia[position()<=$n_notizie]");		#l'array delle notizie contiene solo le ultime n_notizie
 }
 
 
@@ -94,21 +91,22 @@ print "<h2> Notizie </h2>";
 print "<form action='/populon/cgi-bin/Notizie.cgi' method='GET'>";
 print "<span>Filtro notizie</span>";
 print "<p>Titolo: <input name='titolo' type='text'/></p>";
-print "<p>Data: <input name='data' type='text'/></p>";
+print "<p>Data: <input name='data' type='date'/></p>";
 print "<p>Luogo: <input name='luogo' type='text'/></p>";
 print "</p><input type='submit' value='Filtra'/></p>";
 print "</form>";
 
-foreach(@notizie){
+## Output delle notizie ##
+foreach(@notizie){									#scorro l'array delle notizie
 	print "<div class='news'>",
-	"<h3>",$_->findnodes("titolo"),"</h3>";
-	$data = $_->findnodes("data");
+	"<h3>",$_->findnodes("titolo"),"</h3>";			#salvo il valore del nodo titolo
+	$data = $_->findnodes("data");					#salvo il valore del nodo data
 	if($data){print "<p><span class='newsTag'>Data:</span><span class='newsValue'>",$data,"</span></p>";}
-	$ora = $_->findnodes("ora");
+	$ora = $_->findnodes("ora");					#salvo il valore del nodo ora
 	if($ora){print "<p><span class='newsTag'>Ora:</span><span class='newsValue'>",$ora,"</span></p>";}
-	$luogo = $_->findnodes("luogo");
+	$luogo = $_->findnodes("luogo");				#salvo il valore del nodo luogo
 	if($luogo){print "<p><span class='newsTag'>Luogo:</span><span class='newsValue'>",$luogo,"</span></p>";}
-	$descrizione = $_->findnodes("descrizione");
+	$descrizione = $_->findnodes("descrizione");	#salvo il valore del nodo descrizione
 	if($descrizione){print "<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>",$descrizione,"</p></p>";}
 	print "</div>";
 }
