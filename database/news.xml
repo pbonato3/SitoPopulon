@@ -2,6 +2,57 @@
 <?xml-stylesheet type="text/xsl" href="allnews.xsl"?>
 <notizie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="news.xsd">
 <notizia>
+<titolo>ohmiòdiò</titolo>
+<luogo>fighuéèe</luogo>
+</notizia>
+<notizia>
+<titolo>madonnàtroià</titolo>
+</notizia>
+<notizia>
+<titolo>porcodiò</titolo>
+<data>2016-05-20</data>
+<ora>04:20</ora>
+<luogo>salò</luogo>
+<descrizione>sarò a salò</descrizione>
+</notizia>
+<notizia>
+<titolo>porcodio</titolo>
+</notizia>
+<notizia>
+<titolo>diocanè</titolo>
+</notizia>
+<notizia>
+<titolo>diocan</titolo>
+<data>2016-05-13</data>
+<ora>04:20</ora>
+<luogo>dsksadjhsa</luogo>
+<descrizione>kasjbdksajdbksajdbkajs</descrizione>
+</notizia>
+<notizia>
+<titolo>diocan</titolo>
+</notizia>
+<notizia>
+<titolo>tomare</titolo>
+<data>2016-05-19</data>
+<ora>12:59</ora>
+<luogo>dksjfn</luogo>
+<descrizione>kzjfdsknj</descrizione>
+</notizia>
+<notizia>
+<titolo>tomare</titolo>
+<data>2016-05-19</data>
+<ora>12:59</ora>
+<luogo>dksjfn</luogo>
+<descrizione>kzjfdsknj</descrizione>
+</notizia>
+<notizia>
+<titolo>tomare</titolo>
+<data>2016-05-19</data>
+<ora>12:59</ora>
+<luogo>dksjfn</luogo>
+<descrizione>kzjfdsknj</descrizione>
+</notizia>
+<notizia>
 <titolo>Sempre un nuovo problema</titolo>
 <data>2016-04-30</data>
 <descrizione>Sto avendo grossi problemi con le lettere accentate..</descrizione>
