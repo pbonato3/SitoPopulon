@@ -5,7 +5,11 @@ use CGI::Carp qw(fatalsToBrowser);
 use HTTP::Request::Common qw(POST);
 use HTTP::Request::Common qw(GET);
 
+require funzioni;
+
 my $page = CGI->new;					#creazione oggetto CGI
+
+$admin = getSession();
 
 print $page->header,
 $page->start_html( # inizio pagina HTML
@@ -37,6 +41,7 @@ li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n";
 
 #################		content		#################
 
+if($admin){
 print "<div id='content'>";
 print "<h2> Aggiungi una notizia </h2>";
 print "<form action='InserimentoNotizia.cgi' method='POST' enctype='multipart/form-data'>";
@@ -48,6 +53,10 @@ print "<p>Descrizione: <input name='descrizione' type='text'/></p>";
 print "</p><input type='submit' value='Aggiungi'/></p>";
 print "</form>";
 print "</div>";
+}
+else{
+	print "<h2> TU NON PUOI PASSARE! </h2>";
+}
 
 	
 print $page->end_html, "\n"; # fine pagina HTML

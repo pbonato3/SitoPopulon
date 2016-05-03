@@ -98,15 +98,16 @@ print "</form>";
 
 ## Output delle notizie ##
 foreach(@notizie){									#scorro l'array delle notizie
-	print "<div class='news'>",
-	"<h3>",$_->findnodes("titolo"),"</h3>";			#salvo il valore del nodo titolo
-	$data = $_->findnodes("data");					#salvo il valore del nodo data
+	print "<div class='news'>";
+	my $titolo = $_->findnodes("titolo");				#salvo il valore del nodo titolo
+	print "<h3>",$titolo,"</h3>";
+	my $data = $_->findnodes("data");					#salvo il valore del nodo data
 	if($data){print "<p><span class='newsTag'>Data:</span><span class='newsValue'>",$data,"</span></p>";}
-	$ora = $_->findnodes("ora");					#salvo il valore del nodo ora
+	my $ora = $_->findnodes("ora");					#salvo il valore del nodo ora
 	if($ora){print "<p><span class='newsTag'>Ora:</span><span class='newsValue'>",$ora,"</span></p>";}
-	$luogo = $_->findnodes("luogo");				#salvo il valore del nodo luogo
+	my $luogo = $_->findnodes("luogo");				#salvo il valore del nodo luogo
 	if($luogo){print "<p><span class='newsTag'>Luogo:</span><span class='newsValue'>",$luogo,"</span></p>";}
-	$descrizione = $_->findnodes("descrizione");	#salvo il valore del nodo descrizione
+	my $descrizione = $_->findnodes("descrizione");	#salvo il valore del nodo descrizione
 	if($descrizione){print "<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>",$descrizione,"</p></p>";}
 	print "</div>";
 }
