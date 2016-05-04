@@ -10,14 +10,23 @@ use XML::LibXML;
 require funzioni;
 
 my $page = CGI->new;					#creazione oggetto CGI
+my $esito = undef;						#inizializzo le variabili esito
+my $usn;								#ed username
 
-my $nome_utente= getSession();
-
-if(!$nome_utente){		#qualcuno sta facendo il furbo
-	print $page->redirect("/populon/restricted.html");
+$cookie = $page->cookie('MY-COOKIE');			#provo a prendere il cookie
+if(!$cookie){									#se non c'Ë il cookie
+	$usn= $page->param('username');				#salvo i parametri username
+	my $psw= $page->param('password');			#e password
+	$esito= createSession($usn,$psw);			#chiamo la funzione che crea una sessione e mi ritorna una valore vero o falso che indica l'esito della creazione
+	if(!$esito){								#qui le credenziali sono sbagliate
+		print $page->header();					#mi serve uno header
+	};
 }
+else{											#qui se il cookie era gi‡ presente
+	print $page->redirect("/populon/cgi-bin/indexAdmin.cgi");
+};
 
-print $page->header();
+
 print $page->start_html( # inizio pagina HTML
 -title => 'Populon',									# Qui va il titolo
 -dtd=>[ '-//W3C//DTD XHTML 1.0 Strict//EN',				# DTD
@@ -49,17 +58,20 @@ li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n";
 
 print "<div id='content'>";
 
-if($nome_utente){											#se questo √® vero la sessione √® corretta
-	print "<h2>Benvenuto $nome_utente</h2>";
-	print "<form action='ScriviNotizia.cgi' method='get' enctype='multipart/form-data'>";
-	print "</p><input type='submit' value='Scrivi Una Notizia'/></p>";
+if($esito){
+	print "<h2>Login avvenuto con successo</h2>";
+	print "<h3>Benvenuto $usn</h3>";
+	print "<form action='indexAdmin.cgi' method='post'>";
+	print "</p><input type='submit' value='OK'/></p>";
 	print "</form>";
 }
-else{														#questo perch√® non si sa mai
-	print "IMPOSTORE";							
+else{														#altrimenti le credenziali non erano valide
+	print "<h2>Login fallito</h2>";
+	print "<form action='/populon/Home.html' method='post'>";
+	print "</p><input type='submit' value='Indietro'/></p>";
+	print "</form>";
 };
 
 print "</div>";
-
 	
 print $page->end_html, "\n"; # fine pagina HTML

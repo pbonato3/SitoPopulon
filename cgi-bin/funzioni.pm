@@ -6,6 +6,13 @@ use XML::LibXML;
 use Encode qw(decode encode);
 
 ######### Creare la sessione ########
+#parametri in ingresso:
+#	$_[0] username		Stringa
+#	$_[1] password		Stringa
+
+#parametri in uscita:
+#	Boolean	vero se la sessione è stata creata falso altrimenti
+
 sub createSession{
 	my $cgi = CGI->new;
 	my $file = '../database/admin.xml';		#salvo il percorso del file xml
@@ -13,7 +20,7 @@ sub createSession{
 	my $doc = $parser->parse_file($file);	#apertura file e lettura input
 	my $root = $doc->getDocumentElement;		#estrazione elemento radice
 	
-	my $admin = $root->findnodes("admin[username='$_[0]' and password='$_[1]']");
+	my $admin = $root->findnodes("admin[\@username='$_[0]' and \@password='$_[1]']");
 	if($admin){
 		$session=CGI::Session->new();
 		$session->param('admin',$_[0]);
@@ -24,12 +31,14 @@ sub createSession{
 			-expires=>'+1h',
 			-path=>'/');
 		print $cgi->header( -cookie=>$cookie );	#invio il cookie al client
-		return $_[0];
+		return 1;
 	};
-	return 0;
+	return undef;
 };
 
 ######### prendere la sessione ########
+#parametri in uscita:
+#	$utente				Stringa che contiene il nome dell'utente della sessione. undef se non esite la sessione.
 sub getSession{
 	my $cgi = CGI->new;
 	$cookie = $cgi->cookie('MY-COOKIE');			#provo a prendere il cookie
@@ -44,9 +53,21 @@ sub getSession{
 
 
 ######### Inserimento nuova notizia ########
+#parametri in ingresso:
+#	$_[0] titolo		Stringa
+#	$_[1] data			ora formato yyyy-mm-dd
+#	$_[2] ora			ora formato hh:mm:ss
+#	$_[3] luogo			Stringa
+#	$_[4] descrizione	Stringa
+#	$_[5] id			Intero da usare solo in caso di modifica
+
+#parametri in uscita:
+#	$esito				Stringa da stampare a video per indicare l'esito dell'operazione così da segnalare eventuali errori specifici.
+
 sub nuovaNotizia{
 	my $file = '../database/news.xml';		#salvo il percorso del file xml
 	my $parser = XML::LibXML->new();		#creazione oggetto parser
+	my $esito = undef;
 	my $doc = $parser->parse_file($file);	#apertura file e lettura input
 	my $root= $doc->getDocumentElement;		#estrazione elemento radice
 
@@ -75,6 +96,50 @@ sub nuovaNotizia{
 	};
 	$esito = "operazione fallita";
 	return $esito;
+};
+
+######### Ricerca notizia tramite id ########
+#parametri in ingresso:
+#	$_[0] id			Intero
+
+#parametri in uscita:
+#	$notizia			Oggetto di tipo notizia. undef se non trovata
+
+sub trovaNotizia{
+	my $file = '../database/news.xml';		#salvo il percorso del file xml
+	my $parser = XML::LibXML->new();		#creazione oggetto parser
+	my $doc = $parser->parse_file($file);	#apertura file e lettura input
+	my $root= $doc->getDocumentElement;		#estrazione elemento radice
+	my $notizia = $doc->findnodes("//notizia[\@id ='$_[0]']")->get_node(1);	#trovo il nodo tramite l'id
+	return $notizia;
+};
+
+######### Eliminazione notizia ########
+#parametri in ingresso:
+#	$_[0] id			Intero
+
+#parametri in uscita:
+#	$esito				Stringa da stampare a video per indicare l'esito dell'operazione così da segnalare eventuali errori specifici.
+
+sub eliminaNotizia{
+	my $file = '../database/news.xml';		#salvo il percorso del file xml
+	my $parser = XML::LibXML->new();		#creazione oggetto parser
+	my $esito= undef;
+	my $doc = $parser->parse_file($file);	#apertura file e lettura input
+	my $root= $doc->getDocumentElement;		#estrazione elemento radice
+	my $da_eliminare = $doc->findnodes("//notizia[\@id ='$_[0]']")->get_node(1);	#trovo il nodo da eliminare tramite l'id
+	if($da_eliminare){							#notizia trovata
+		my $padre = $da_eliminare->parentNode;	#mi sposto sul padre
+		$padre->removeChild($da_eliminare);		#elimino il figlio
+		open OUT, ">$file";						#apro l'output sul file xml
+		print OUT $doc->toString;				#stampo sul file il documento parsato
+		$esito="operazione completata";
+		return $esito;
+	}
+	else{										#notizia non trovata
+		$esito="notizia non trovata";
+		return $esito;
+	};
 };
 
 

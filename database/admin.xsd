@@ -10,10 +10,8 @@
 	</xs:complexType>
 
 	<xs:complexType name="adminT">
-		<xs:sequence>
-			<xs:element name="username" type="xs:string" />
-			<xs:element name="password" type="xs:string" />
-		</xs:sequence>
+		<xs:attribute name="username" type="xs:string" use="required"/>
+		<xs:attribute name="password" type="xs:string" use="required"/>
 	</xs:complexType>
 
 	

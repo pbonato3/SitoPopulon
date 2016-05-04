@@ -2,6 +2,11 @@
 <?xml-stylesheet type="text/xsl" href="allnews.xsl"?>
 <notizie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="news.xsd">
 <notizia>
+<titolo>Il Cammello non è bello!</titolo>
+<data>2016-05-03</data>
+<descrizione>Il nuovo singolo di Un Anonimo Utente di Perl è uscito! Compratelo subito, e in omaggio vi regaliamo i cookies di Pirl!</descrizione>
+</notizia>
+<notizia>
 <titolo>ohmiòdiò</titolo>
 <luogo>fighuéèe</luogo>
 </notizia>
