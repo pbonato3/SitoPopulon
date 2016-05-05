@@ -13,8 +13,8 @@ my $page = CGI->new;					#creazione oggetto CGI
 my $esito = undef;						#inizializzo le variabili esito
 my $usn;								#ed username
 
-$cookie = $page->cookie('MY-COOKIE');			#provo a prendere il cookie
-if(!$cookie){									#se non c'è il cookie
+my $logged = getSession();						#provo a prendere la sessione
+if(!$logged){									#qui se non esiste nessuna sessione
 	$usn= $page->param('username');				#salvo i parametri username
 	my $psw= $page->param('password');			#e password
 	$esito= createSession($usn,$psw);			#chiamo la funzione che crea una sessione e mi ritorna una valore vero o falso che indica l'esito della creazione
@@ -22,8 +22,14 @@ if(!$cookie){									#se non c'è il cookie
 		print $page->header();					#mi serve uno header
 	};
 }
-else{											#qui se il cookie era già presente
-	print $page->redirect("/populon/cgi-bin/indexAdmin.cgi");
+else{											#qui se invece esisteva già una sessione
+	destroySession();							#distruggo la sessione precedente
+	$usn= $page->param('username');				#salvo i parametri username
+	my $psw= $page->param('password');			#e password
+	$esito= createSession($usn,$psw);			#chiamo la funzione che crea una sessione e mi ritorna una valore vero o falso che indica l'esito della creazione
+	if(!$esito){								#qui le credenziali sono sbagliate
+		print $page->header();					#mi serve uno header
+	};
 };
 
 
@@ -48,7 +54,7 @@ print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/ti
 #################		nav		#################
 
 print $page->div({-id => 'nav'}, ul(
-li(span("Home")),
+li(a({-href => '/populon/Home.html'},"Il mondo di gioco")),
 li(a({-href => '/populon/IlMondoDiGioco.html'},"Il mondo di gioco")),
 li(a({-href => '/populon/IPersonaggi.html'},"I personaggi")),
 li(a({-href => '/populon/cgi-bin/Notizie.cgi'},"Notizie")),

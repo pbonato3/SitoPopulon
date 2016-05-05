@@ -40,16 +40,27 @@ sub createSession{
 #parametri in uscita:
 #	$utente				Stringa che contiene il nome dell'utente della sessione. undef se non esite la sessione.
 sub getSession{
-	my $cgi = CGI->new;
-	$cookie = $cgi->cookie('MY-COOKIE');			#provo a prendere il cookie
-	$session=CGI::Session->load(undef,$cookie) or die $!;
-	if ($session->is_expired || $session->is_empty ) {
-		return undef;
-	} else {
-		my $utente = $session->param('admin');
-		return $utente;
+	my $cgi = CGI->new;										#creo un nuovo oggetto cgi
+	$cookie = $cgi->cookie('MY-COOKIE');					#provo a prendere il cookie
+	$session=CGI::Session->load(undef,$cookie) or die $!;	#provo a prendere la sessione
+	if ($session->is_expired || $session->is_empty ) {		#se la sessione non esiste o è scaduta
+		return undef;										#ritorno undef
+	} else {												#altrimenti
+		my $utente = $session->param('admin');				#se la sessione è valida
+		return $utente;										#ritorno il nome dell'amministratore
 	};
 };
+
+######### distruzione sessione ########
+
+sub destroySession() {
+	my $cgi = CGI->new;										#creo un nuovo oggetto cgi
+	$cookie = $cgi->cookie('MY-COOKIE');					#provo a prendere il cookie
+	$session=CGI::Session->load(undef,$cookie) or die $!;	#provo a prendere la sessione
+	$session->close();										#close elimina i campi dati della sessione
+	$session->delete();										#delete elimina la sessione
+	$session->flush();										#flush pulisce il buffer
+}
 
 
 ######### Inserimento nuova notizia ########

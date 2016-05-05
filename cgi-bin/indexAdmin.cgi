@@ -39,7 +39,7 @@ print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/ti
 #################		nav		#################
 
 print $page->div({-id => 'nav'}, ul(
-li(span("Home")),
+li(a({-href => '/populon/Home.html'},"Il mondo di gioco")),
 li(a({-href => '/populon/IlMondoDiGioco.html'},"Il mondo di gioco")),
 li(a({-href => '/populon/IPersonaggi.html'},"I personaggi")),
 li(a({-href => '/populon/cgi-bin/Notizie.cgi'},"Notizie")),
@@ -51,9 +51,13 @@ print "<div id='content'>";
 
 if($nome_utente){											#se questo è vero la sessione è corretta
 	print "<h2>Benvenuto $nome_utente</h2>";
-	print "<form action='ScriviNotizia.cgi' method='get' enctype='multipart/form-data'>";
+	print "<form action='ScriviNotizia.cgi' method='post'>";
 	print "</p><input type='submit' value='Scrivi Una Notizia'/></p>";
 	print "</form>";
+	print "<form action='logout.cgi' method='post'>";
+	print "</p><input type='submit' value='Logout'/></p>";
+	print "</form>";
+	
 }
 else{														#questo perchè non si sa mai
 	print "IMPOSTORE";							
