@@ -54,7 +54,7 @@ print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/ti
 #################		nav		#################
 
 print $page->div({-id => 'nav'}, ul(
-li(a({-href => '/populon/Home.html'},"Il mondo di gioco")),
+li(a({-href => '/populon/Home.html'},"Home")),
 li(a({-href => '/populon/IlMondoDiGioco.html'},"Il mondo di gioco")),
 li(a({-href => '/populon/IPersonaggi.html'},"I personaggi")),
 li(a({-href => '/populon/cgi-bin/Notizie.cgi'},"Notizie")),
@@ -67,8 +67,8 @@ print "<div id='content'>";
 if($esito){
 	print "<h2>Login avvenuto con successo</h2>";
 	print "<h3>Benvenuto $usn</h3>";
-	print "<form action='indexAdmin.cgi' method='post'>";
-	print "</p><input type='submit' value='OK'/></p>";
+	print "<form action='/populon/Home.html' method='post'>";
+	print "</p><input type='submit' value='Continua'/></p>";
 	print "</form>";
 }
 else{														#altrimenti le credenziali non erano valide

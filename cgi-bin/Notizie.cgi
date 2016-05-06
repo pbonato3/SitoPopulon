@@ -6,8 +6,12 @@ use HTTP::Request::Common qw(POST);
 use HTTP::Request::Common qw(GET);
 use XML::LibXML;
 
+require funzioni;
+
 my $page = CGI->new;					#creazione oggetto CGI
 my $file = '../database/news.xml';		#salvo il percorso del file xml
+
+my $admin = getSession();
 
 my $parser = XML::LibXML->new();		#creazione oggetto parser
 my $doc = $parser->parse_file($file);	#apertura file e lettura input
@@ -86,8 +90,13 @@ li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n";
 #################		content		#################
 
 print "<div id='content'>";
-print "<h2> Notizie </h2>";
+if($admin){
+	print "<form action='ScriviNotizia.cgi' method='post'>";
+	print "</p><input type='submit' value='Scrivi Una Notizia'/></p>";
+	print "</form>";
+};
 
+print "<h2> Notizie </h2>";
 print "<form action='/populon/cgi-bin/Notizie.cgi' method='GET'>";
 print "<span>Filtro notizie</span>";
 print "<p>Titolo: <input name='titolo' type='text'/></p>";
