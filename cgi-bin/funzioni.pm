@@ -85,16 +85,34 @@ sub nuovaNotizia{
 	foreach (@_) {										#magia, non toccare, che va.
 		$_=encode('UTF-8', $_, Encode::FB_CROAK);		#serve a codificare tutte le stringhe in input in UTF8 (accenti)
 	}
+
+
+	if (!trovaNotizia($_[5])) {			#se è una nuova notizia allora calcolo un nuovo id
+		#cerco il massimo id presente per calcolare l'id della prossima notizia
+		my $topId=0;
+		my @notizie = $root->findnodes("notizia");
+		foreach (@notizie) {
+			my $actualID=$_->findnodes('@id');
+			$actualID=$actualID->string_value();
+			if ($actualID>$topId) {
+				$topId=$actualID;
+			}
+		}
+	} else {											#se invece sto modificando una notizia esistente cancello la vecchia notizia e ne inserisco una con lo stesso id
+		my $topId=$_[5];
+		eliminaNotizia($_[5]);
+	};
+
 	
 	#creo una stringa con un nuovo elemento
 	if(!$_[0]){$esito="Operazione fallita: Il titolo &egrave obbligatorio"; return $esito;}
 	else{
-		$nuovo="\n<notizia>";
-		$nuovo.="\n<titolo>".$_[0]."</titolo>";
-		if($_[1]){$nuovo.="\n<data>".$_[1]."</data>";};
-		if($_[2]){$nuovo.="\n<ora>".$_[2]."</ora>";};
-		if($_[3]){$nuovo.="\n<luogo>".$_[3]."</luogo>";};
-		if($_[4]){$nuovo.="\n<descrizione>".$_[4]."</descrizione>";};
+		$nuovo="\n<notizia id=\"$topId\">";
+		$nuovo.="\n\t<titolo>".$_[0]."</titolo>";
+		if($_[1]){$nuovo.="\n\t<data>".$_[1]."</data>";};
+		if($_[2]){$nuovo.="\n\t<ora>".$_[2]."</ora>";};
+		if($_[3]){$nuovo.="\n\t<luogo>".$_[3]."</luogo>";};
+		if($_[4]){$nuovo.="\n\t<descrizione>".$_[4]."</descrizione>";};
 		$nuovo.="\n</notizia>";
 
 		$frammento = $parser->parse_balanced_chunk($nuovo);	#controllo la buona formazione e creo un nodo

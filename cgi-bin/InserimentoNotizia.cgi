@@ -9,6 +9,12 @@ require funzioni;
 
 my $page = CGI->new;					#creazione oggetto CGI
 
+
+my $admin = getSession();
+if(!$admin){
+	print $page->redirect("/populon/restricted.html");
+}
+
 print $page->header,
 $page->start_html( # inizio pagina HTML
 -title => 'Populon',									# Qui va il titolo
@@ -44,8 +50,9 @@ $data= $page->param('data');
 $ora= $page->param('ora');
 $luogo= $page->param('luogo');
 $descrizione= $page->param('descrizione');
+$id= $page->param('id');
 
-$esito = nuovaNotizia($titolo,$data,$ora,$luogo,$descrizione);
+$esito = nuovaNotizia($titolo,$data,$ora,$luogo,$descrizione,$id);
 
 print "<div id='content'>";
 print "<h2> $esito </h2>";
