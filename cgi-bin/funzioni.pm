@@ -86,28 +86,28 @@ sub nuovaNotizia{
 		$_=encode('UTF-8', $_, Encode::FB_CROAK);		#serve a codificare tutte le stringhe in input in UTF8 (accenti)
 	}
 
-
-	if (!trovaNotizia($_[5])) {			#se è una nuova notizia allora calcolo un nuovo id
-		#cerco il massimo id presente per calcolare l'id della prossima notizia
-		my $topId=0;
-		my @notizie = $root->findnodes("notizia");
-		foreach (@notizie) {
-			my $actualID=$_->findnodes('@id');
-			$actualID=$actualID->string_value();
+	my $topId = undef;
+	if ($_[5]) {			#se è impostato l'id
+		#voglio modificare una notizia quindi tengo l'id
+		$topId=$_[5];
+	} else {
+		#altrimenti voglio aggiungere una nuova notizia e devo calcolare il nuovo id
+		$topId=0;
+		my @IDs = $doc->findnodes("//notizia/\@id");
+		foreach (@IDs) {
+			my $actualID=$_->string_value();
 			if ($actualID>$topId) {
 				$topId=$actualID;
 			}
 		}
-	} else {											#se invece sto modificando una notizia esistente cancello la vecchia notizia e ne inserisco una con lo stesso id
-		my $topId=$_[5];
-		eliminaNotizia($_[5]);
+		$topId ++;
 	};
 
 	
 	#creo una stringa con un nuovo elemento
 	if(!$_[0]){$esito="Operazione fallita: Il titolo &egrave obbligatorio"; return $esito;}
 	else{
-		$nuovo="\n<notizia id=\"$topId\">";
+		my $nuovo="\n<notizia id=\"$topId\">";
 		$nuovo.="\n\t<titolo>".$_[0]."</titolo>";
 		if($_[1]){$nuovo.="\n\t<data>".$_[1]."</data>";};
 		if($_[2]){$nuovo.="\n\t<ora>".$_[2]."</ora>";};
@@ -119,7 +119,7 @@ sub nuovaNotizia{
 		$root->insertBefore($frammento,$root->firstChild);	#inserisco un nuovo in testa alla lista (prima del primo figlio)
 		open OUT, ">$file";			#apro l'output sul file xml
 		print OUT $doc->toString;	#stampo sul file il documento parsato
-		
+		close(OUT);
 		$esito="Operazione completata";
 		return $esito;
 	};
@@ -162,11 +162,12 @@ sub eliminaNotizia{
 		$padre->removeChild($da_eliminare);		#elimino il figlio
 		open OUT, ">$file";						#apro l'output sul file xml
 		print OUT $doc->toString;				#stampo sul file il documento parsato
-		$esito="operazione completata";
+		close(OUT);
+		$esito="Operazione completata";
 		return $esito;
 	}
 	else{										#notizia non trovata
-		$esito="notizia non trovata";
+		$esito="Notizia non trovata";
 		return $esito;
 	};
 };

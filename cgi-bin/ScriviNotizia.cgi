@@ -49,7 +49,7 @@ print "<h2> Aggiungi una notizia </h2>";
 print "<form action='InserimentoNotizia.cgi' method='POST' enctype='multipart/form-data'>";
 print "<p>Titolo: <input name='titolo' type='text'/></p>";
 print "<p>Data: <input name='data' type='date'/></p>";
-print "<p>Data: <input name='ora' type='time'/></p>";
+print "<p>Ora: <input name='ora' type='time'/></p>";
 print "<p>Luogo: <input name='luogo' type='text'/></p>";
 print "<p>Descrizione: <input name='descrizione' type='text'/></p>";
 print "</p><input type='submit' value='Aggiungi'/></p>";

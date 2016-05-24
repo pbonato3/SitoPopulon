@@ -52,10 +52,17 @@ $luogo= $page->param('luogo');
 $descrizione= $page->param('descrizione');
 $id= $page->param('id');
 
+# Se l'id è impostato la notizia che si vuole inserire è una modifica ad una precedente
+# In caso elimino la vecchia notizia (Controllo anche il titolo perchè se la notizia inserita non è valida la prima viene cancellata comunque)
+if($id and $titolo){eliminaNotizia($id);};
+# Aggiungo la nuova notizia
 $esito = nuovaNotizia($titolo,$data,$ora,$luogo,$descrizione,$id);
 
 print "<div id='content'>";
 print "<h2> $esito </h2>";
+print "<form action='/populon/cgi-bin/Notizie.cgi' method='post'>";
+print "</p><input type='submit' value='Continua'/></p>";
+print "</form>";
 
 print "</div>";
 

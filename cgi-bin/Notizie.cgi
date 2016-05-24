@@ -114,12 +114,12 @@ foreach(@notizie){									#scorro l'array delle notizie
 	print "<h3>",$titolo,"</h3>";
 	my $data = $_->findnodes("data");					#salvo il valore del nodo data
 	if($data){print "<p><span class='newsTag'>Data:</span><span class='newsValue'>",$data,"</span></p>";}
-	my $ora = $_->findnodes("ora");					#salvo il valore del nodo ora
-	if($ora){print "<p><span class='newsTag'>Ora:</span><span class='newsValue'>",$ora,"</span></p>";}
-	my $luogo = $_->findnodes("luogo");				#salvo il valore del nodo luogo
-	if($luogo){print "<p><span class='newsTag'>Luogo:</span><span class='newsValue'>",$luogo,"</span></p>";}
-	my $descrizione = $_->findnodes("descrizione");	#salvo il valore del nodo descrizione
-	if($descrizione){print "<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>",$descrizione,"</p></p>";}
+#	my $ora = $_->findnodes("ora");					#salvo il valore del nodo ora
+#	if($ora){print "<p><span class='newsTag'>Ora:</span><span class='newsValue'>",$ora,"</span></p>";}
+#	my $luogo = $_->findnodes("luogo");				#salvo il valore del nodo luogo
+#	if($luogo){print "<p><span class='newsTag'>Luogo:</span><span class='newsValue'>",$luogo,"</span></p>";}
+#	my $descrizione = $_->findnodes("descrizione");	#salvo il valore del nodo descrizione
+#	if($descrizione){print "<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>",$descrizione,"</p></p>";}
 	my $id=$_->findnodes('@id');
 	if($admin) {print "<a href='dettagliNotizia.cgi?id=$id'>Modifica...</a>";}
 	else {print "<a href='dettagliNotizia.cgi?id=$id'>Pi&ugrave dettagli...</a>";}

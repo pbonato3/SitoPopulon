@@ -66,16 +66,16 @@ END
 
 
 if(!$admin){
-print<<END;
+print"
 	<div class='news'>
-		<h3>$titolo</h3>
-		<p><span class='newsTag'>Data:</span><span class='newsValue'>$data</span></p>
-		<p><span class='newsTag'>Ora:</span><span class='newsValue'>$ora</span></p>
-		<p><span class='newsTag'>Luogo:</span><span class='newsValue'>$luogo</span></p>
-		<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>$descrizione</p></p>
-		</div>
-	</div>
-END
+		<h3>$titolo</h3>";
+		if($data){ print "<p><span class='newsTag'>Data:</span><span class='newsValue'>$data</span></p>";}
+		if($ora){ print "<p><span class='newsTag'>Ora:</span><span class='newsValue'>$ora</span></p>";}
+		if($luogo){ print "<p><span class='newsTag'>Luogo:</span><span class='newsValue'>$luogo</span></p>";}
+		if($descrizione){ print "<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>$descrizione</p></p>";}
+print	"</div>
+	</div>";
+
 } else {
 print<<END;
 		<form action="InserimentoNotizia.cgi" method="POST">
@@ -84,7 +84,7 @@ print<<END;
 					<input type="text" name="titolo" value="$titolo" />
 				</span></p>
 				<p><span class='newsTag'>Data:</span><span class='newsValue'>
-					<input type="data" name="data" value="$data" />
+					<input type="date" name="data" value="$data" />
 				</span></p>
 				<p><span class='newsTag'>Ora:</span><span class='newsValue'>
 					<input type="time" name="ora" value="$ora" />
