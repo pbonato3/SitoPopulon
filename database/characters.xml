@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="characters.xsd">
+<character id="1">
+	<name>Sanjo Rabaton</name>
+	<race>Troll</race>
+	<sex>M</sex>
+	<age>35</age>
+	<body value="40">
+		<ability name="Griliare salsicce" level="2" />
+		<ability name="Griliare costine" level="3" />
+		<ability name="Griliare poenta" level="3" />
+	</body>
+	<mind value="0">
+	</mind>
+	<heart value="10">
+		<ability name="Far sagra" level="2" />
+	</heart>
+	<bio>
+		Nato pa' far sagra e star su pa'ea piastra.
+	</bio>
+</character>
+
+<character id="2">
+	<name>Sanjo Rabaton jr.</name>
+	<race>Troll</race>
+	<sex>M</sex>
+	<age>35</age>
+	<body value="40">
+		<ability name="Griliare salsicce" level="2" />
+		<ability name="Griliare costine" level="3" />
+		<ability name="Griliare poenta" level="3" />
+	</body>
+	<mind value="0">
+	</mind>
+	<heart value="10">
+		<ability name="Far sagra" level="2" />
+	</heart>
+	<bio>
+		Nato pa' far sagra e star su pa'ea piastra.
+	</bio>
+</character>
+
+<character id="3">
+	<name>Babba Lea</name>
+	<race>Umano</race>
+	<sex>F</sex>
+	<age>21</age>
+	<body value="20">
+		<ability name="Griliare salsicce" level="2" />
+	</body>
+	<mind value="0">
+	</mind>
+	<heart value="10">
+		<ability name="Far sagra" level="2" />
+	</heart>
+	<bio>
+		Nato pa' far sagra e star su pa'ea piastra.
+	</bio>
+</character>
+
+</characters>
