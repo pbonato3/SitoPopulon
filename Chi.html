@@ -1,11 +1,10 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-    <title>Populon</title>
+    <title>Populon - Chi Siamo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="title" content="Populon" />
+    <meta name="title" content="Populon - Chi Siamo" />
     <meta name="description" content="Gioco di ruolo di..." />
     <meta name="keywords" content="Gioco, ruolo, gdr, fantasy, dadi" />
     <meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
@@ -18,17 +17,20 @@
 	<div id="header">
 		<!--Titolo fuori dallo schermo-->
 		<h1>Populon</h1>
-		<img src="img/titolo.png" />
+		<img class="head" src="img/titolo.png" />
 	</div>
 	<!--Barra di navigazione come lista di link e span per la pagina corrente-->
-	<div id="nav">
-		<ul>
-			<li><a href="Home.html"><lang xml:lang="en">Home</lang></a></li>
-			<li><a href="IlMondoDiGioco.html">Il mondo di gioco</a></li>
-			<li><a href="IPersonaggi.html">I personaggi</a></li>
-			<li><a href="cgi-bin/Notizie.cgi">Notizie</a></li>
-			<li><span>Chi Siamo</span></li>
+	<div class="nav">
+		<ul class="navbar">
+			<a href="Home.html" class="nav"><li class="button link"><lang xml:lang="en">Home</lang></li></a>
+			<a href="IlMondoDiGioco.html" class="nav"><li class="button link">Il mondo di gioco</li></a>
+			<a href="cgi-bin/personaggi.cgi" class="nav"><li class="button link">I personaggi</li></a>
+			<a href="cgi-bin/Notizie.cgi" class="nav"><li class="button link">Notizie</li></a>
+			<li class="button"><span class="current">Chi Siamo</span></li>
 		</ul>
+	</div>
+	<div class="breadcrumbs">
+		<strong>Ti trovi in:</strong> Chi Siamo
 	</div>
 	<div id="content">
 	<h2>Contatti</h2>

@@ -2,9 +2,9 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-    <title>Populon</title>
+    <title>Populon - Glamordir</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="title" content="Populon" />
+    <meta name="title" content="Populon - Glamordir" />
     <meta name="description" content="Gioco di ruolo di..." />
     <meta name="keywords" content="Gioco, ruolo, gdr, fantasy, dadi" />
     <meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
@@ -17,19 +17,21 @@
 	<div id="header">
 		<!--Titolo fuori dallo schermo-->
 		<h1>Populon</h1>
-		<img src="img/titolo.png" />
+		<img class="head" src="img/titolo.png" />
 	</div>
 	<!--Barra di navigazione come lista di link e span per la pagina corrente-->
-	<div id="nav">
-		<ul>
-			<li><a href="Home.html"><lang xml:lang="en">Home</lang></a></li>
-			<li><span>Il mondo di gioco</span></li>
-			<li><a href="IPersonaggi.html">I personaggi</a></li>
-			<li><a href="cgi-bin/Notizie.cgi">Notizie</a></li>
-			<li><a href="Chi.html">Chi Siamo</a></li>
+	<div class="nav">
+		<ul class="navbar">
+			<a href="Home.html" class="nav"><li class="button link"><lang xml:lang="en">Home</lang></li></a>
+			<a href="IlMondoDiGioco.html" class="nav"><li class="button link">Il mondo di gioco</li></a>
+			<a href="cgi-bin/personaggi.cgi" class="nav"><li class="button link">I personaggi</li></a>
+			<a href="cgi-bin/Notizie.cgi" class="nav"><li class="button link">Notizie</li></a>
+			<a href="Chi.html" class="nav"><li class="button link">Chi Siamo</li></a>
 		</ul>
 	</div>
-	<a href="IlMondoDiGioco.html">Torna al mondo di gioco</a>
+	<div class="breadcrumbs">
+		<strong>Ti trovi in:</strong> <a href="IlMondoDiGioco.html">Mondo di Gioco</a> >> Glamordir
+	</div>
 	<div id="content">
 		<img class="idrago" src="img/D_glamordir_t.png" />
 		
@@ -95,7 +97,7 @@
 		<a href="miorning.html">
 		<img class="sdrago" src="img/simbolomiorning.png" />
 		</a>
-		<span><a href="miorning.html">Miorning</a></span>
+		<span><a href="miorning.html">Myiorning</a></span>
 	</div>
 	<div id="draghirazze">
 		<a href="eoyu.html">

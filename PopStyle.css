@@ -8,7 +8,6 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-	/*font-family:"Comic Sans MS", cursive, sans-serif;*/
 }
 
 #header{
@@ -29,26 +28,20 @@ img.head{
 
 /* ----------------------- Barra di navigazione------------------------------*/
 
-#nav{		/* barra di navigazione */
-	margin-bottom:1em;
+div.nav{		/* barra di navigazione */
+	/*margin-bottom:0.3em;*/
 	padding:0.1em;
 	padding-left:0.1em;
 	border:0px;
 	border-bottom:0.12em solid black;
 }
 
-#nav ul{		/* lista contenuta nella barra di navigazione */
+ul.navbar{		/* lista contenuta nella barra di navigazione */
 	margin:0;
 	padding:0;
 	list-style:none;
 }
 
-/*#nav ul li{		/* elementi della lista 
-	margin:0.5em;
-	padding:0;
-	display:inline-block;		/* disposti orizzontalmente, non in verticale 
-}
-*/
 li.button{
 	background-color:#ffffcc;
 	-moz-border-radius:0.5em;
@@ -56,7 +49,6 @@ li.button{
 	border-radius:0.5em;
 	border:none;
 	display:inline-block;
-	color:#ffffff;
 	font-family:Arial;
 	font-size:1em;
 	font-weight:bold;
@@ -82,30 +74,14 @@ li.link:active {
 a.nav{
 	text-decoration:none;
 }
-/*
-#nav ul li a{		/* link della barra di navigazione
-	margin-right:0.5em;		/* trik per vincere i margini imposti dal browser in automatico (margin negativi)
-	color:black;				/* togliere il bluetto schifoso del link 
-	border:0px;
-	padding:0.1em;
-	padding-left:0.5em;
-	padding-right:0.5em;
-	cursor:pointer;			/* cursore a manina(da appurare se sia veramente giusto)
-	text-decoration:none;	/* no stottolineatura link 
-}*/
 
-/*#nav ul li a:hover{			/* cambio colore background quando il cursore è sopra il link 
-	background-color:#009999;	
-}*/
 
-#nav ul li span{			/* pagina corrente della barra di navigazione */
-	margin-right:0.5em;	/* trik per vincere i margini imposti dal browser in automatico (margin negativi)*/
+span.current{			/* pagina corrente della barra di navigazione */
 	color:black;
-	/*background-color:#009999;	/* colore diverso dallo sfondo */
-	border:0px;					
-	padding:0.1em;
-	padding-left:0.5em;
-	padding-right:0.5em;
+}
+
+div.breadcrumbs{
+	border-bottom:0.12em solid black;
 }
 
 /* ----------------------- News della home------------------------------*/
@@ -198,3 +174,28 @@ span.newsValue{
     display: block;
 	max-width:50%;
 }
+
+
+/* ROBA VECCHIA DA ELIMINARE NELLA VERSIONE FINALE
+
+#nav ul li{		/* elementi della lista 
+	margin:0.5em;
+	padding:0;
+	display:inline-block;		/* disposti orizzontalmente, non in verticale 
+}
+
+#nav ul li a{		/* link della barra di navigazione
+	margin-right:0.5em;		/* trik per vincere i margini imposti dal browser in automatico (margin negativi)
+	color:black;				/* togliere il bluetto schifoso del link 
+	border:0px;
+	padding:0.1em;
+	padding-left:0.5em;
+	padding-right:0.5em;
+	cursor:pointer;			/* cursore a manina(da appurare se sia veramente giusto)
+	text-decoration:none;	/* no stottolineatura link 
+}
+
+#nav ul li a:hover{			/* cambio colore background quando il cursore è sopra il link 
+	background-color:#009999;	
+}
+*/
