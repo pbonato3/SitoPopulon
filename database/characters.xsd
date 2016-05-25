@@ -12,20 +12,48 @@
 	<xs:complexType name="character">
 		<xs:sequence>
 			<xs:element name="name" type="xs:string" />
-			<xs:element name="race" type="xs:string" />
-			<xs:element name="age" type="xs:integer" />
-			<xs:element name="body" type="stats" />
-			<xs:element name="mind" type="stats" />
-			<xs:element name="heart" type="stats" />
+			<xs:element name="race" type="raceT" />
+			<xs:element name="sex" type="sexT" />
+			<xs:element name="age" type="xs:positiveInteger" />
+			<xs:element name="body" type="stat" />
+			<xs:element name="mind" type="stat" />
+			<xs:element name="heart" type="stat" />
+			<xs:element name="bio" type="xs:string" />
 		</xs:sequence>
+		<xs:attribute name="id" type="xs:positiveInteger" use="required" />
 	</xs:complexType>
 	
+	<xs:simpleType name="sexT">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="M" />
+			<xs:enumeration value="F" />
+		</xs:restriction>
+	</xs:simpleType>
 	
-	<xs:complexType name="stats">
+	<xs:simpleType name="raceT">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Akquor" />
+			<xs:enumeration value="Elfo" />
+			<xs:enumeration value="Ur-Aluk" />
+			<xs:enumeration value="Troll" />
+			<xs:enumeration value="Mustelan" />
+			<xs:enumeration value="Tesserian" />
+			<xs:enumeration value="Spyrian" />
+			<xs:enumeration value="Nano" />
+			<xs:enumeration value="Umano" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="stat">
 		<xs:sequence>
-			<xs:element name="value" type="xs:integer"/>
-			<xs:element name="ability" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="ability" type="abilityT" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
+		<xs:attribute name="value" type="xs:integer" />
+	</xs:complexType>
+	
+	<xs:complexType name="abilityT">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="level" type="xs:integer" />
 	</xs:complexType>
 	
 </xs:schema>
