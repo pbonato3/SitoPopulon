@@ -18,6 +18,11 @@ body{
 	left:-9999999em;
 }
 
+img.head{
+	width: 40%;
+	height: 20%;
+}
+
 /* ----------------------- Barra di navigazione------------------------------*/
 
 #nav{		/* barra di navigazione */
@@ -35,13 +40,13 @@ body{
 }
 
 #nav ul li{		/* elementi della lista */
-	margin:0;
+	margin:0.5em;
 	padding:0;
 	display:inline-block;		/* disposti orizzontalmente, non in verticale */
 }
 
 #nav ul li a{		/* link della barra di navigazione*/
-	margin-right:-0.3em;		/* trik per vincere i margini imposti dal browser in automatico (margin negativi)*/
+	margin-right:0.5em;		/* trik per vincere i margini imposti dal browser in automatico (margin negativi)*/
 	color:black;				/* togliere il bluetto schifoso del link */
 	border:0px;
 	padding:0.1em;
