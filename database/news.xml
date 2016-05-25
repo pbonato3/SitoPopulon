@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="allnews.xsl"?>
 <notizie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="news.xsd">
+<notizia id="12">
+	<titolo>kdsjfbdskjfbdskj</titolo>
+</notizia>
+<notizia id="11">
+	<titolo>asljdnasksajdksa</titolo>
+</notizia>
+<notizia id="10">
+	<titolo>sdfdsfdsfdsfds</titolo>
+</notizia>
+
+
+<notizia id="7">
+	<titolo>dsfddfdsfsdfs</titolo>
+</notizia>
+<notizia id="6">
+	<titolo>dsfdsfsdfds</titolo>
+</notizia>
+<notizia id="5">
+	<titolo>dsfdsfdsfsdf</titolo>
+</notizia>
 <notizia id="3">
 	<titolo> A cavallo di un cammello2</titolo>
 	<descrizione>Domando Perl..</descrizione>

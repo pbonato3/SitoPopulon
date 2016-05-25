@@ -104,35 +104,66 @@ if($admin){
 
 #genero l'array contenete i link per la paginazione delle notizie
 my $totNotizie=0;
-foreach(@notizie) {
-	$totNotizie+=1;
-}
+foreach(@notizie) {$totNotizie+=1;}
 
-my $notiziePerPagina=10;
-my @arrLink=();
-
-push @arrLink,"<a href='".CGI->new->url()."?titolo=".$page->param('titolo')."&data=".$page->param('data')."&luogo=".$page->param('luogo')."&from=1&to=$notiziePerPagina'>Prima pagina</a>";
-my $c=1;
-while ($c<=$totNotizie) {
-	if ($c+$notiziePerPagina-1 <= $totNotizie) {
-		my $str="<a href='".CGI->new->url()."?titolo=".$page->param('titolo')."&data=".$page->param('data')."&luogo=".$page->param('luogo')."&from=$c&to=".($c+$notiziePerPagina-1)."'>".$c.'-'.($c+$notiziePerPagina-1)."</a>";
-		push @arrLink,$str;
-	}
-	else {
-		my $str="<a href='".CGI->new->url()."?titolo=".$page->param('titolo')."&data=".$page->param('data')."&luogo=".$page->param('luogo')."&from=$c&to=$totNotizie'>".$c.'-'.$totNotizie."</a>";
-		push @arrLink,$str;
-	}
-	$c+=$notiziePerPagina;
-}
-$c-=$notiziePerPagina;
-push @arrLink,"<a href='".CGI->new->url()."?titolo=".$page->param('titolo')."&data=".$page->param('data')."&luogo=".$page->param('luogo')."&from=$c&to=$totNotizie'>Ultima pagina</a>";
+my $notiziePerPagina=10;		#<------------ 	QUI SI IMPOSTA IL NUMERO MASSIMO DI NOTIZIE PER OGNI PAGINA
 
 
 #salvo in $from e in $to i numeri delle notizie che devono essere visualizzate
 my $from=$page->param('from');
 my $to=$page->param('to');
 if (!$from) {$from=1;}
-if (!$to) {$to=$notiziePerPagina;}
+if (!$to) {
+	if ($totNotizie<$notiziePerPagina) {$to=$totNotizie}
+	else {$to=$notiziePerPagina;}
+}
+
+
+my @arrLink=();					# l'array contenente i link per navigare tra le pagine
+
+my $urlAttuale=CGI->new->url()."?titolo=".$page->param('titolo')."&data=".$page->param('data')."&luogo=".$page->param('luogo');
+
+if ($totNotizie<$notiziePerPagina) {$notiziePrimaPagina=$totNotizie}
+else {$notiziePrimaPagina=$notiziePerPagina;}
+push @arrLink,"<a href='".$urlAttuale."&from=1&to=$notiziePrimaPagina'>Prima pagina</a>";
+my $c=1;
+while ($c<=$totNotizie) {
+	if ($c!=$from) {
+		if ($c+$notiziePerPagina-1 <= $totNotizie) {
+			my $str="<a href='".$urlAttuale."&from=$c&to=".($c+$notiziePerPagina-1)."'>".$c.'-'.($c+$notiziePerPagina-1)."</a>";
+			push @arrLink,$str;
+		}
+		else {
+			my $str="<a href='".$urlAttuale."&from=$c&to=$totNotizie'>".$c.'-'.$totNotizie."</a>";
+			push @arrLink,$str;
+		}
+	} else {
+		if ($c+$notiziePerPagina-1 <= $totNotizie) {
+			my $str=$c.'-'.($c+$notiziePerPagina-1);
+			push @arrLink,$str;
+		}
+		else {
+			my $str=$c.'-'.$totNotizie;
+			push @arrLink,$str;
+		}
+	}
+	$c+=$notiziePerPagina;
+}
+$c-=$notiziePerPagina;
+push @arrLink,"<a href='".$urlAttuale."&from=$c&to=$totNotizie'>Ultima pagina</a>";
+
+
+
+
+
+
+
+
+# spengo il link alla pagina attuale nella barretta di navigazione
+foreach(@arrLink) {
+
+}
+
 
 
 print "<h2> Notizie dalla $from alla $to</h2>";
