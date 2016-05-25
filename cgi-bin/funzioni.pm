@@ -173,5 +173,22 @@ sub eliminaNotizia{
 };
 
 
+######### Ricerca personaggio tramite id ########
+#parametri in ingresso:
+#	$_[0] id			Intero
+
+#parametri in uscita:
+#	$personaggio		Oggetto di tipo notizia. undef se non trovato
+
+sub trovaPersonaggio{
+	my $file = '../database/characters.xml';#salvo il percorso del file xml
+	my $parser = XML::LibXML->new();		#creazione oggetto parser
+	my $doc = $parser->parse_file($file);	#apertura file e lettura input
+	my $root= $doc->getDocumentElement;		#estrazione elemento radice
+	my $personaggio = $doc->findnodes("//character[\@id ='$_[0]']")->get_node(1);	#trovo il nodo tramite l'id
+	return $personaggio;
+};
+
+
 
 1	# NON toccare questo uno! deve stare in fondo alla pagina!

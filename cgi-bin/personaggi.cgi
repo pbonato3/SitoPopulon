@@ -135,6 +135,7 @@ print "<form action='/populon/cgi-bin/personaggi.cgi' method='GET'>";
 print "<span>Filtro personaggi</span>";
 print "<p>Nome: <input name='nome' type='text'/></p>";
 print "<p>Razza: <select name='razza'>",
+	"<option value=''>Tutti</option>",
 	"<option value='Akquor'>Akquor</option>",
 	"<option value='Elfo'>Elfo</option>",
 	"<option value='Mustelan'>Mustelan</option>",

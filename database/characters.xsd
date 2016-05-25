@@ -53,7 +53,18 @@
 	
 	<xs:complexType name="abilityT">
 		<xs:attribute name="name" type="xs:string" />
-		<xs:attribute name="level" type="xs:integer" />
+		<xs:attribute name="level" type="levelT" />
 	</xs:complexType>
+	
+	<xs:simpleType name="levelT">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="0" />
+			<xs:enumeration value="1" />
+			<xs:enumeration value="2" />
+			<xs:enumeration value="3" />
+			<xs:enumeration value="4" />
+			<xs:enumeration value="5" />
+		</xs:restriction>
+	</xs:simpleType>	
 	
 </xs:schema>
