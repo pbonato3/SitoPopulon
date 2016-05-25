@@ -55,8 +55,8 @@ if($luogo){													#se il parametro è vuoto non lo considero
 }
 ############## ricerca standard ##############
 if(!$titolo and !$data and !$luogo){								#non è stato inserito nessun parametro di ricerca
-my $n_notizie = 10; 												#massimo numero di notize nella pagina standard
-@notizie = $root->findnodes("notizia[position()<=$n_notizie]");		#l'array delle notizie contiene solo le ultime n_notizie
+	my $n_notizie = 10; 												#massimo numero di notize nella pagina standard
+	@notizie = $root->findnodes("notizia[0<=position()<=$n_notizie]");		#l'array delle notizie contiene solo le ultime n_notizie
 }
 
 
@@ -98,7 +98,44 @@ if($admin){
 	print "</form>";
 };
 
-print "<h2> Notizie </h2>";
+
+
+
+
+#genero l'array contenete i link per la paginazione delle notizie
+my $totNotizie=0;
+foreach(@notizie) {
+	$totNotizie+=1;
+}
+
+my $notiziePerPagina=10;
+my @arrLink=();
+
+push @arrLink,"<a href='".CGI->new->url()."?titolo=".$page->param('titolo')."&data=".$page->param('data')."&luogo=".$page->param('luogo')."&from=1&to=$notiziePerPagina'>Prima pagina</a>";
+my $c=1;
+while ($c<=$totNotizie) {
+	if ($c+$notiziePerPagina-1 <= $totNotizie) {
+		my $str="<a href='".CGI->new->url()."?titolo=".$page->param('titolo')."&data=".$page->param('data')."&luogo=".$page->param('luogo')."&from=$c&to=".($c+$notiziePerPagina-1)."'>".$c.'-'.($c+$notiziePerPagina-1)."</a>";
+		push @arrLink,$str;
+	}
+	else {
+		my $str="<a href='".CGI->new->url()."?titolo=".$page->param('titolo')."&data=".$page->param('data')."&luogo=".$page->param('luogo')."&from=$c&to=$totNotizie'>".$c.'-'.$totNotizie."</a>";
+		push @arrLink,$str;
+	}
+	$c+=$notiziePerPagina;
+}
+$c-=$notiziePerPagina;
+push @arrLink,"<a href='".CGI->new->url()."?titolo=".$page->param('titolo')."&data=".$page->param('data')."&luogo=".$page->param('luogo')."&from=$c&to=$totNotizie'>Ultima pagina</a>";
+
+
+#salvo in $from e in $to i numeri delle notizie che devono essere visualizzate
+my $from=$page->param('from');
+my $to=$page->param('to');
+if (!$from) {$from=1;}
+if (!$to) {$to=$notiziePerPagina;}
+
+
+print "<h2> Notizie dalla $from alla $to</h2>";
 print "<form action='/populon/cgi-bin/Notizie.cgi' method='GET'>";
 print "<span>Filtro notizie</span>";
 print "<p>Titolo: <input name='titolo' type='text'/></p>";
@@ -107,23 +144,53 @@ print "<p>Luogo: <input name='luogo' type='text'/></p>";
 print "</p><input type='submit' value='Filtra'/></p>";
 print "</form>";
 
+
+
+print " | ";
+foreach(@arrLink) {
+	print;
+	print " | ";
+}
+
+
+
+
+
 ## Output delle notizie ##
+my $i=1;
 foreach(@notizie){									#scorro l'array delle notizie
-	print "<div class='news'>";
-	my $titolo = $_->findnodes("titolo");				#salvo il valore del nodo titolo
-	print "<h3>",$titolo,"</h3>";
-	my $data = $_->findnodes("data");					#salvo il valore del nodo data
-	if($data){print "<p><span class='newsTag'>Data:</span><span class='newsValue'>",$data,"</span></p>";}
-#	my $ora = $_->findnodes("ora");					#salvo il valore del nodo ora
-#	if($ora){print "<p><span class='newsTag'>Ora:</span><span class='newsValue'>",$ora,"</span></p>";}
-#	my $luogo = $_->findnodes("luogo");				#salvo il valore del nodo luogo
-#	if($luogo){print "<p><span class='newsTag'>Luogo:</span><span class='newsValue'>",$luogo,"</span></p>";}
-#	my $descrizione = $_->findnodes("descrizione");	#salvo il valore del nodo descrizione
-#	if($descrizione){print "<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>",$descrizione,"</p></p>";}
-	my $id=$_->findnodes('@id');
-	if($admin) {print "<a href='dettagliNotizia.cgi?id=$id'>Modifica...</a>";}
-	else {print "<a href='dettagliNotizia.cgi?id=$id'>Pi&ugrave dettagli...</a>";}
-	print "</div>";
+	if ($from <= $i and $i <= $to ) {
+		print "<div class='news'>";
+		my $titolo = $_->findnodes("titolo");				#salvo il valore del nodo titolo
+		print "<h3>",$titolo,"</h3>";
+		my $data = $_->findnodes("data");					#salvo il valore del nodo data
+		if($data){print "<p><span class='newsTag'>Data:</span><span class='newsValue'>",$data,"</span></p>";}
+	#	my $ora = $_->findnodes("ora");					#salvo il valore del nodo ora
+	#	if($ora){print "<p><span class='newsTag'>Ora:</span><span class='newsValue'>",$ora,"</span></p>";}
+	#	my $luogo = $_->findnodes("luogo");				#salvo il valore del nodo luogo
+	#	if($luogo){print "<p><span class='newsTag'>Luogo:</span><span class='newsValue'>",$luogo,"</span></p>";}
+	#	my $descrizione = $_->findnodes("descrizione");	#salvo il valore del nodo descrizione
+	#	if($descrizione){print "<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>",$descrizione,"</p></p>";}
+		my $id=$_->findnodes('@id');
+		if($admin) {
+			print "<a href='dettagliNotizia.cgi?id=$id'>Modifica...</a>";
+			print "<a href='process_deleteNotizia.cgi?id=$id'>Cancella</a>";
+		}
+		else {print "<a href='dettagliNotizia.cgi?id=$id'>Pi&ugrave dettagli...</a>";}
+		print "</div>";
+	}
+	$i+=1;
+}
+
+
+
+
+
+
+print " | ";
+foreach(@arrLink) {
+	print;
+	print " | ";
 }
 
 print "</div>";
