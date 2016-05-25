@@ -3,7 +3,12 @@ body{
 	margin-left:14%;
 	margin-right:14%;
 	padding:1%;
-	background-color:#D3D7E0;
+	background: url("img/bgparchment.jpg") no-repeat left top;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	/*background-color:#ffffcc;*/
 	font-family:"Comic Sans MS", cursive, sans-serif;
 }
 
@@ -12,7 +17,7 @@ body{
 	border-bottom:0.2em solid black;
 }
 
-/*nascondere il titolo (c'è ma non si vede perchè lo cacciamo fuori dallo schermo)*/
+/*nascondere il titolo (c'è ma non si vede perchè lo cacciamo fuori dallo schermo) e ridimensionare il logo*/
 #header h1{
 	position:absolute;
 	left:-9999999em;
