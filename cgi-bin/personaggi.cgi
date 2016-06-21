@@ -131,9 +131,12 @@ foreach(@arrLink) {
 }
 
 print "<h2> I Vostri Personaggi </h2>";
+print "<form action='/populon/cgi-bin/aggiungiPersonaggio.cgi' method='POST'>";
+print "</p><input type='submit' value='Compila la tua scheda'/></p>";
+print "</form>";
 print "<form action='/populon/cgi-bin/personaggi.cgi' method='GET'>";
 print "<span>Filtro personaggi</span>";
-print "<p>Nome: <input name='nome' type='text'/></p>";
+print "<p>Nome: <input name='nome' type='search'/></p>";
 print "<p>Razza: <select name='razza'>",
 	"<option value=''>Tutti</option>",
 	"<option value='Akquor'>Akquor</option>",

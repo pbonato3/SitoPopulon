@@ -1,19 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <characters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="characters.xsd">
+<character id="5">
+	<name>Gattivo</name>
+	<race>Tesserian</race>
+	<sex>male</sex>
+	<age>2</age>
+	<body value="25">
+		<ability name="Dormire" level="5"/>
+		<ability name="Cagare in giro per casa" level="1"/>
+		<ability name="Vomitare in giro per casa" level="1"/>
+	</body>
+	<mind value="5">
+		<ability name="Fare il mona" level="3"/>
+	</mind>
+	<heart value="20">
+		<ability name="Coccole" level="4"/>
+	</heart>
+	<bio>Un gatto</bio>
+</character>
+<character id="4">
+	<name>Toni</name>
+	<race>Umano</race>
+	<sex>M</sex>
+	<age>82</age>
+	<body value="25">
+		<ability name="Ombre de matina" level="5"/>
+		<ability name="Graspe dopo un boto" level="4"/>
+	</body>
+	<mind value="10">
+		<ability name="Guardare i lavori" level="4"/>
+	</mind>
+	<heart value="40">
+		<ability name="Ai me tempi..." level="5"/>
+	</heart>
+	<bio>Un vecio contadin</bio>
+</character>
 <character id="1">
 	<name>Sanjo Rabaton</name>
 	<race>Troll</race>
 	<sex>M</sex>
 	<age>35</age>
 	<body value="40">
-		<ability name="Griliare salsicce" level="2" />
-		<ability name="Griliare costine" level="3" />
-		<ability name="Griliare poenta" level="3" />
+		<ability name="Griliare salsicce" level="2"/>
+		<ability name="Griliare costine" level="3"/>
+		<ability name="Griliare poenta" level="3"/>
 	</body>
 	<mind value="0">
 	</mind>
 	<heart value="10">
-		<ability name="Far sagra" level="2" />
+		<ability name="Far sagra" level="2"/>
 	</heart>
 	<bio>
 		Nato pa' far sagra e star su pa'ea piastra.
@@ -26,14 +61,14 @@
 	<sex>M</sex>
 	<age>35</age>
 	<body value="40">
-		<ability name="Griliare salsicce" level="2" />
-		<ability name="Griliare costine" level="3" />
-		<ability name="Griliare poenta" level="3" />
+		<ability name="Griliare salsicce" level="2"/>
+		<ability name="Griliare costine" level="3"/>
+		<ability name="Griliare poenta" level="3"/>
 	</body>
 	<mind value="0">
 	</mind>
 	<heart value="10">
-		<ability name="Far sagra" level="2" />
+		<ability name="Far sagra" level="2"/>
 	</heart>
 	<bio>
 		Nato pa' far sagra e star su pa'ea piastra.
@@ -46,12 +81,12 @@
 	<sex>F</sex>
 	<age>21</age>
 	<body value="20">
-		<ability name="Griliare salsicce" level="2" />
+		<ability name="Griliare salsicce" level="2"/>
 	</body>
 	<mind value="0">
 	</mind>
 	<heart value="10">
-		<ability name="Far sagra" level="2" />
+		<ability name="Far sagra" level="2"/>
 	</heart>
 	<bio>
 		Nato pa' far sagra e star su pa'ea piastra.

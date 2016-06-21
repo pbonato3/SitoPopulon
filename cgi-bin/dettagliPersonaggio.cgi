@@ -35,7 +35,7 @@ print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/ti
 print $page->div({-id => 'nav'}, ul(
 li(a({-href => '/populon/Home.html'},"Home")),
 li(a({-href => '/populon/IlMondoDiGioco.html'},"Il mondo di gioco")),
-li(span("I Personaggi")),
+li(a({-href => '/populon/cgi-bin/personaggi.cgi'},"I personaggi")),
 li(a({-href => '/populon/cgi-bin/Notizie.cgi'},"Notizie")),
 li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n"; 
 
