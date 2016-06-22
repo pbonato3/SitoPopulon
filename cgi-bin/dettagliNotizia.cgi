@@ -30,7 +30,7 @@ $page->start_html( # inizio pagina HTML
 
 #################		header		#################
 
-print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png"})), "\n";
+print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png", -alt => "Populon"})), "\n";
 
 #################		nav		#################
 
@@ -72,13 +72,13 @@ print"
 		if($data){ print "<p><span class='newsTag'>Data:</span><span class='newsValue'>$data</span></p>";}
 		if($ora){ print "<p><span class='newsTag'>Ora:</span><span class='newsValue'>$ora</span></p>";}
 		if($luogo){ print "<p><span class='newsTag'>Luogo:</span><span class='newsValue'>$luogo</span></p>";}
-		if($descrizione){ print "<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>$descrizione</p></p>";}
+		if($descrizione){ print "<span class='newsTag'>Descrizione:</span><p class='newsValue'>$descrizione</p>";}
 print	"</div>
 	</div>";
 
 } else {
 print<<END;
-		<form action="InserimentoNotizia.cgi" method="POST">
+		<form action="InserimentoNotizia.cgi" method="post">
 			<div class='news'>
 				<p><span class='newsTag'>Titolo:</span><span class='newsValue'>
 					<input type="text" name="titolo" value="$titolo" />
@@ -92,9 +92,9 @@ print<<END;
 				<p><span class='newsTag'>Luogo:</span><span class='newsValue'>
 					<input type="text" name="luogo" value="$luogo" />
 				</span></p>
-				<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>
+				<span class='newsTag'>Descrizione:</span><p class='newsValue'>
 					<textarea name="descrizione" rows="7" cols="50">$descrizione</textarea>
-				</p></p>
+				</p>
 				<input type="hidden" name="id" value="$ID" />
 				<input type="submit" value="Applica i Cambiamenti" />
 			</div>

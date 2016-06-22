@@ -61,7 +61,7 @@ $page->start_html( # inizio pagina HTML
 
 #################		header		#################
 
-print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png"})), "\n";
+print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png", -alt => "Populon"})), "\n";
 
 #################		nav		#################
 
@@ -94,20 +94,20 @@ if (!$to) {
 
 my @arrLink=();					# l'array contenente i link per navigare tra le pagine
 
-my $urlAttuale=CGI->new->url()."?nome=".$page->param('nome')."&razza=".$page->param('razza');
+my $urlAttuale=CGI->new->url()."?nome=".$page->param('nome')."&amp;razza=".$page->param('razza');
 
 if ($totNotizie<$notiziePerPagina) {$notiziePrimaPagina=$totNotizie}
 else {$notiziePrimaPagina=$notiziePerPagina;}
-push @arrLink,"<a href='".$urlAttuale."&from=1&to=$notiziePrimaPagina'>Prima pagina</a>";
+push @arrLink,"<a href='".$urlAttuale."&amp;from=1&amp;to=$notiziePrimaPagina'>Prima pagina</a>";
 my $c=1;
 while ($c<=$totNotizie) {
 	if ($c!=$from) {
 		if ($c+$notiziePerPagina-1 <= $totNotizie) {
-			my $str="<a href='".$urlAttuale."&from=$c&to=".($c+$notiziePerPagina-1)."'>".$c.'-'.($c+$notiziePerPagina-1)."</a>";
+			my $str="<a href='".$urlAttuale."&amp;from=$c&amp;to=".($c+$notiziePerPagina-1)."'>".$c.'-'.($c+$notiziePerPagina-1)."</a>";
 			push @arrLink,$str;
 		}
 		else {
-			my $str="<a href='".$urlAttuale."&from=$c&to=$totNotizie'>".$c.'-'.$totNotizie."</a>";
+			my $str="<a href='".$urlAttuale."&amp;from=$c&amp;to=$totNotizie'>".$c.'-'.$totNotizie."</a>";
 			push @arrLink,$str;
 		}
 	} else {
@@ -123,7 +123,7 @@ while ($c<=$totNotizie) {
 	$c+=$notiziePerPagina;
 }
 $c-=$notiziePerPagina;
-push @arrLink,"<a href='".$urlAttuale."&from=$c&to=$totNotizie'>Ultima pagina</a>";
+push @arrLink,"<a href='".$urlAttuale."&amp;from=$c&amp;to=$totNotizie'>Ultima pagina</a>";
 
 # spengo il link alla pagina attuale nella barretta di navigazione
 foreach(@arrLink) {
@@ -131,12 +131,12 @@ foreach(@arrLink) {
 }
 
 print "<h2> I Vostri Personaggi </h2>";
-print "<form action='/populon/cgi-bin/aggiungiPersonaggio.cgi' method='POST'>";
-print "</p><input type='submit' value='Compila la tua scheda'/></p>";
+print "<h4>Filtro personaggi</h4>";
+print "<form action='/populon/cgi-bin/aggiungiPersonaggio.cgi' method='post'>";
+print "<p><input type='submit' value='Compila la tua scheda'/></p>";
 print "</form>";
-print "<form action='/populon/cgi-bin/personaggi.cgi' method='GET'>";
-print "<span>Filtro personaggi</span>";
-print "<p>Nome: <input name='nome' type='search'/></p>";
+print "<form action='/populon/cgi-bin/personaggi.cgi' method='get'>";
+print "<p>Nome: <input name='nome' type='text'/></p>";
 print "<p>Razza: <select name='razza'>",
 	"<option value=''>Tutti</option>",
 	"<option value='Akquor'>Akquor</option>",
@@ -149,7 +149,7 @@ print "<p>Razza: <select name='razza'>",
 	"<option value='Umano'>Umano</option>",
 	"<option value='Ur-Aluk'>Ur-Aluk</option>",
 	"</select></p>";
-print "</p><input type='submit' value='Filtra'/></p>";
+print "<p><input type='submit' value='Filtra'/></p>";
 print "</form>";
 
 print " | ";
@@ -169,7 +169,7 @@ foreach(@characters){									#scorro l'array dei personaggi
 		print "<p><span class='charTag'>Razza:</span><span class='charValue'>",$razza,"</span></p>";
 	
 		my $id=$_->findnodes('@id');
-		print "<a href='dettagliPersonaggio.cgi?id=$id'>Pi&ugrave dettagli...</a>";
+		print "<a href='dettagliPersonaggio.cgi?id=$id'>Pi&ugrave; dettagli...</a>";
 		if($admin) {
 			print "<a href='process_deletePersonaggio.cgi?id=$id'>Cancella</a>";
 		}

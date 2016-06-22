@@ -49,7 +49,7 @@ print $page->start_html( # inizio pagina HTML
 
 #################		header		#################
 
-print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png"})), "\n";
+print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png", -alt => "Populon"})), "\n";
 
 #################		nav		#################
 
@@ -68,7 +68,7 @@ if($esito){
 	print "<h2>Login avvenuto con successo</h2>";
 	print "<h3>Benvenuto $usn</h3>";
 	print "<form action='/populon/Home.html' method='post'>";
-	print "</p><input type='submit' value='Continua'/></p>";
+	print "<p><input type='submit' value='Continua'/></p>";
 	print "</form>";
 }
 else{														#altrimenti le credenziali non erano valide

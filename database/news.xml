@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="allnews.xsl"?>
 <notizie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="news.xsd">
+<notizia id="13">
+	<titolo>e anche ScriviNotizia è apposto!</titolo>
+</notizia>
+
+
+
 <notizia id="12">
 	<titolo>kdsjfbdskjfbdskj</titolo>
 </notizia>

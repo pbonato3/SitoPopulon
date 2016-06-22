@@ -28,7 +28,7 @@ $page->start_html( # inizio pagina HTML
 
 #################		header		#################
 
-print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png"})), "\n";
+print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png", -alt => "Populon"})), "\n";
 
 #################		nav		#################
 
@@ -48,7 +48,7 @@ print "<h2> Compila la tua scheda </h2>";
 
 print "<div class='scheda'>";
 # form per l'input dei dati di un personaggio
-	print "<form action='inserimentoPersonaggio.cgi' method='POST' enctype='multipart/form-data'>";
+	print "<form action='inserimentoPersonaggio.cgi' method='post' enctype='multipart/form-data'>";
 	# Insermento nome
 	print "<p>Nome: <input name='nome' type='text'/></p>";
 	# Inserimento razza
@@ -64,15 +64,15 @@ print "<div class='scheda'>";
 		"<option value='Ur-Aluk'>Ur-Aluk</option>",
 		"</select></p>";
 	# Inserimento sesso
-	print "<p>Sesso: <input type='radio' name='sesso' value='male' checked> M",
-		"<input type='radio' name='gender' value='female'> F </p>";
+	print "<p>Sesso: <input type='radio' name='sesso' value='male' checked='checked' /> M",
+		"<input type='radio' name='gender' value='female' /> F </p>";
 	# Inserimento età
-	print "<p>Et&agrave: <input name='eta' type='number' min='1' /></p>";
+	print "<p>Et&agrave;: <input name='eta' type='number' min='1' /></p>";
 	# Inserimento punti corpo
 	print "<p>Punti corpo: <input name='corpo' type='number' min='0' /></p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p>Abilit&agrave: <input name='name_c$i' type='text' />";
+			print "<p>Abilit&agrave;: <input name='name_c$i' type='text' />";
 			print "Livello: <input name='value_c$i' type='number' min='1' max='5' /></p>";
 		}
 		print "</div>";
@@ -80,7 +80,7 @@ print "<div class='scheda'>";
 	print "<p>Punti mente: <input name='mente' type='number' min='0' /></p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p>Abilit&agrave: <input name='name_m$i' type='text' />";
+			print "<p>Abilit&agrave;: <input name='name_m$i' type='text' />";
 			print "Livello: <input name='value_m$i' type='number' min='1' max='5' /></p>";
 		}
 		print "</div>";
@@ -88,15 +88,15 @@ print "<div class='scheda'>";
 	print "<p>Punti spirito: <input name='spirito' type='number' min='0' /></p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p>Abilit&agrave: <input name='name_s$i' type='text' />";
+			print "<p>Abilit&agrave;: <input name='name_s$i' type='text' />";
 			print "Livello: <input name='value_s$i' type='number' min='1' max='5' /></p>";
 		}
 		print "</div>";
 	# Inserimento biografia
 	print "<p>Biografia: </p><p><textarea name='bio' rows='10' cols='50'></textarea></p>";
-	print "</p><input type='submit' value='Continua'/></p>";
+	print "<p><input type='submit' value='Conferma'/></p>";
 	print "</form>";
-print "</div>";
+print "</div></div>";
 
 	
 print $page->end_html, "\n"; # fine pagina HTML

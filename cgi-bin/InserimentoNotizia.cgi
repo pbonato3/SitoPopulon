@@ -32,7 +32,7 @@ $page->start_html( # inizio pagina HTML
 
 #################		header		#################
 
-print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png"})), "\n";
+print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png", -alt => "Populon"})), "\n";
 
 #################		nav		#################
 
@@ -61,7 +61,7 @@ $esito = nuovaNotizia($titolo,$data,$ora,$luogo,$descrizione,$id);
 print "<div id='content'>";
 print "<h2> $esito </h2>";
 print "<form action='/populon/cgi-bin/Notizie.cgi' method='post'>";
-print "</p><input type='submit' value='Continua'/></p>";
+print "<p><input type='submit' value='Continua'/></p>";
 print "</form>";
 
 print "</div>";

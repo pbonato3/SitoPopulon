@@ -31,7 +31,7 @@ $page->start_html( # inizio pagina HTML
 
 #################		header		#################
 
-print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png"})), "\n";
+print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png", -alt => "Populon"})), "\n";
 
 #################		nav		#################
 
@@ -46,18 +46,8 @@ li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n";
 
 print "<div id='content'>";
 print "<h2> Aggiungi una notizia </h2>";
-if (0) {
-	print "<form action='InserimentoNotizia.cgi' method='POST' enctype='multipart/form-data'>";
-	print "<p>Titolo: <input name='titolo' type='text'/></p>";
-	print "<p>Data: <input name='data' type='date'/></p>";
-	print "<p>Ora: <input name='ora' type='time'/></p>";
-	print "<p>Luogo: <input name='luogo' type='text'/></p>";
-	print "<p>Descrizione: <textarea name='descrizione' rows='10' cols='50'></textarea></p>";
-	print "</p><input type='submit' value='Aggiungi'/></p>";
-	print "</form>";
-}
 print<<END;
-		<form action="InserimentoNotizia.cgi" method="POST" enctype='multipart/form-data'>
+		<form action="InserimentoNotizia.cgi" method="post" enctype='multipart/form-data'>
 			<div class='news'>
 				<p><span class='newsTag'>Titolo:</span><span class='newsValue'>
 					<input type="text" name="titolo" />
@@ -71,9 +61,9 @@ print<<END;
 				<p><span class='newsTag'>Luogo:</span><span class='newsValue'>
 					<input type="text" name="luogo" />
 				</span></p>
-				<p><span class='newsTag'>Descrizione:</span><p class='newsValue'>
+				<span class='newsTag'>Descrizione:</span><p class='newsValue'>
 					<textarea name="descrizione" rows="7" cols="50"></textarea>
-				</p></p>
+				</p>
 				<input type="submit" value="Aggiungi" />
 			</div>
 		</form>

@@ -28,7 +28,7 @@ $page->start_html( # inizio pagina HTML
 
 #################		header		#################
 
-print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png"})), "\n";
+print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png", -alt => "Populon"})), "\n";
 
 #################		nav		#################
 
@@ -66,7 +66,7 @@ print"
 		<h3>$nome</h3>";
 		print "<p><span class='schedaTag'>Razza: </span><span class='schedaValue'>$razza</span></p>";
 		print "<p><span class='schedaTag'>Sesso: </span><span class='schedaValue'>$sesso</span></p>";
-		print "<p><span class='schedaTag'>Et&agrave: </span><span class='schedaValue'>$eta</span></p>";
+		print "<p><span class='schedaTag'>Et&agrave;: </span><span class='schedaValue'>$eta</span></p>";
 		print "<p><span class='schedaTag'>Punti Corpo: </span><span class='schedaValue'>$puntiCorpo</span></p>";
 		foreach(@abilitaCorpo){
 			my $nomeAbilita = $_->findnodes('@name');
@@ -87,7 +87,7 @@ print"
 		}
 		
 print "</div><div class='bio'><h4>Biografia:</h4><p>".$biografia."</p></div>";
-print "<form action='personaggi.cgi' method='POST'><input type='submit' value='Indietro' /></form></div>";
+print "<form action='personaggi.cgi' method='post'><p><input type='submit' value='Indietro' /></p></form></div>";
 
 
 print $page->end_html, "\n"; # fine pagina HTML

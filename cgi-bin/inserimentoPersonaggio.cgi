@@ -28,7 +28,7 @@ $page->start_html( # inizio pagina HTML
 
 #################		header		#################
 
-print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png"})), "\n";
+print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png", -alt => "Populon"})), "\n";
 
 #################		nav		#################
 
@@ -46,7 +46,7 @@ my $campiObbligatori = 0;
 my $esito = "Mancano i seguenti campi obbligatori: ";
 
 my $nome = $page->param('nome');
-if($nome == undef){
+if(!$nome){
 $esito.= "Nome; ";
 $campiObbligatori = 1;
 }
@@ -62,7 +62,7 @@ $campiObbligatori = 1;
 }
 my $eta = $page->param('eta');
 if(!$eta){
-$esito.= "Et&agrave ";
+$esito.= "Et&agrave; ";
 $campiObbligatori = 1;
 }
 
@@ -139,8 +139,9 @@ if($campiObbligatori == 0 ){
 print "<div id='content'>";
 print "<h2> $esito </h2>";
 print "<form action='/populon/cgi-bin/personaggi.cgi' method='post'>";
-print "</p><input type='submit' value='Torna ai Personaggi'/></p>";
+print "<p><input type='submit' value='Torna ai Personaggi'/></p>";
 print "</form>";
+print "</div>";
 
 	
 print $page->end_html, "\n"; # fine pagina HTML

@@ -189,6 +189,34 @@ sub trovaPersonaggio{
 	return $personaggio;
 };
 
+######### Eliminazione personaggio ########
+#parametri in ingresso:
+#	$_[0] id			Intero
+
+#parametri in uscita:
+#	$esito				Stringa da stampare a video per indicare l'esito dell'operazione così da segnalare eventuali errori specifici.
+
+sub eliminaPersonaggio{
+	my $file = '../database/characters.xml';		#salvo il percorso del file xml
+	my $parser = XML::LibXML->new();		#creazione oggetto parser
+	my $esito= undef;
+	my $doc = $parser->parse_file($file);	#apertura file e lettura input
+	my $root= $doc->getDocumentElement;		#estrazione elemento radice
+	my $da_eliminare = $doc->findnodes("//character[\@id ='$_[0]']")->get_node(1);	#trovo il nodo da eliminare tramite l'id
+	if($da_eliminare){							#personaggio trovato
+		my $padre = $da_eliminare->parentNode;	#mi sposto sul padre
+		$padre->removeChild($da_eliminare);		#elimino il figlio
+		open OUT, ">$file";						#apro l'output sul file xml
+		print OUT $doc->toString;				#stampo sul file il documento parsato
+		close(OUT);
+		$esito="Operazione completata";
+		return $esito;
+	}
+	else{										#personaggio non trovato
+		$esito="Personaggio non trovato";
+		return $esito;
+	};
+};
 
 
 1	# NON toccare questo uno! deve stare in fondo alla pagina!

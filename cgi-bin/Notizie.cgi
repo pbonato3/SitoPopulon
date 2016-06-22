@@ -78,7 +78,7 @@ $page->start_html( # inizio pagina HTML
 
 #################		header		#################
 
-print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png"})), "\n";
+print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png", -alt => "Populon"})), "\n";
 
 #################		nav		#################
 
@@ -92,15 +92,6 @@ li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n";
 #################		content		#################
 
 print "<div id='content'>";
-if($admin){
-	print "<form action='ScriviNotizia.cgi' method='post'>";
-	print "</p><input type='submit' value='Scrivi Una Notizia'/></p>";
-	print "</form>";
-};
-
-
-
-
 
 #genero l'array contenete i link per la paginazione delle notizie
 my $totNotizie=0;
@@ -121,20 +112,20 @@ if (!$to) {
 
 my @arrLink=();					# l'array contenente i link per navigare tra le pagine
 
-my $urlAttuale=CGI->new->url()."?titolo=".$page->param('titolo')."&data=".$page->param('data')."&luogo=".$page->param('luogo');
+my $urlAttuale=CGI->new->url()."?titolo=".$page->param('titolo')."&amp;data=".$page->param('data')."&amp;luogo=".$page->param('luogo');
 
 if ($totNotizie<$notiziePerPagina) {$notiziePrimaPagina=$totNotizie}
 else {$notiziePrimaPagina=$notiziePerPagina;}
-push @arrLink,"<a href='".$urlAttuale."&from=1&to=$notiziePrimaPagina'>Prima pagina</a>";
+push @arrLink,"<a href='".$urlAttuale."&amp;from=1&amp;to=$notiziePrimaPagina'>Prima pagina</a>";
 my $c=1;
 while ($c<=$totNotizie) {
 	if ($c!=$from) {
 		if ($c+$notiziePerPagina-1 <= $totNotizie) {
-			my $str="<a href='".$urlAttuale."&from=$c&to=".($c+$notiziePerPagina-1)."'>".$c.'-'.($c+$notiziePerPagina-1)."</a>";
+			my $str="<a href='".$urlAttuale."&amp;from=$c&amp;to=".($c+$notiziePerPagina-1)."'>".$c.'-'.($c+$notiziePerPagina-1)."</a>";
 			push @arrLink,$str;
 		}
 		else {
-			my $str="<a href='".$urlAttuale."&from=$c&to=$totNotizie'>".$c.'-'.$totNotizie."</a>";
+			my $str="<a href='".$urlAttuale."&amp;from=$c&amp;to=$totNotizie'>".$c.'-'.$totNotizie."</a>";
 			push @arrLink,$str;
 		}
 	} else {
@@ -150,7 +141,7 @@ while ($c<=$totNotizie) {
 	$c+=$notiziePerPagina;
 }
 $c-=$notiziePerPagina;
-push @arrLink,"<a href='".$urlAttuale."&from=$c&to=$totNotizie'>Ultima pagina</a>";
+push @arrLink,"<a href='".$urlAttuale."&amp;from=$c&amp;to=$totNotizie'>Ultima pagina</a>";
 
 
 
@@ -167,15 +158,20 @@ foreach(@arrLink) {
 
 
 print "<h2> Notizie dalla $from alla $to</h2>";
-print "<form action='/populon/cgi-bin/Notizie.cgi' method='GET'>";
-print "<span>Filtro notizie</span>";
+
+print "<h4>Filtro notizie</h4>";
+print "<form action='/populon/cgi-bin/Notizie.cgi' method='get'>";
 print "<p>Titolo: <input name='titolo' type='text'/></p>";
 print "<p>Data: <input name='data' type='date'/></p>";
 print "<p>Luogo: <input name='luogo' type='text'/></p>";
-print "</p><input type='submit' value='Filtra'/></p>";
+print "<p><input type='submit' value='Filtra'/></p>";
 print "</form>";
 
-
+if($admin){
+	print "<form action='ScriviNotizia.cgi' method='post'>";
+	print "<p><input type='submit' value='Scrivi Una Notizia'/></p>";
+	print "</form>";
+};
 
 print " | ";
 foreach(@arrLink) {
@@ -207,7 +203,7 @@ foreach(@notizie){									#scorro l'array delle notizie
 			print "<a href='dettagliNotizia.cgi?id=$id'>Modifica...</a>";
 			print "<a href='process_deleteNotizia.cgi?id=$id'>Cancella</a>";
 		}
-		else {print "<a href='dettagliNotizia.cgi?id=$id'>Pi&ugrave dettagli...</a>";}
+		else {print "<a href='dettagliNotizia.cgi?id=$id'>Pi&ugrave; dettagli...</a>";}
 		print "</div>";
 	}
 	$i+=1;
