@@ -14,26 +14,29 @@
 	<script type="text/javascript" src="scriptini.js"></script>
 </head>
 <body>
+	<div class="sbarra">
 	<div id="header">
 		<!--Titolo fuori dallo schermo-->
 		<h1>Populon</h1>
-		<img class="head" src="img/titolo.png" />
+		<img class="head" src="img/titolo.png" alt="Populon" />
+		<a class="saltamenu" href="#saltamenu">Salta il menu di navigazione</a>
 	</div>
 	<!--Barra di navigazione come lista di link e span per la pagina corrente-->
 	<div class="nav">
 		<ul class="navbar">
-			<a href="Home.html" class="nav"><li class="button link"><lang xml:lang="en">Home</lang></li></a>
-			<a href="IlMondoDiGioco.html" class="nav"><li class="button link">Il mondo di gioco</li></a>
-			<a href="cgi-bin/personaggi.cgi" class="nav"><li class="button link">I personaggi</li></a>
-			<a href="cgi-bin/Notizie.cgi" class="nav"><li class="button link">Notizie</li></a>
-			<a href="Chi.html" class="nav"><li class="button link">Chi Siamo</li></a>
+			<li class="button link" xml:lang="en" onclick="location.href='Home.html';"><a href="Home.html" class="link">Home</a></li>
+			<li class="button link" onclick="location.href='IlMondoDiGioco.html';"><a href="IlMondoDiGioco.html" class="link">Il mondo di gioco</a></li>
+			<li class="button link" onclick="location.href='cgi-bin/personaggi.cgi';"><a href="cgi-bin/personaggi.cgi" class="link">I personaggi</a></li>
+			<li class="button link" onclick="location.href='cgi-bin/Notizie.cgi';"><a href="cgi-bin/Notizie.cgi" class="link">Notizie</a></li>
+			<li class="button link" onclick="location.href='Chi.html';"><a href="Chi.html" class="link">Chi Siamo</a></li>
 		</ul>
 	</div>
 	<div class="breadcrumbs">
-		<strong>Ti trovi in:</strong> <a href="IlMondoDiGioco.html">Mondo di Gioco</a> >> Glamordir
+	<a name="saltamenu"></a>
+		<strong>Ti trovi in:</strong> <a href="IlMondoDiGioco.html">Mondo di Gioco</a> &gt&gt Glamordir
 	</div>
 	<div id="content">
-		<img class="idrago" src="img/D_glamordir_t.png" />
+		<img class="idrago" src="img/D_glamordir_t.png" alt="Raffigurazione di Glamordir"/>
 		
 		<h2>Glamordir delle Montagne è il Drago Patrono dei sei clan dei nani.</h2>
 		
@@ -77,7 +80,7 @@
 		più soggetta alla follia, che si configura spesso come schizofrenia, in un cui una delle due parti “interpreta” un soggetto stabile,
 		coscienzioso, l’altra un artista, girovago, scapestrato.</p>
 		
-		<img class="irazza" src="img/nano-di-mercurio.jpg" />
+		<img class="irazza" src="img/nano-di-mercurio.jpg" alt="Raffigurazione di un Nano del mercurio"/>
 		
 		<h3>nani dello zolfo</h3>
 		
@@ -93,42 +96,58 @@
 		Le nane d’argento vivono di solito separate dal resto dei clan e sono rispettate e temute come detentrici del potere arcano.
 		Esse sovrintendono ai riti della nascita e a quelli funebri, nonché al mantenimento della memoria orale.</p>
 	</div>
-	<div id="draghirazze">
+	<div class="draghirazze">
 		<a href="miorning.html">
-		<img class="sdrago" src="img/simbolomiorning.png" />
+		<img class="sdrago" src="img/simbolomiorning.png" alt="Simbolo di Myiorning" />
 		</a>
 		<span><a href="miorning.html">Myiorning</a></span>
 	</div>
-	<div id="draghirazze">
+	<div class="draghirazze">
 		<a href="eoyu.html">
-		<img class="sdrago"  src="img/simboloeoyu.png" />
+		<img class="sdrago"  src="img/simboloeoyu.png" alt="Simbolo di Eoyu" />
 		</a>
 		<span><a href="eoyu.html">Eoyu</a></span>
 	</div>
-	<div id="draghirazze">
+	<div class="draghirazze">
 		<a href="oros.html">
-		<img class="sdrago"  src="img/simbolooros.png" />
+		<img class="sdrago"  src="img/simbolooros.png" alt="Simbolo di Oros" />
 		</a>
 		<span><a href="oros.html">Oros</a></span>
 	</div>
-	<div id="draghirazze">
-		<a href="glamordir.html">
-		<img class="sdrago"  src="img/simbologlamordir.png" />
-		</a>
-		<span><a href="glamordir.html">Glamordir</a></span>
+	<div class="draghirazze">
+		<img class="sdrago"  src="img/simbologlamordir.png" alt="Simbolo di Glamordir"/>
+		<p>Glamordir</p>
 	</div>
-	<div id="draghirazze">
+	<div class="draghirazze">
 		<a href="morte.html">
-		<img class="sdrago"  src="img/simbolomorte.png" />
+		<img class="sdrago"  src="img/simbolomorte.png" alt="Simbolo di Morte" />
 		</a>
 		<span><a href="morte.html">Morte</a></span>
 	</div>
-	<div id="draghirazze">
+	<div class="draghirazze">
 		<a href="artechnai.html">
-		<img class="sdrago"  src="img/simboloartechnai.png" />
+		<img class="sdrago"  src="img/simboloartechnai.png" alt="Simbolo dell'Artechnai"/>
 		</a>
 		<span><a href="artechnai.html">Artechnai</a></span>
+	<a href="#header">Vai a inizio pagina</a>
 	</div>
-	<div id="footer">contatti: populon@gmail.com</div>
+
+	<div id="footer">
+	contatti: populon@gmail.com
+		<div class="login">
+			<span>Login Amministratori</span>
+			<form action="cgi-bin/login.cgi" method="post">
+				<p>Username:
+					<input name="username" type="text" />Password:
+					<input name="password" type="password" />
+					<input value="Login" type="submit" />
+				</p>
+			</form>
+			<form action="cgi-bin/logout.cgi" method="post">
+				<p><input value="Logout" type="submit" /></p>
+			</form>
+		</div>
+	</div>
+	</div>
 </body>
 </html>

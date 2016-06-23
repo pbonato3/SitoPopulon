@@ -1,40 +1,59 @@
 body{
-	width:80%;
-	margin-left:10%;
-	margin-right:10%;
-	padding:0.5%;
-	background: #ffffcc url("img/bgparchment.jpg") no-repeat left top;
-	-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+	width:91%;
+	margin-bottom:0;
+	margin-top:0;
+	margin-left:4.5%;
+	margin-right:4.5%;
+	padding-left:0.5%;
+	padding-right:0.5%;
+	font-size:1.1em;
+	background: #99ccff;
+}
+
+.sbarra{
+	border-top: 1.2em solid #0066cc;
+	border-bottom: 1.2em solid #0066cc;
+	/*border-right: 0.2em solid #0066cc;
+	border-left: 0.2em solid #0066cc;*/
 }
 
 #header{
 	color:black;
-	border-bottom:0.2em solid black;
+	background-color: #0066cc;
+	/*border-bottom:0.2em solid black;*/
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	padding-bottom: 0.8em;
 }
 
-/*nascondere il titolo (c'è ma non si vede perchè lo cacciamo fuori dallo schermo) e ridimensionare il logo*/
+/* Nascondo i link pro-screenreader ai normovedenti e regolo le dimensioni dell'immagine titolo */
+
 #header h1{
 	position:absolute;
 	left:-1000em;
 }
 
-img.head{
-	width: 45%;
-	height: 10%;
+#header .head{
+	width: 30em;
+	height: 6em;
+}
+
+.saltamenu{
+	position:absolute;
+	left:-1000em;
 }
 
 /* ----------------------- Barra di navigazione------------------------------*/
 
-div.nav{		/* barra di navigazione */
+.nav{		/* barra di navigazione */
 	/*margin-bottom:0.3em;*/
-	padding:0.1em;
-	padding-left:0.1em;
+	padding:0.2em;
+	padding-left:1.5em;
 	border:0em;
 	border-bottom:0.1em solid black;
+	background-color: #0066cc;
 }
+
 
 ul.navbar{		/* lista contenuta nella barra di navigazione */
 	margin:0em;
@@ -43,44 +62,59 @@ ul.navbar{		/* lista contenuta nella barra di navigazione */
 }
 
 li.button{
-	background-color:#ffffcc;
-	-moz-border-radius:0.5em;
-	-webkit-border-radius:0.5em;
+	background-color:#99ccff;
+	-moz-border-radius:5em;
+	-webkit-border-radius:5em;
 	border-radius:5em;
-	border:0.1em solid antiquewhite;
+	border:0.1em solid #99ccff;
 	display:inline-block;
 	font-family:Arial;
 	font-size:1.em;
 	font-weight:bold;
-	padding:1em 2em;
-	text-shadow:0.01em 0.09em #ffffcc;
-}
-
-li.link{
-	background-color:transparent;
+	padding:1em 5%;
 	cursor:pointer;
 }
+/*
+li.link:link{
+	background-color:transparent;
+}
 
+li.link:visited{
+	background-color:transparent;}
+*/
 li.link:hover {
-	background-color:#ffffcc;
+	background-color:#0066cc;
+	color:#99ccff;
+}
+
+a.link:hover{
+	background-color:#0066cc;
+	color:#99ccff;
 }
 
 li.link:active {
 	position:relative;
 	top:0.1em;
 }
-/*
-a.nav{
-	text-decoration:none;
-}*/
 
-
-span.current{			/* pagina corrente della barra di navigazione */
-	color:black;
+li.current{
+	background-color:#0066cc;
+	color:#99ccff;
 }
 
 div.breadcrumbs{
 	border-bottom:0.12em solid black;
+	padding-top: 0.2em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	color: #ffffff;
+	background-color: #0066cc;
+}
+
+/* Footer */
+
+#footer{
+	background-color: #0066cc;
 }
 
 /* ----------------------- News della home------------------------------*/
@@ -130,7 +164,8 @@ span.newsValue{
 }
 /*contenuto presentazione*/
 #content{
-	text-align:justify;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
 	min-height:30em;
 }
 
@@ -173,28 +208,3 @@ span.newsValue{
     display: block;
 	max-width:50%;
 }
-
-
-/* ROBA VECCHIA DA ELIMINARE NELLA VERSIONE FINALE
-
-#nav ul li{		/* elementi della lista 
-	margin:0.5em;
-	padding:0;
-	display:inline-block;		/* disposti orizzontalmente, non in verticale 
-}
-
-#nav ul li a{		/* link della barra di navigazione
-	margin-right:0.5em;		/* trik per vincere i margini imposti dal browser in automatico (margin negativi)
-	color:black;				/* togliere il bluetto schifoso del link 
-	border:0px;
-	padding:0.1em;
-	padding-left:0.5em;
-	padding-right:0.5em;
-	cursor:pointer;			/* cursore a manina(da appurare se sia veramente giusto)
-	text-decoration:none;	/* no stottolineatura link 
-}
-
-#nav ul li a:hover{			/* cambio colore background quando il cursore è sopra il link 
-	background-color:#009999;	
-}
-*/
