@@ -1,8 +1,8 @@
 body{
-	width:70%;
-	margin-left:14%;
-	margin-right:14%;
-	padding:1%;
+	width:80%;
+	margin-left:10%;
+	margin-right:10%;
+	padding:0.5%;
 	background: #ffffcc url("img/bgparchment.jpg") no-repeat left top;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
@@ -18,12 +18,12 @@ body{
 /*nascondere il titolo (c'è ma non si vede perchè lo cacciamo fuori dallo schermo) e ridimensionare il logo*/
 #header h1{
 	position:absolute;
-	left:-9999999em;
+	left:-1000em;
 }
 
 img.head{
-	width: 40%;
-	height: 20%;
+	width: 45%;
+	height: 10%;
 }
 
 /* ----------------------- Barra di navigazione------------------------------*/
@@ -32,13 +32,13 @@ div.nav{		/* barra di navigazione */
 	/*margin-bottom:0.3em;*/
 	padding:0.1em;
 	padding-left:0.1em;
-	border:0px;
-	border-bottom:0.12em solid black;
+	border:0em;
+	border-bottom:0.1em solid black;
 }
 
 ul.navbar{		/* lista contenuta nella barra di navigazione */
-	margin:0;
-	padding:0;
+	margin:0em;
+	padding:0em;
 	list-style:none;
 }
 
@@ -46,15 +46,14 @@ li.button{
 	background-color:#ffffcc;
 	-moz-border-radius:0.5em;
 	-webkit-border-radius:0.5em;
-	border-radius:0.5em;
-	border:none;
+	border-radius:5em;
+	border:0.1em solid antiquewhite;
 	display:inline-block;
 	font-family:Arial;
-	font-size:1em;
+	font-size:1.em;
 	font-weight:bold;
 	padding:1em 2em;
-	text-decoration:none;
-	/*text-shadow:0px -1px 0px #2b665e;*/
+	text-shadow:0.01em 0.09em #ffffcc;
 }
 
 li.link{
@@ -68,12 +67,12 @@ li.link:hover {
 
 li.link:active {
 	position:relative;
-	top:1px;
+	top:0.1em;
 }
-
+/*
 a.nav{
 	text-decoration:none;
-}
+}*/
 
 
 span.current{			/* pagina corrente della barra di navigazione */
