@@ -162,7 +162,7 @@ print "<h2> Notizie dalla $from alla $to</h2>";
 print "<h4>Filtro notizie</h4>";
 print "<form action='/populon/cgi-bin/Notizie.cgi' method='get'>";
 print "<p>Titolo: <input name='titolo' type='text'/></p>";
-print "<p>Data: <input name='data' type='date'/></p>";
+print "<p>Data: <input name='data' type='text'/> (YYYY-MM-DD)</p>";
 print "<p>Luogo: <input name='luogo' type='text'/></p>";
 print "<p><input type='submit' value='Filtra'/></p>";
 print "</form>";
@@ -184,6 +184,10 @@ foreach(@arrLink) {
 
 
 ## Output delle notizie ##
+if($data && !($data =~ /^\d\d\d\d-\d\d-\d\d$/))
+{
+print"Formato data non valido"
+}
 my $i=1;
 foreach(@notizie){									#scorro l'array delle notizie
 	if ($from <= $i and $i <= $to ) {

@@ -84,10 +84,10 @@ print<<END;
 					<input type="text" name="titolo" value="$titolo" />
 				</span></p>
 				<p><span class='newsTag'>Data:</span><span class='newsValue'>
-					<input type="date" name="data" value="$data" />
+					<input type="text" name="data" value="$data" /> (YYYY-MM-DD)
 				</span></p>
 				<p><span class='newsTag'>Ora:</span><span class='newsValue'>
-					<input type="time" name="ora" value="$ora" />
+					<input type="text" name="ora" value="$ora" /> (HH:MM:SS)
 				</span></p>
 				<p><span class='newsTag'>Luogo:</span><span class='newsValue'>
 					<input type="text" name="luogo" value="$luogo" />

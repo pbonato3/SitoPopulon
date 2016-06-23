@@ -67,29 +67,29 @@ print "<div class='scheda'>";
 	print "<p>Sesso: <input type='radio' name='sesso' value='male' checked='checked' /> M",
 		"<input type='radio' name='gender' value='female' /> F </p>";
 	# Inserimento età
-	print "<p>Et&agrave;: <input name='eta' type='number' min='1' /></p>";
+	print "<p>Et&agrave;: <input name='eta' type='text' /></p>";
 	# Inserimento punti corpo
-	print "<p>Punti corpo: <input name='corpo' type='number' min='0' /></p>";
+	print "<p>Punti corpo: <input name='corpo' type='text' /></p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
 			print "<p>Abilit&agrave;: <input name='name_c$i' type='text' />";
-			print "Livello: <input name='value_c$i' type='number' min='1' max='5' /></p>";
+			print "Livello: <input name='value_c$i' type='text' /></p>";
 		}
 		print "</div>";
 	# Inserimento punti mente
-	print "<p>Punti mente: <input name='mente' type='number' min='0' /></p>";
+	print "<p>Punti mente: <input name='mente' type='text' /></p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
 			print "<p>Abilit&agrave;: <input name='name_m$i' type='text' />";
-			print "Livello: <input name='value_m$i' type='number' min='1' max='5' /></p>";
+			print "Livello: <input name='value_m$i' type='text' /></p>";
 		}
 		print "</div>";
 	# Inserimento punti spirito
-	print "<p>Punti spirito: <input name='spirito' type='number' min='0' /></p>";
+	print "<p>Punti spirito: <input name='spirito' type='text'/></p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
 			print "<p>Abilit&agrave;: <input name='name_s$i' type='text' />";
-			print "Livello: <input name='value_s$i' type='number' min='1' max='5' /></p>";
+			print "Livello: <input name='value_s$i' type='text' /></p>";
 		}
 		print "</div>";
 	# Inserimento biografia

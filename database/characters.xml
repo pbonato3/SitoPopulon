@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <characters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="characters.xsd">
+<character id="6">
+	<name>ciccioBello</name>
+	<race>Akquor</race>
+	<sex>male</sex>
+	<age>24</age>
+	<body value="9">
+		<ability name="Rutto Spaziale" level="5"/>
+	</body>
+	<mind value="23">
+	</mind>
+	<heart value="123">
+	</heart>
+	<bio/>
+</character>
 <character id="5">
 	<name>Gattivo</name>
 	<race>Tesserian</race>

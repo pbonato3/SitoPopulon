@@ -45,18 +45,26 @@ li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n";
 
 #################		content		#################
 
-$titolo = $page->param('titolo');
-$data= $page->param('data');
-$ora= $page->param('ora');
-$luogo= $page->param('luogo');
-$descrizione= $page->param('descrizione');
-$id= $page->param('id');
+my $titolo = $page->param('titolo');
+my $data= $page->param('data');
+my $ora= $page->param('ora');
+my $luogo= $page->param('luogo');
+my $descrizione= $page->param('descrizione');
+my $id= $page->param('id');
 
-# Se l'id è impostato la notizia che si vuole inserire è una modifica ad una precedente
-# In caso elimino la vecchia notizia (Controllo anche il titolo perchè se la notizia inserita non è valida la prima viene cancellata comunque)
-if($id and $titolo){eliminaNotizia($id);};
-# Aggiungo la nuova notizia
-$esito = nuovaNotizia($titolo,$data,$ora,$luogo,$descrizione,$id);
+my $esito = undef;
+
+if(!$titolo){$esito = "Operazione annullata: Manca un titolo"}
+if($data && !($data =~ /^\d\d\d\d-\d\d-\d\d$/)){$esito = "Operazione annullata: La data non rispetta il corretto formato";}
+if($ora && !($ora =~ /^\d\d:\d\d:\d\d$/)){$esito = "Operazione annullata: L'ora non rispetta il corretto formato"}
+
+if(!$esito){
+	# Se l'id è impostato la notizia che si vuole inserire è una modifica ad una precedente
+	# In caso elimino la vecchia notizia (Controllo anche il titolo perchè se la notizia inserita non è valida la prima viene cancellata comunque)
+	if($id and $titolo){eliminaNotizia($id);};
+	# Aggiungo la nuova notizia
+	$esito = nuovaNotizia($titolo,$data,$ora,$luogo,$descrizione,$id);
+}
 
 print "<div id='content'>";
 print "<h2> $esito </h2>";

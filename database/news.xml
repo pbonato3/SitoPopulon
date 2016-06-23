@@ -3,13 +3,25 @@
 <notizie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="news.xsd">
 <notizia id="13">
 	<titolo>e anche ScriviNotizia è apposto!</titolo>
+	<data>2016-06-30</data>
+	<ora>17:59:00</ora>
 </notizia>
-
-
 
 <notizia id="12">
 	<titolo>kdsjfbdskjfbdskj</titolo>
+	<data>2000-07-15</data>
 </notizia>
+
+
+
+
+
+
+
+
+
+
+
 <notizia id="11">
 	<titolo>asljdnasksajdksa</titolo>
 </notizia>

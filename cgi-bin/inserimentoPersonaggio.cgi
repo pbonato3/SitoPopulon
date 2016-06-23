@@ -65,6 +65,45 @@ if(!$eta){
 $esito.= "Et&agrave; ";
 $campiObbligatori = 1;
 }
+else{
+	if(!($eta=~ /^(\d|\d\d|\d\d\d)$/)){
+		$esito = "Operazione fallita: L'et&agrave; deve essere un numero di massimo tre cifre";
+		$campiObbligatori = 1;
+	}
+}
+my $punti_c = $page->param('corpo');
+if(!($punti_c =~ /^(\d|\d\d|\d\d\d)$/)){
+	$esito = "Operazione fallita: I punti corpo devono essere un numero di massimo tre cifre";
+	$campiObbligatori = 1;
+}
+my $punti_m = $page->param('mente');
+if(!($punti_m =~ /^(\d|\d\d|\d\d\d)$/)){
+	$esito = "Operazione fallita: I punti mente devono essere un numero di massimo tre cifre";
+	$campiObbligatori = 1;
+}
+my $punti_s = $page->param('spirito');
+if(!($punti_s =~ /^(\d|\d\d|\d\d\d)$/)){
+	$esito = "Operazione fallita: I punti spirito devono essere un numero di massimo tre cifre";
+	$campiObbligatori = 1;
+}
+for(my $i=0; $i < $max; $i++){
+	my $aux = $page->param('value_c'.$i);
+	if($aux && !($aux =~ /(1|2|3|4|5)/)){
+		$esito = "Operazione fallita: I livelli delle abilità devono essere numeri compresi tra 1 e 5";
+		$campiObbligatori = 1;
+	}
+	my $aux = $page->param('value_m'.$i);
+	if($aux && !($aux =~ /(1|2|3|4|5)/)){
+		$esito = "Operazione fallita: I livelli delle abilità devono essere numeri compresi tra 1 e 5";
+		$campiObbligatori = 1;
+	}
+	my $aux = $page->param('value_s'.$i);
+	if($aux && !($aux =~ /(1|2|3|4|5)/)){
+		$esito = "Operazione fallita: I livelli delle abilità devono essere numeri compresi tra 1 e 5";
+		$campiObbligatori = 1;
+	}
+}
+my $bio = $page->param('bio');
 
 if($campiObbligatori == 0 ){
 	$esito="Operazione completata";

@@ -53,10 +53,10 @@ print<<END;
 					<input type="text" name="titolo" />
 				</span></p>
 				<p><span class='newsTag'>Data:</span><span class='newsValue'>
-					<input type="date" name="data" />
+					<input type="text" name="data" /> (YYYY-MM-DD)
 				</span></p>
 				<p><span class='newsTag'>Ora:</span><span class='newsValue'>
-					<input type="time" name="ora" />
+					<input type="text" name="ora" /> (HH:MM:SS)
 				</span></p>
 				<p><span class='newsTag'>Luogo:</span><span class='newsValue'>
 					<input type="text" name="luogo" />
