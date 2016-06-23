@@ -22,11 +22,11 @@
 	<!--Barra di navigazione come lista di link e span per la pagina corrente-->
 	<div class="nav">
 		<ul class="navbar">
-			<a href="Home.html" class="nav"><li class="button link"><lang xml:lang="en">Home</lang></li></a>
-			<a href="IlMondoDiGioco.html" class="nav"><li class="button link">Il mondo di gioco</li></a>
-			<a href="cgi-bin/personaggi.cgi" class="nav"><li class="button link">I personaggi</li></a>
-			<a href="cgi-bin/Notizie.cgi" class="nav"><li class="button link">Notizie</li></a>
-			<a href="Chi.html" class="nav"><li class="button link">Chi Siamo</li></a>
+			<li class="button link" xml:lang="en"><a href="Home.html" class="nav">Home</a></li>
+			<li class="button link"><a href="IlMondoDiGioco.html" class="nav">Il mondo di gioco</a></li>
+			<li class="button link"><a href="cgi-bin/personaggi.cgi" class="nav">I personaggi</a></li>
+			<li class="button link"><a href="cgi-bin/Notizie.cgi" class="nav">Notizie</a></li>
+			<li class="button link"><a href="Chi.html" class="nav">Chi Siamo</a></li>
 		</ul>
 	</div>
 	<div class="breadcrumbs">
@@ -55,40 +55,54 @@
 
 		<p>“Verrà un razza figlia del Sesto Drago. Essa, rivivendo l’immutabile, spezzerà il cerchio della vita, causerà la catastrofe”</p>
 	</div>
-	<div id="draghirazze">
+	<div class="draghirazze">
 		<a href="miorning.html">
 		<img class="sdrago" src="img/simbolomiorning.png" alt="Simbolo di Myiorning" />
 		</a>
 		<span><a href="miorning.html">Myiorning</a></span>
 	</div>
-	<div id="draghirazze">
+	<div class="draghirazze">
 		<a href="eoyu.html">
 		<img class="sdrago"  src="img/simboloeoyu.png" alt="Simbolo di Eoyu" />
 		</a>
 		<span><a href="eoyu.html">Eoyu</a></span>
 	</div>
-	<div id="draghirazze">
+	<div class="draghirazze">
 		<a href="oros.html">
 		<img class="sdrago"  src="img/simbolooros.png" alt="Simbolo di Oros" />
 		</a>
 		<span><a href="oros.html">Oros</a></span>
 	</div>
-	<div id="draghirazze">
+	<div class="draghirazze">
 		<a href="glamordir.html">
 		<img class="sdrago"  src="img/simbologlamordir.png" alt="Simbolo di Glamordir"/>
 		</a>
 		<span><a href="glamordir.html">Glamordir</a></span>
 	</div>
-	<div id="draghirazze">
+	<div class="draghirazze">
 		<a href="morte.html">
 		<img class="sdrago"  src="img/simbolomorte.png" alt="Simbolo di Morte" />
 		</a>
 		<span><a href="morte.html">Morte</a></span>
 	</div>
-	<div id="draghirazze">
+	<div class="draghirazze">
 		<img class="sdrago"  src="img/simboloartechnai.png" alt="Simbolo dell'Artechnai"/>
 		<p>Artechnai</p>
 	</div>
-	<div id="footer">contatti: populon@gmail.com</div>
+	<div id="footer">contatti: populon@gmail.com
+		<div class="login">
+			<span>Login Amministratori</span>
+			<form action="cgi-bin/login.cgi" method="post">
+				<p>Username:
+					<input name="username" type="text" />Password:
+					<input name="password" type="password" />
+					<input value="Login" type="submit" />
+				</p>
+			</form>
+			<form action="cgi-bin/logout.cgi" method="post">
+				<p><input value="Logout" type="submit" /></p>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

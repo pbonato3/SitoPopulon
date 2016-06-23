@@ -14,6 +14,7 @@
 	<script type="text/javascript" src="scriptini.js"></script>
 </head>
 <body>
+	<span class="sbarra"></span>
 	<div id="header">
 		<!--Titolo fuori dallo schermo-->
 		<h1>Populon</h1>
@@ -23,10 +24,10 @@
 	<div class="nav">
 		<ul class="navbar">
 			<li class="button"><span xml:lang="en" class="current">Home</span></li>
-			<a href="IlMondoDiGioco.html" class="nav"><li class="button link">Il mondo di gioco</li></a>
-			<a href="cgi-bin/personaggi.cgi" class="nav"><li class="button link">I personaggi</li></a>
-			<a href="cgi-bin/Notizie.cgi" class="nav"><li class="button link">Notizie</li></a>
-			<a href="Chi.html" class="nav"><li class="button link">Chi Siamo</li></a>
+			<li class="button link"><a href="IlMondoDiGioco.html" class="nav">Il mondo di gioco</a></li>
+			<li class="button link"><a href="cgi-bin/personaggi.cgi" class="nav">I personaggi</a></li>
+			<li class="button link"><a href="cgi-bin/Notizie.cgi" class="nav">Notizie</a></li>
+			<li class="button link"><a href="Chi.html" class="nav">Chi Siamo</a></li>
 		</ul>
 	</div>
 	<div class="breadcrumbs">
@@ -76,13 +77,15 @@
 	<div id="footer">contatti: populon@gmail.com
 		<div class="login">
 			<span>Login Amministratori</span>
-			<form action="cgi-bin/login.cgi" method="POST">
-				<span>Username:</span><input name="username" type="text" />
-				<span>Password:</span><input name="password" type="password" />
-				<input value="Login" type="submit" />
+			<form action="cgi-bin/login.cgi" method="post">
+				<p>Username:
+					<input name="username" type="text" />Password:
+					<input name="password" type="password" />
+					<input value="Login" type="submit" />
+				</p>
 			</form>
-			<form action="cgi-bin/logout.cgi" method="POST">
-				<input value="Logout" type="submit" />
+			<form action="cgi-bin/logout.cgi" method="post">
+				<p><input value="Logout" type="submit" /></p>
 			</form>
 		</div>
 	</div>
