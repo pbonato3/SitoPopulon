@@ -17,25 +17,22 @@
 	<div id="header">
 		<!--Titolo fuori dallo schermo-->
 		<h1>Populon</h1>
-		<img class="head" src="img/titolo.png" alt="Populon"/>
-	<a href="#saltamenu">salta il menu di navigazione</a>
+		<img class="head" src="img/titolo.png" />
 	</div>
 	<!--Barra di navigazione come lista di link e span per la pagina corrente-->
 	<div class="nav">
 		<ul class="navbar">
-			<li class="button link" xml:lang="en" onclick="location.href='Home.html';"><a href="Home.html" class="nav">Home</a></li>
-			<li class="button link" onclick="location.href='IlMondoDiGioco.html';"><a href="IlMondoDiGioco.html" class="nav">Il mondo di gioco</a></li>
-			<li class="button link" onclick="location.href='cgi-bin/personaggi.cgi';"><a href="cgi-bin/personaggi.cgi" class="nav">I personaggi</a></li>
-			<li class="button link" onclick="location.href='cgi-bin/Notizie.cgi';"><a href="cgi-bin/Notizie.cgi" class="nav">Notizie</a></li>
+			<a href="Home.html" class="nav"><li class="button link"><lang xml:lang="en">Home</lang></li></a>
+			<a href="IlMondoDiGioco.html" class="nav"><li class="button link">Il mondo di gioco</li></a>
+			<a href="cgi-bin/personaggi.cgi" class="nav"><li class="button link">I personaggi</li></a>
+			<a href="cgi-bin/Notizie.cgi" class="nav"><li class="button link">Notizie</li></a>
 			<li class="button"><span class="current">Chi Siamo</span></li>
 		</ul>
 	</div>
 	<div class="breadcrumbs">
-	<a class="saltamenu" name="saltamenu"></a>
 		<strong>Ti trovi in:</strong> Chi Siamo
 	</div>
 	<div id="content">
-
 	<h2>Contatti</h2>
 	<p>Chiunque voglia contattarci per qualsiasi informazione ulteriore o per suggerimenti può scrivere a populon@gmail.com</p>
 	<h2>Il gruppo</h2>
@@ -45,27 +42,12 @@
 	<h2>Chi siamo</h2>
 	<p>Mattia Biggeri</p>
 	<p>Nato il: 01/04/1993</p>
-	<p>Studente di informatica da sempre appassionato di giochi di qualsiasi tipo, oltre a Populon ha prodotto altre abientazioni e alcuni giochi da tavolo</p>
+	<p>Studente di informatica da sempre appassionato di giochi di qualsiasi tipo, oltre a Populon ha prodotto altre abientazioni e alcuni giochi da tavolo</li>
 	<p>Paolo Bonato</p>
 	<p>Tommaso Padovan</p>
 	<p>Diego Baratto</p>
+	</div>
 	
-
-	</div>
-	<div id="footer">contatti: populon@gmail.com
-		<div class="login">
-			<span>Login Amministratori</span>
-			<form action="cgi-bin/login.cgi" method="post">
-				<p>Username:
-					<input name="username" type="text" />Password:
-					<input name="password" type="password" />
-					<input value="Login" type="submit" />
-				</p>
-			</form>
-			<form action="cgi-bin/logout.cgi" method="post">
-				<p><input value="Logout" type="submit" /></p>
-			</form>
-		</div>
-	</div>
+	<div id="footer">contatti: populon@gmail.com</div>
 </body>
 </html>
