@@ -19,7 +19,7 @@ $page->start_html( # inizio pagina HTML
 ],
 -lang =>'it',											# Lingua del documento
 -meta => {'title' => 'Populon',							# Tutti i meta
-'description' => 'Gioco di ruolo di...',
+'description' => 'Compila sul sito la tua scheda e falla conoscere a tutti!',
 'keywords' => 'Gioco, ruolo, gdr, fantasy, dadi',
 'author' => 'Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato',
 'language' => 'italian it'},
@@ -64,8 +64,8 @@ print "<div class='scheda'>";
 		"<option value='Ur-Aluk'>Ur-Aluk</option>",
 		"</select></p>";
 	# Inserimento sesso
-	print "<p>Sesso: <input type='radio' name='sesso' value='male' checked='checked' /> M",
-		"<input type='radio' name='gender' value='female' /> F </p>";
+	print "<p>Sesso: <input type='radio' name='sesso' value='M' checked='checked' /> M",
+		"<input type='radio' name='gender' value='F' /> F </p>";
 	# Inserimento età
 	print "<p>Et&agrave;: <input name='eta' type='text' /></p>";
 	# Inserimento punti corpo
@@ -73,7 +73,11 @@ print "<div class='scheda'>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
 			print "<p>Abilit&agrave;: <input name='name_c$i' type='text' />";
-			print "Livello: <input name='value_c$i' type='text' /></p>";
+			print "Livello: <select name='value_c$i'>";
+			for(my $j=1; $j<=5; $j++){
+				print"<option value=\"$j\">$j</option>";
+			}
+			print "</select></p>";
 		}
 		print "</div>";
 	# Inserimento punti mente
@@ -81,7 +85,11 @@ print "<div class='scheda'>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
 			print "<p>Abilit&agrave;: <input name='name_m$i' type='text' />";
-			print "Livello: <input name='value_m$i' type='text' /></p>";
+			print "Livello: <select name='value_m$i'>";
+			for(my $j=1; $j<=5; $j++){
+				print"<option value=\"$j\">$j</option>";
+			}
+			print "</select></p>";
 		}
 		print "</div>";
 	# Inserimento punti spirito
@@ -89,7 +97,11 @@ print "<div class='scheda'>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
 			print "<p>Abilit&agrave;: <input name='name_s$i' type='text' />";
-			print "Livello: <input name='value_s$i' type='text' /></p>";
+			print "Livello: <select name='value_s$i'>";
+			for(my $j=1; $j<=5; $j++){
+				print"<option value=\"$j\">$j</option>";
+			}
+			print "</select></p>";
 		}
 		print "</div>";
 	# Inserimento biografia

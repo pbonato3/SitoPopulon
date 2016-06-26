@@ -19,7 +19,7 @@ $page->start_html( # inizio pagina HTML
 ],
 -lang =>'it',											# Lingua del documento
 -meta => {'title' => 'Populon',							# Tutti i meta
-'description' => 'Gioco di ruolo di...',
+'description' => 'Risultati operazioni',
 'keywords' => 'Gioco, ruolo, gdr, fantasy, dadi',
 'author' => 'Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato',
 'language' => 'italian it'},
@@ -46,6 +46,7 @@ my $campiObbligatori = 0;
 my $esito = "Mancano i seguenti campi obbligatori: ";
 
 my $nome = $page->param('nome');
+$nome = encode('UTF-8', $nome, Encode::FB_CROAK);		#serve a codificare tutte le stringhe in input in UTF8 (accenti)
 if(!$nome){
 $esito.= "Nome; ";
 $campiObbligatori = 1;
@@ -86,23 +87,7 @@ if(!($punti_s =~ /^(\d|\d\d|\d\d\d)$/)){
 	$esito = "Operazione fallita: I punti spirito devono essere un numero di massimo tre cifre";
 	$campiObbligatori = 1;
 }
-for(my $i=0; $i < $max; $i++){
-	my $aux = $page->param('value_c'.$i);
-	if($aux && !($aux =~ /(1|2|3|4|5)/)){
-		$esito = "Operazione fallita: I livelli delle abilità devono essere numeri compresi tra 1 e 5";
-		$campiObbligatori = 1;
-	}
-	my $aux = $page->param('value_m'.$i);
-	if($aux && !($aux =~ /(1|2|3|4|5)/)){
-		$esito = "Operazione fallita: I livelli delle abilità devono essere numeri compresi tra 1 e 5";
-		$campiObbligatori = 1;
-	}
-	my $aux = $page->param('value_s'.$i);
-	if($aux && !($aux =~ /(1|2|3|4|5)/)){
-		$esito = "Operazione fallita: I livelli delle abilità devono essere numeri compresi tra 1 e 5";
-		$campiObbligatori = 1;
-	}
-}
+
 my $bio = $page->param('bio');
 
 if($campiObbligatori == 0 ){
@@ -111,6 +96,7 @@ if($campiObbligatori == 0 ){
 	my $punti_m = $page->param('mente');
 	my $punti_s = $page->param('spirito');
 	my $bio = $page->param('bio');
+	$bio = encode('UTF-8', $bio, Encode::FB_CROAK);		#serve a codificare tutte le stringhe in input in UTF8 (accenti)
 
 	my $file = '../database/characters.xml';		#salvo il percorso del file xml
 	my $parser = XML::LibXML->new();		#creazione oggetto parser

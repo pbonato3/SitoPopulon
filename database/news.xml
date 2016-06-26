@@ -1,66 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="allnews.xsl"?>
 <notizie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="news.xsd">
-<notizia id="13">
-	<titolo>e anche ScriviNotizia è apposto!</titolo>
-	<data>2016-06-30</data>
-	<ora>17:59:00</ora>
-</notizia>
-
-<notizia id="12">
-	<titolo>kdsjfbdskjfbdskj</titolo>
-	<data>2000-07-15</data>
-</notizia>
-
-
-
-
-
-
-
-
-
-
-
-<notizia id="11">
-	<titolo>asljdnasksajdksa</titolo>
-</notizia>
-<notizia id="10">
-	<titolo>sdfdsfdsfdsfds</titolo>
-</notizia>
-
-
-<notizia id="7">
-	<titolo>dsfddfdsfsdfs</titolo>
-</notizia>
-<notizia id="6">
-	<titolo>dsfdsfsdfds</titolo>
-</notizia>
-<notizia id="5">
-	<titolo>dsfdsfdsfsdf</titolo>
+<notizia id="4">
+	<titolo>Manuali pronti a breve</titolo>
+	<data>2016-06-25</data>
+	<descrizione>Stiamo lavorando sui manuali di gioco e prevediamo che presto saranno pronti. Potete seguire gli sviluppi ed informarvi sui dettagli qui sul nostro sito.</descrizione>
 </notizia>
 <notizia id="3">
-	<titolo> A cavallo di un cammello2</titolo>
-	<descrizione>Domando Perl..</descrizione>
-</notizia>
-<notizia id="4">
-	<titolo>Prova</titolo>
-	<data>2016-05-18</data>
+	<titolo>Prova sulle terre di Populon</titolo>
+	<data>2016-06-24</data>
+	<ora>21:30:00</ora>
+	<luogo>Casa di Paolo</luogo>
+	<descrizione>Sessione di una serata per mettere alla prova i nostri primi personaggi. Invitiamo chiunque a fare lo stesso. Che l'avventura cominci!</descrizione>
 </notizia>
 <notizia id="2">
-	<titolo>hòhòh3</titolo>
+	<titolo>Popolare il sito!</titolo>
+	<data>2016-06-23</data>
+	<ora>18:00:00</ora>
+	<luogo>Casa di Mattia</luogo>
+	<descrizione>Riunione degli sviluppatori per creare i primi personaggi da caricare sul nostro sito. Chiaramente se qualcuno fosse interessato non indugi a contattarci!</descrizione>
 </notizia>
-<notizia id="0">
-	<titolo> Dilemmi sorgono! </titolo>
-	<data> 2016-04-28 </data>
-	<ora> 18:14:00 </ora>
-	<luogo> Casa di Paolo</luogo>
-	<descrizione>Come avrete letto nelle notizie precedenti XSL funziona. Il punto è che formano solo una pagina statica a partire da un file xml. Nella fattispecie il barbatrucco è aprire il file xml in questione dal server. Certo non si possono fare query di su misura, ma solo statiche. Quindi ora che fare? Si usano o non si usano? Aiutatemi vi prego! Io ne ho creata una di prova. Per vederla: localhost/populon/database/news.xml </descrizione>
-</notizia>
+
 <notizia id="1">
-	<titolo> XSL is real </titolo>
-	<data> 2016-04-28 </data>
-	<ora> 17:40:00 </ora>
-	<descrizione>Cari lettori, ho scoperto che xsl si può usare. So che come me non ci credevate ma è così.</descrizione>
+	<titolo>Nasce il sito di Populon!</titolo>
+	<data>2016-06-20</data>
+	<descrizione>Il mondo di Populon debutta finalmente su internet! Il sito è accessibile per chiunque e con il vostro aiuto sarà presto ricco di contenuti. Aiutateci a farlo conoscere!</descrizione>
 </notizia>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </notizie>

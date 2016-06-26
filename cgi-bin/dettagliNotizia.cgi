@@ -21,7 +21,7 @@ $page->start_html( # inizio pagina HTML
 ],
 -lang =>'it',											# Lingua del documento
 -meta => {'title' => 'Populon',							# Tutti i meta
-'description' => 'Gioco di ruolo di...',
+'description' => 'Le notizie in dettaglio',
 'keywords' => 'Gioco, ruolo, gdr, fantasy, dadi',
 'author' => 'Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato',
 'language' => 'italian it'},

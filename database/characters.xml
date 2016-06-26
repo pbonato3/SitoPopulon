@@ -1,92 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <characters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="characters.xsd">
-<character id="6">
-	<name>ciccioBello</name>
+<character id="2">
+	<name>Astator</name>
 	<race>Akquor</race>
-	<sex>male</sex>
-	<age>24</age>
-	<body value="9">
-		<ability name="Rutto Spaziale" level="5"/>
-	</body>
-	<mind value="23">
-	</mind>
-	<heart value="123">
-	</heart>
-	<bio/>
-</character>
-<character id="5">
-	<name>Gattivo</name>
-	<race>Tesserian</race>
-	<sex>male</sex>
-	<age>2</age>
-	<body value="25">
-		<ability name="Dormire" level="5"/>
-		<ability name="Cagare in giro per casa" level="1"/>
-		<ability name="Vomitare in giro per casa" level="1"/>
-	</body>
-	<mind value="5">
-		<ability name="Fare il mona" level="3"/>
-	</mind>
-	<heart value="20">
-		<ability name="Coccole" level="4"/>
-	</heart>
-	<bio>Un gatto</bio>
-</character>
-<character id="4">
-	<name>Toni</name>
-	<race>Umano</race>
 	<sex>M</sex>
-	<age>82</age>
-	<body value="25">
-		<ability name="Ombre de matina" level="5"/>
-		<ability name="Graspe dopo un boto" level="4"/>
+	<age>148</age>
+	<body value="80">
+		<ability name="Nuoto" level="5"/>
+		<ability name="Uso tridente" level="4"/>
+		<ability name="Mimetismo" level="3"/>
 	</body>
-	<mind value="10">
-		<ability name="Guardare i lavori" level="4"/>
+	<mind value="30">
+		<ability name="Strategie belliche" level="4"/>
 	</mind>
 	<heart value="40">
-		<ability name="Ai me tempi..." level="5"/>
+		<ability name="Ferocia " level="5"/>
 	</heart>
-	<bio>Un vecio contadin</bio>
+	<bio>Astator è un Akquor dall'indole bellicosa. Orfano di entrambi i genitori, viene affidato alle cure dell'esercito (usanza piuttosto comune nella sua città natale). Cresce imparando le arti del combattimento tipiche del suo popolo, ma non i concetti di pietà e amore. Il risultato è un mercenario spietato, abilissimo nell'uso del tridente e formidabile nei combattimenti acquatici.</bio>
 </character>
 
-
-<character id="2">
-	<name>Sanjo Rabaton jr.</name>
-	<race>Troll</race>
+<character id="1">
+	<name>Gigetto</name>
+	<race>Mustelan</race>
 	<sex>M</sex>
-	<age>35</age>
-	<body value="40">
-		<ability name="Griliare salsicce" level="2"/>
-		<ability name="Griliare costine" level="3"/>
-		<ability name="Griliare poenta" level="3"/>
+	<age>42</age>
+	<body value="78">
+		<ability name="Giggioneggiare" level="5"/>
+		<ability name="Rubare" level="1"/>
 	</body>
-	<mind value="0">
+	<mind value="4">
+		<ability name="Contar balle" level="4"/>
 	</mind>
 	<heart value="10">
-		<ability name="Far sagra" level="2"/>
+		<ability name="Ateismo" level="5"/>
 	</heart>
-	<bio>
-		Nato pa' far sagra e star su pa'ea piastra.
-	</bio>
+	<bio>Gigetto è un mustelan scaltro, ma non quanto pensa. Figlio di calzolai gran lavoratori, da loro non ha preso nulla se non le scarpe prima di scapparsene di casa, giorno dal quale ha iniziato la sua nuova vita impostata sul non lavorare. Per ovviare a ciò, ha imparato a spacciarsi per gran mercante, cardinale di Zavra, notaio e qualsivoglia personalità alla quale le umili persone non possono dire di no per un pasto caldo e ospitalità. La sua scarsissima abilità di rubare è sopperita dalla sua naturale inclinazione a raggirare il prossimo, scampando il peggio.</bio>
 </character>
 
-<character id="3">
-	<name>Babba Lea</name>
-	<race>Umano</race>
-	<sex>F</sex>
-	<age>21</age>
-	<body value="20">
-		<ability name="Griliare salsicce" level="2"/>
-	</body>
-	<mind value="0">
-	</mind>
-	<heart value="10">
-		<ability name="Far sagra" level="2"/>
-	</heart>
-	<bio>
-		Nato pa' far sagra e star su pa'ea piastra.
-	</bio>
-</character>
+
+
+
+
+
+
+
 
 </characters>
