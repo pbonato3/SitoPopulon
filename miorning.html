@@ -24,32 +24,32 @@
 	<!--Barra di navigazione come lista di link e span per la pagina corrente-->
 	<div class="nav">
 		<ul class="navbar">
-			<li class="button link" xml:lang="en" onclick="location.href='Home.html';"><a href="Home.html">Home</a></li>
-			<li class="button link" onclick="location.href='IlMondoDiGioco.html';"><a href="IlMondoDiGioco.html">Il mondo di gioco</a></li>
-			<li class="button link" onclick="location.href='cgi-bin/personaggi.cgi';"><a href="cgi-bin/personaggi.cgi">I personaggi</a></li>
-			<li class="button link" onclick="location.href='cgi-bin/Notizie.cgi';"><a href="cgi-bin/Notizie.cgi">Notizie</a></li>
-			<li class="button link" onclick="location.href='Chi.html';"><a href="Chi.html">Chi Siamo</a></li>
+			<li class="button link" xml:lang="en" onclick="location.href='Home.html';"><a href="Home.html" class="link">Home</a></li>
+			<li class="button link" onclick="location.href='IlMondoDiGioco.html';"><a href="IlMondoDiGioco.html" class="link">Il mondo di gioco</a></li>
+			<li class="button link" onclick="location.href='cgi-bin/personaggi.cgi';"><a href="cgi-bin/personaggi.cgi" class="link">I personaggi</a></li>
+			<li class="button link" onclick="location.href='cgi-bin/Notizie.cgi';"><a href="cgi-bin/Notizie.cgi" class="link">Notizie</a></li>
+			<li class="button link" onclick="location.href='Chi.html';"><a href="Chi.html" class="link">Chi Siamo</a></li>
 		</ul>
 	</div>
 	<div class="breadcrumbs">
 	<a name="saltamenu"></a>
 		<strong>Ti trovi in:</strong> <a href="IlMondoDiGioco.html">Mondo di Gioco</a> &gt&gt Myiorning
 	</div>
-	<div id="content">
+	<div class="content">
 		<img class="idrago" src="img/D_miorning_t.png" alt="Raffigurazione di Myorning" />
-		<h2>Myorning dell’Acqua è il Drago Patrono degli akquor.</h2> 
+		<h2>Myorning dell’Acqua è il Drago Patrono degli Akquor.</h2> 
 		
-		<h3>Gli akquor discendono dai pesci</h3>
+		<h3 class="razza">Gli Akquor discendono dai pesci</h3>
 		
-		<p>vivono, come unico organismo, in grandi insiemi chiamati "shoal". Shoal è anche il termine che gli akquor usano 
-		per indicare una comunità, si tratti di un quartiere, di un villaggio, dell’equipaggio di una nave. La sopravvivenza del gruppo è per un akquor più 
-		importante dell’individuo, e l'inclusione nella comunità è valore fondamentale: la pena per i reati più gravi non è la morte, bensì l’esilio.
-		sono, assieme ai nani, la civiltà all'apice dello sviluppo su Populon. Le loro colonie sorgono ovunque,
+		<img class="irazzar" src="img/akquor.jpg" alt="Raffigurazione di un Akquor" />
+		
+		<p class="desc">Gli Akquor vivono come unico organismo, in grandi insiemi chiamati "Shoal". Shoal è anche il termine che gli Akquor usano 
+		per indicare una comunità, si tratti di un quartiere, di un villaggio, dell’equipaggio di una nave. La sopravvivenza del gruppo è per un Akquor più 
+		importante dell’individuo e l'inclusione nella comunità è valore fondamentale: la pena per i reati più gravi non è la morte, bensì l’esilio.
+		Sono, assieme ai nani, la civiltà all'apice dello sviluppo su Populon. Le loro colonie sorgono ovunque,
 		le loro città sono l'apogeo del commercio, della ricchezza, della tecnologia e dell' organizzaizone politica e sociale.
-		Sono maestri nel nuoto e nella navigazione, ma soprattutto la discendenza dagli shoal conferisce loro un'incredibile capacità cooperativa, 
-		grazie alla quale ogni akquor aumenta la sua forza e le sue abilità quando compie un'azione assieme ad altri membri della sua razza. </p>
-		
-		<img class="irazza" src="img/akquor.jpg" alt="Raffigurazione di un Akquor" />
+		Sono maestri nel nuoto e nella navigazione, ma soprattutto la discendenza dagli Shoal conferisce loro un'incredibile capacità cooperativa, 
+		grazie alla quale ogni Akquor aumenta la sua forza e le sue abilità quando compie un'azione assieme ad altri membri della sua razza. </p>
 		
 	</div>
 	<div class="draghirazze">
@@ -86,9 +86,9 @@
 		</a>
 		<span><a href="artechnai.html">Artechnai</a></span>
 
-	<a href="#header">Vai a inizio pagina</a>
+	<a href="#header"  class="goup">Vai a inizio pagina</a>
 	</div>
-	<div id="footer">contatti: populon@gmail.com
+	<div id="footer">Contatti: populon@gmail.com
 		<div class="login">
 			<span>Login Amministratori</span>
 			<form action="cgi-bin/login.cgi" method="post">

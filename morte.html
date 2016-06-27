@@ -24,22 +24,22 @@
 	<!--Barra di navigazione come lista di link e span per la pagina corrente-->
 	<div class="nav">
 		<ul class="navbar">
-			<li class="button link" xml:lang="en" onclick="location.href='Home.html';"><a href="Home.html">Home</a></li>
-			<li class="button link" onclick="location.href='IlMondoDiGioco.html';"><a href="IlMondoDiGioco.html">Il mondo di gioco</a></li>
-			<li class="button link" onclick="location.href='cgi-bin/personaggi.cgi';"><a href="cgi-bin/personaggi.cgi">I personaggi</a></li>
-			<li class="button link" onclick="location.href='cgi-bin/Notizie.cgi';"><a href="cgi-bin/Notizie.cgi">Notizie</a></li>
-			<li class="button link" onclick="location.href='Chi.html';"><a href="Chi.html">Chi Siamo</a></li>
+			<li class="button link" xml:lang="en" onclick="location.href='Home.html';"><a href="Home.html" class="link">Home</a></li>
+			<li class="button link" onclick="location.href='IlMondoDiGioco.html';"><a href="IlMondoDiGioco.html" class="link">Il mondo di gioco</a></li>
+			<li class="button link" onclick="location.href='cgi-bin/personaggi.cgi';"><a href="cgi-bin/personaggi.cgi" class="link">I personaggi</a></li>
+			<li class="button link" onclick="location.href='cgi-bin/Notizie.cgi';"><a href="cgi-bin/Notizie.cgi" class="link">Notizie</a></li>
+			<li class="button link" onclick="location.href='Chi.html';"><a href="Chi.html" class="link">Chi Siamo</a></li>
 		</ul>
 	</div>
 	<div class="breadcrumbs">
 	<a name="saltamenu"></a>
 		<strong>Ti trovi in:</strong> <a href="IlMondoDiGioco.html">Mondo di Gioco</a> &gt&gt Morte
 	</div>
-	<div id="content">
+	<div class="content">
 		<img class="idrago" src="img/D_morte_t.png" alt="Raffigurazione di Morte" />
 		<h2>Morte</h2>
 		
-		<p>Morte non è patrono di alcuna razza, poichè a lui, infine, tutte devono tornare.
+		<p class="desc">Morte non è patrono di alcuna razza, poichè a lui, infine, tutte devono tornare.
 		Fra i vivi egli solo accoglie, di ogni razza, i reietti, gli esiliati, gli schiavi liberati, gli scampati alla forca. </p>
 	</div>
 	<div class="draghirazze">
@@ -76,9 +76,9 @@
 		</a>
 		<span><a href="artechnai.html">Artechnai</a></span>
 
-	<a href="#header">Vai a inizio pagina</a>
+	<a href="#header" class="goup">Vai a inizio pagina</a>
 	</div>
-	<div id="footer">contatti: populon@gmail.com
+	<div id="footer">Contatti: populon@gmail.com
 		<div class="login">
 			<span>Login Amministratori</span>
 			<form action="cgi-bin/login.cgi" method="post">
