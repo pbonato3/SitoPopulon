@@ -107,7 +107,46 @@ div.breadcrumbs{
 
 #footer{
 	background-color: #0066cc;
-	padding: 0.1em;
+	padding:0.1em;
+	color:#99ccff;
+	text-align:right;
+	padding-top:0.5em;
+}
+
+.login{
+	margin:0.8em;
+	text-align:left;
+}
+
+.login span{
+	font-style:italic;
+}
+
+input[type=text], input[type=password]{
+	padding:0.3em;
+	margin-right:1em;
+	-moz-border-radius:0.5em;
+	-webkit-border-radius:0.5em;
+	border-radius:0.5em;
+}
+
+input[type=text]:focus, input[type=password]:focus{
+	border:0.2em solid #99ccff;
+	background-color:#0066cc;
+	color:#99ccff;
+}
+
+input[type=submit]{
+	background-color: #0066cc;
+    border: 0.2em solid #99ccff;
+    color: #99ccff;
+    text-decoration: none;
+	padding:0.2em 1.5em;
+	font-size:0.78em;
+    cursor: pointer;
+	-moz-border-radius:5em;
+	-webkit-border-radius:5em;
+	border-radius:5em;
 }
 
 .goup{
@@ -181,6 +220,19 @@ div.breadcrumbs{
 	margin-right:1em;
 }
 
+/* -- Link alle pagine dei singoli draghi -- */
+.draghirazze{
+	width:16%;
+    vertical-align: center;
+    display: inline-block;
+    text-align: center;
+	margin-bottom:2em;
+}
+
+.draghirazze span{
+	display: block;
+}
+
 /* -- Contenuti multimediali delle pagine dei draghi -- */
 
 .idrago{
@@ -234,26 +286,10 @@ span.newsTag{
 span.newsValue{
 }
 
+/* -- Modalità di stampa -- */
 
-/* Non so bene da dove venga, la tengo qui fino a quando non trovo cosa faceva
-.titolo{
-    margin: 0 auto;
-    display: block;
-	width:15em;
-	height:auto;
-}*/
-
-
-
-/*link alle descrizioni dei draghi*/
-.draghirazze{
-	width:16%;
-    vertical-align: center;
-    display: inline-block;
-    text-align: center;
-	margin-bottom:2em;
-}
-
-.draghirazze span{
-	display: block;
+@media only print{
+	.head, .saltamenu, .nav, .breadcrumbs, .goup, #footer{
+		display: none;
+	}
 }
