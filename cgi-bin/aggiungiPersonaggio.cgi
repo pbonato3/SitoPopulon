@@ -11,20 +11,24 @@ my $page = CGI->new;					#creazione oggetto CGI
 
 my $admin = getSession();
 
-print $page->header,
-$page->start_html( # inizio pagina HTML
--title => 'Populon',									# Qui va il titolo
--dtd=>[ '-//W3C//DTD XHTML 1.0 Strict//EN',				# DTD
-'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'
-],
--lang =>'it',											# Lingua del documento
--meta => {'title' => 'Populon',							# Tutti i meta
-'description' => 'Compila sul sito la tua scheda e falla conoscere a tutti!',
-'keywords' => 'Gioco, ruolo, gdr, fantasy, dadi',
-'author' => 'Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato',
-'language' => 'italian it'},
--style =>{'src' => '/populon/PopStyle.css'},			# Link al CSS
--author => 'paolo.bonato.12@gmail.com');				# Mail all'autore
+print '
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it">
+<head>
+<title>Populon</title>
+<link rev="made" href="mailto:paolo.bonato.12%40gmail.com" />
+<meta name="keywords" content="Gioco, ruolo, gdr, fantasy, dadi" />
+<meta name="language" content="italian it" />
+<meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
+<meta name="title" content="Populon" />
+<meta name="description" content="Compila sul sito la tua scheda e falla conoscere a tutti!" />
+<link rel="stylesheet" type="text/css" href="/populon/PopStyle.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body onload=\'clearRedundant()\'>
+';
 
 #################		header		#################
 
@@ -50,7 +54,7 @@ my $max = 10;
 print "<script type=\"text/javascript\">
 
 function checkC(i) {
-	var x = document.getElementById('ac'.concat(i)).value;
+	var x = document.getElementById('acInput'.concat(i)).value;
 	if (x!='') {
 	   document.getElementById('ac'.concat(i+1)).style.display = 'block';
 	} else {
@@ -59,7 +63,7 @@ function checkC(i) {
 }
 
 function checkM(i) {
-	var x = document.getElementById('am'.concat(i)).value;
+	var x = document.getElementById('amInput'.concat(i)).value;
 	if (x!='') {
 	   document.getElementById('am'.concat(i+1)).style.display = 'block';
 	} else {
@@ -68,7 +72,7 @@ function checkM(i) {
 }
 
 function checkS(i) {
-	var x = document.getElementById('as'.concat(i)).value;
+	var x = document.getElementById('asInput'.concat(i)).value;
 	if (x!='') {
 	   document.getElementById('as'.concat(i+1)).style.display = 'block';
 	} else {
@@ -89,6 +93,56 @@ function clearRedundant() {
 	}
 }
 
+function checkEta() {
+	var x = document.getElementsByName('eta')[0].value;
+	if (isNumber(x) && Number(x)<1000) {
+		document.getElementById('errEta').style.display = 'none';	
+	} else {
+		document.getElementById('errEta').style.display = 'block';
+	}
+}
+
+
+function checkCorpo() {
+	var x = document.getElementsByName('corpo')[0].value;
+	if (isNumber(x) && Number(x)<1000) {
+		document.getElementById('errCorpo').style.display = 'none';	
+	} else {
+		document.getElementById('errCorpo').style.display = 'block';
+	}
+}
+
+function checkMente() {
+	var x = document.getElementsByName('mente')[0].value;
+	if (isNumber(x) && Number(x)<1000) {
+		document.getElementById('errMente').style.display = 'none';	
+	} else {
+		document.getElementById('errMente').style.display = 'block';
+	}
+}
+
+function checkSpirito() {
+	var x = document.getElementsByName('spirito')[0].value;
+	if (isNumber(x) && Number(x)<1000) {
+		document.getElementById('errSpirito').style.display = 'none';	
+	} else {
+		document.getElementById('errSpirito').style.display = 'block';
+	}
+}
+
+function isNumber(obj) { return !isNaN(parseFloat(obj)) }
+
+
+function checkNome() {
+	var x = document.getElementsByName('nome')[0].value;
+	if (x!='') {
+		document.getElementById('errNome').style.display = 'none';	
+	} else {
+		document.getElementById('errNome').style.display = 'block';
+	}
+}
+
+
 </script>";
 
 
@@ -107,7 +161,8 @@ print "<div class='scheda'>";
 # form per l'input dei dati di un personaggio
 	print "<form action='inserimentoPersonaggio.cgi' method='post' enctype='multipart/form-data'>";
 	# Insermento nome
-	print "<p> Nome: <input onclick='clearRedundant()' name='nome' type='text'/></p>";
+	print "<p> Nome: <input name='nome' type='text' onchange='checkNome()'/></p>";
+	print "<p id='errNome' style='display: none'>Il nome &egrave; obbligatorio</p>";
 	# Inserimento razza
 	print "<p>Razza: <select name='razza'>",
 		"<option value='Akquor'>Akquor</option>",
@@ -124,12 +179,14 @@ print "<div class='scheda'>";
 	print "<p>Sesso: <input type='radio' name='sesso' value='M' checked='checked' /> M",
 		"<input type='radio' name='gender' value='F' /> F </p>";
 	# Inserimento età
-	print "<p>Et&agrave;: <input name='eta' type='text' /></p>";
+	print "<p>Et&agrave;: <input name='eta' type='text' onchange='checkEta()' /></p>";
+	print "<p id='errEta' style='display: none'>L'et&agrave; deve essere un numero di massimo tre cifre</p>";
 	# Inserimento punti corpo
-	print "<p>Punti corpo: <input name='corpo' type='text' /></p>";
+	print "<p>Punti corpo: <input name='corpo' type='text' onchange='checkCorpo()'/></p>";
+	print "<p id='errCorpo' style='display: none'>I punti corpo devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p id='ac$i'>Abilit&agrave;: <input name='name_c$i' type='text' oninput='checkC($i)' />";
+			print "<p id='ac$i'>Abilit&agrave;: <input name='name_c$i' type='text' oninput='checkC($i)' id='acInput$i' />";
 			print "Livello: <select name='value_c$i' id='lc$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
@@ -138,10 +195,11 @@ print "<div class='scheda'>";
 		}
 		print "</div>";
 	# Inserimento punti mente
-	print "<p>Punti mente: <input name='mente' type='text' /></p>";
+	print "<p>Punti mente: <input name='mente' type='text' onchange='checkMente()' /></p>";
+	print "<p id='errMente' style='display: none'>I punti mente devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p id='am$i'>Abilit&agrave;: <input name='name_m$i' type='text' oninput='checkM($i)' />";
+			print "<p id='am$i'>Abilit&agrave;: <input name='name_m$i' type='text' oninput='checkM($i) id='amInput$i'' />";
 			print "Livello: <select name='value_m$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
@@ -150,10 +208,11 @@ print "<div class='scheda'>";
 		}
 		print "</div>";
 	# Inserimento punti spirito
-	print "<p>Punti spirito: <input name='spirito' type='text'/></p>";
+	print "<p>Punti spirito: <input name='spirito' type='text' onchange='checkSpirito()'/></p>";
+	print "<p id='errSpirito' style='display: none'>I punti spirito devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p id='as$i'>Abilit&agrave;: <input name='name_s$i' type='text' oninput='checkS($i)'/>";
+			print "<p id='as$i'>Abilit&agrave;: <input name='name_s$i' type='text' oninput='checkS($i) id='asInput$i''/>";
 			print "Livello: <select name='value_s$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
