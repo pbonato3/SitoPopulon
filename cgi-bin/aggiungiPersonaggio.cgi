@@ -161,7 +161,7 @@ print "<div class='scheda'>";
 # form per l'input dei dati di un personaggio
 	print "<form action='inserimentoPersonaggio.cgi' method='post' enctype='multipart/form-data'>";
 	# Insermento nome
-	print "<p> Nome: <input name='nome' type='text' onchange='checkNome()'/></p>";
+	print "<p> Nome: <input name='nome' type='text' oninput='checkNome()'/></p>";
 	print "<p id='errNome' style='display: none'>Il nome &egrave; obbligatorio</p>";
 	# Inserimento razza
 	print "<p>Razza: <select name='razza'>",
@@ -179,10 +179,10 @@ print "<div class='scheda'>";
 	print "<p>Sesso: <input type='radio' name='sesso' value='M' checked='checked' /> M",
 		"<input type='radio' name='gender' value='F' /> F </p>";
 	# Inserimento età
-	print "<p>Et&agrave;: <input name='eta' type='text' onchange='checkEta()' /></p>";
+	print "<p>Et&agrave;: <input name='eta' type='text' oninput='checkEta()' /></p>";
 	print "<p id='errEta' style='display: none'>L'et&agrave; deve essere un numero di massimo tre cifre</p>";
 	# Inserimento punti corpo
-	print "<p>Punti corpo: <input name='corpo' type='text' onchange='checkCorpo()'/></p>";
+	print "<p>Punti corpo: <input name='corpo' type='text' oninput='checkCorpo()'/></p>";
 	print "<p id='errCorpo' style='display: none'>I punti corpo devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
@@ -195,7 +195,7 @@ print "<div class='scheda'>";
 		}
 		print "</div>";
 	# Inserimento punti mente
-	print "<p>Punti mente: <input name='mente' type='text' onchange='checkMente()' /></p>";
+	print "<p>Punti mente: <input name='mente' type='text' oninput='checkMente()' /></p>";
 	print "<p id='errMente' style='display: none'>I punti mente devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
@@ -208,7 +208,7 @@ print "<div class='scheda'>";
 		}
 		print "</div>";
 	# Inserimento punti spirito
-	print "<p>Punti spirito: <input name='spirito' type='text' onchange='checkSpirito()'/></p>";
+	print "<p>Punti spirito: <input name='spirito' type='text' oninput='checkSpirito()'/></p>";
 	print "<p id='errSpirito' style='display: none'>I punti spirito devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
