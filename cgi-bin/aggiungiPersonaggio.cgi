@@ -39,9 +39,66 @@ li(a({-href => '/populon/cgi-bin/personaggi.cgi'},"I personaggi")),
 li(a({-href => '/populon/cgi-bin/Notizie.cgi'},"Notizie")),
 li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n"; 
 
+
+
+
 #################		content		#################
 #massimo numero di abilità
 my $max = 10;
+
+
+print "<script type=\"text/javascript\">
+
+function checkC(i) {
+	var x = document.getElementById('ac'.concat(i)).value;
+	if (x!='') {
+	   document.getElementById('ac'.concat(i+1)).style.display = 'block';
+	} else {
+	   document.getElementById('ac'.concat(i+1)).style.display = 'none';
+	}
+}
+
+function checkM(i) {
+	var x = document.getElementById('am'.concat(i)).value;
+	if (x!='') {
+	   document.getElementById('am'.concat(i+1)).style.display = 'block';
+	} else {
+	   document.getElementById('am'.concat(i+1)).style.display = 'none';
+	}
+}
+
+function checkS(i) {
+	var x = document.getElementById('as'.concat(i)).value;
+	if (x!='') {
+	   document.getElementById('as'.concat(i+1)).style.display = 'block';
+	} else {
+	   document.getElementById('as'.concat(i+1)).style.display = 'none';
+	}
+}
+
+
+function clearRedundant() {
+	for (i = 1; i < $max; i++) { 
+		document.getElementById('ac'.concat(i)).style.display = 'none';	
+	}
+	for (j = 1; j < $max; j++) { 
+		document.getElementById('am'.concat(j)).style.display = 'none';	
+	}
+	for (k = 1; k < $max; k++) { 
+		document.getElementById('as'.concat(k)).style.display = 'none';	
+	}
+}
+
+</script>";
+
+
+
+
+
+
+
+
+
 
 print "<div id='content'>";
 print "<h2> Compila la tua scheda </h2>";
@@ -50,7 +107,7 @@ print "<div class='scheda'>";
 # form per l'input dei dati di un personaggio
 	print "<form action='inserimentoPersonaggio.cgi' method='post' enctype='multipart/form-data'>";
 	# Insermento nome
-	print "<p>Nome: <input name='nome' type='text'/></p>";
+	print "<p> Nome: <input onclick='clearRedundant()' name='nome' type='text'/></p>";
 	# Inserimento razza
 	print "<p>Razza: <select name='razza'>",
 		"<option value='Akquor'>Akquor</option>",
@@ -72,8 +129,8 @@ print "<div class='scheda'>";
 	print "<p>Punti corpo: <input name='corpo' type='text' /></p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p>Abilit&agrave;: <input name='name_c$i' type='text' />";
-			print "Livello: <select name='value_c$i'>";
+			print "<p id='ac$i'>Abilit&agrave;: <input name='name_c$i' type='text' oninput='checkC($i)' />";
+			print "Livello: <select name='value_c$i' id='lc$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
 			}
@@ -84,7 +141,7 @@ print "<div class='scheda'>";
 	print "<p>Punti mente: <input name='mente' type='text' /></p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p>Abilit&agrave;: <input name='name_m$i' type='text' />";
+			print "<p id='am$i'>Abilit&agrave;: <input name='name_m$i' type='text' oninput='checkM($i)' />";
 			print "Livello: <select name='value_m$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
@@ -96,7 +153,7 @@ print "<div class='scheda'>";
 	print "<p>Punti spirito: <input name='spirito' type='text'/></p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p>Abilit&agrave;: <input name='name_s$i' type='text' />";
+			print "<p id='as$i'>Abilit&agrave;: <input name='name_s$i' type='text' oninput='checkS($i)'/>";
 			print "Livello: <select name='value_s$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
@@ -109,6 +166,8 @@ print "<div class='scheda'>";
 	print "<p><input type='submit' value='Conferma'/></p>";
 	print "</form>";
 print "</div></div>";
+
+
 
 	
 print $page->end_html, "\n"; # fine pagina HTML
