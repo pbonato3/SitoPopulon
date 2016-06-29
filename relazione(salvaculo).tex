@@ -1,0 +1,223 @@
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+\usepackage[english, italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{graphicx}
+\graphicspath{{../Immagini/}}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+
+%\usepackage{times} % Uncomment to use the Times New Roman font
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Relazione Sito Web Populon \\ Progetto di Tecnologie Web} % Title
+
+\begin{document}
+
+\maketitle % Insert the title, author and date
+
+\begin{center}
+\begin{tabular}{l r}
+Componenti del gruppo: & Diego Baratto \\ % Partner names
+& Mattia Biggeri \\
+& Paolo Bonato \\
+& Tommaso Padovan \\
+\end{tabular}
+\end{center}
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+
+\section{Abstract}
+
+ 
+%----------------------------------------------------------------------------------------
+%	SECTION 2
+%----------------------------------------------------------------------------------------
+
+\section{Utenti destinatari}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3
+%----------------------------------------------------------------------------------------
+
+\section{Accessibilità}
+
+\subsection{Separazione tra contenuto, presentazione e struttura}
+
+\subsection{Schema colori}
+
+\subsection{Tag meta}
+
+\subsection{Screen reader}
+
+\subsection{Facilitazioni per la navigazione}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 4
+%----------------------------------------------------------------------------------------
+
+\section{Usabilità}
+
+\subsection{Le sei W}
+\subsection{Barra di navigazione}
+\subsection{Percorso}
+\subsection{Link}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 5
+%----------------------------------------------------------------------------------------
+
+\section{File}
+\subsection{Gerarchia}
+\subsection{Struttura}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 6
+%----------------------------------------------------------------------------------------
+
+\section{Presentazione}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 7
+%----------------------------------------------------------------------------------------
+
+\section{Comportamento}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 8
+%----------------------------------------------------------------------------------------
+
+\section{Gestione dei dati}
+	\subsection{XML}
+		Il sito necessita di tre tipologie di dati:
+		\begin{itemize}
+			\item \textbf{Amministratore: } Rappresenta un amministratore del sito tramite uno username ed una password.
+			\item \textbf{Novità: } Rappresenta una novità che un amministratore può scrivere e pubblicare nella pagina apposita.
+				Consiste come minimo di una frase come titolo e offre vari campi facoltativi tra cui data, ora, luogo e
+				descrizione. Ogni notizia è identificata da un ID univoco.
+			\item \textbf{Personaggio: } Rappresenta un personaggio del gioco inventato da un utente. Ha una struttura complessa 
+				che rappresenta al meglio il personaggio. I dati obbligatori sono: Nome, Razza, Età, Punti Corpo, Punti Mente, 
+				Punti Spirito. I dati ulteriori invece comprendono un numero arbitrario di abilità per ogni 
+				tipo(Corpo,Mente,Spirito) e una biografia del personaggio. Ogni abilità ha un suo Nome ed un suo Livello.
+				Ogni personaggio è identificato da un ID univoco.
+	\end{itemize}
+	
+	\subsection{XSD}
+		Per verificare la validità dei dati sono stati creati degli appositi schemi che definiscono i vari tag che possono
+		comparire nei file XML e, quando necessario, i vincoli di unicità.
+		Inoltre definiscono quali sono gli elementi e gli attributi obbligatori.
+		
+	\subsection{XSLT}
+		Inizialmente era stato ipotizzato di utilizzare dei fogli di trasformazione per visualizzare le notizie ma l'idea 
+		è stata successivamente abbandonata per favorire delle ricerche più mirate e facili per l'utente.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 9
+%----------------------------------------------------------------------------------------
+
+\section{Perl}
+	Perl viene usato per gestire la visualizzazione e la gestione delle informazioni dinamiche. 
+	Tali pagine assumono un comportamento differente se a visitarle è un amministratore.
+	\subsection{Pagine Utente}
+		Un utente ha a disposizione le seguenti pagine:
+		\begin{itemize}
+			\item \texttt{Notizie.cgi : } Pagina dove l'utente può consultare le notizie pubblicate.
+				Le notizie vengono divise in gruppi di dieci dalle più recenti alle più datate.
+				Questa pagina offre inoltre una funzione che filtra le notizie secondo tre parametri:
+				il titolo deve contenere una data stringa,
+				il luogo deve contenere una data stringa,
+				la data deve corrispondere ad una determinata data.
+				Le notizie appaiono solo come titolo e data ed espongono un link per visualizzarne i dettagli.
+				
+			\item \texttt{dettagliNotizia.cgi : } Pagina dove l'utente può visualizzare tutti i campi di una singola notizia.
+			\item \texttt{personaggi.cgi : } Pagina dove l'utente può consultare i personaggi pubblicati.
+				I personaggi vengono divisi in gruppi di dieci dai più recenti ai più datati.
+				Questa pagina offre inoltre una funzione che filtra i personaggi secondo due parametri:
+				il nome deve contenere una data stringa,
+				la razza deve corrispondere ad una scelta.
+				I personaggi appaiono come Nome e Razza ed espongono un link per visualizzarne i dettagli. 
+			\item \texttt{dettagliPersonaggio.cgi : } Pagina dove l'utente può visualizzare tutti i dati relativi al personaggio selezionato.
+			\item \texttt{aggiungiPersonaggio.cgi : } Pagina dove l'utente può compilare la scheda di un personaggio.
+				Per la compilazione la pagina si avvale di un form che vincola il numero di abilità di un personaggio ad un
+				massimo di dieci per ogni tipologia. La conferma invia i dati alla pagina \texttt{inserimentoPersonaggio.cgi}.
+			\item \texttt{inserimentoPersonaggio.cgi : } Questa pagina svolge la funzione di inserire il personaggio appena
+				creato dall'utente nel database. In assenza di JavaScript controlla che tutti i dati obbligatori siano presenti 
+				e che corrispondano alla giusta tipologia. Infine la pagina mostra all'utente l'esito dell'operazione e fornisce 
+				un pulsante per tornare alla pagina dei personaggi.
+		\end{itemize}
+		Se un utente tenta di accedere ad una pagina amministratore viene reindirizzato alla pagina \texttt{restricted.html}.
+\subsection{Pagine Amministratore}
+		Un amministratore ha a disposizione tutte le pagine utente e poche altre:
+		\begin{itemize}
+			\item \texttt{login.cgi : } Pagina che chiama la funzione di login per amministratori. Dopo aver controllato i dati
+				mostra all'utente l'esito dell'operazione.
+			\item \texttt{logout.cgi : } Pagina che chiama la funzione di logout per amministratori. Dopo aver eseguito la 
+				funzione mostra all'utente l'esito dell'operazione.
+			\item \texttt{Notizie.cgi : } La pagina risulta uguale alla pagina utente con la differenza che sono presenti su 
+				ogni notizia i link alle pagine per la modifica e la cancellazione della notizia. 
+				Inoltre è disponibile la funzione per scrivere una nuova notizia.				
+			\item \texttt{dettagliNotizia.cgi : } Questa pagina mostra all'amministratore tutti i campi della notizia in
+				 dettaglio ma a differenza della pagina per l'utente permette di modificarli.
+				 Per la modifica la pagina si avvale di un form e la conferma invia i dati alla pagina 
+				\texttt{inserimentoNotizia.cgi}.
+			\item \texttt{scriviNotizia.cgi : } Pagina dove l'amministratore può aggiungere una nuova notizia.
+				Per la compilazione la pagina si avvale di un form e la conferma invia i dati alla pagina 
+				\texttt{inserimentoNotizia.cgi}.
+			\item \texttt{inserimentoNotizia.cgi : } Questa pagina svolge la funzione di inserire la notizia appena
+				creata dall'amministratore nel database. In assenza di JavaScript controlla che il titolo sia presente
+				e che i dati corrispondano alla giusta tipologia. Infine la pagina mostra all'amministratore l'esito 
+				dell'operazione e fornisce un pulsante per tornare alla pagina delle notizie.
+			\item \texttt{processDeleteNotizia.cgi : } Pagina che chiama la funzione di eliminazione di una notizia dal
+				database. Dopo aver eseguito la funzione mostra l'esito all'amministratore.
+			\item \texttt{personaggi.cgi : } Stessa pagina dell'utente, con la sola aggiunta di poter eliminare un personaggio.
+			\item \texttt{dettagliPersonaggio.cgi : } Stessa pagina dell'utente.
+			\item \texttt{aggiungiPersonaggio.cgi : } Stessa pagina dell'utente.
+			\item \texttt{inserimentoPersonaggio.cgi : } Stessa pagina dell'utente.
+			\item \texttt{processDeletePersonaggio.cgi : } Pagina che chiama la funzione di eliminazione di un personaggio dal
+				database. Dopo aver eseguito la funzione mostra l'esito all'amministratore.
+		\end{itemize}			
+	\subsection{Funzioni}
+		La maggior parte delle funzioni sono state racchiuse nel file \texttt{funzioni.pl} per semplificare la scrittura degli 
+		altri file ed evitare le ripetizioni di codice.
+	\subsection{Sessioni}
+		Solo gli amministratori fanno uso delle sessioni. Al momento del login se le credenziali sono corrette viene creata una
+		sessione. Inoltre viene anche inviato un cookie all'amministratore, contenente l'id della sessione. Quindi ad ogni
+		richiesta l'amministratore invia il codice della sessione e si controlla che questo esista.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 10
+%----------------------------------------------------------------------------------------
+
+\section{Test e validazione}
+
+
+
+%----------------------------------------------------------------------------------------
+%	APPENDIX
+%----------------------------------------------------------------------------------------
+
+\appendix
+	\section{Organizzazione del lavoro}
+
+%----------------------------------------------------------------------------------------
+
+
+\end{document}
+\ No newline at end of file
