@@ -264,11 +264,7 @@ div.news{
 	margin-bottom:2em;
 	padding:1em;
 	border: 0.2em solid black;
-	background-color:white;		/*Se volessimo fare le cose fatte bene questo dovrebbe poter essere scelto dinamicamente*/
-	
-	/* Impostazioni per un'eventuale immagine di sfondo */
-	background-repeat:none;
-	background-size:contain;
+	background-color:white;
 	
 }
 
@@ -276,6 +272,7 @@ div.news img{
 	display:block;
 	float: left; /* immagini a sinistra  con testo che scorre a destra*/
 	height: 25em; /* immagini di altezza fissa 25em e larghezza proporzionale */
+	width:auto;
 	margin-right:2em;
 }
 
@@ -289,7 +286,53 @@ span.newsValue{
 /* -- Modalità di stampa -- */
 
 @media only print{
-	.head, .saltamenu, .nav, .breadcrumbs, .goup, #footer{
+	.head, .saltamenu, .nav, .breadcrumbs, .goup, .dragowrapper, #footer{
 		display: none;
+	}
+}
+
+/* -- Regole per mobile -- */
+@media screen and (max-width:980px){
+	#header .head{
+		width:91%;
+		height:auto;
+	}
+	
+	li.button{
+		width:80%;
+		padding:0.5em 5%;
+		margin-bottom: 0.2em;
+	}
+	
+	li.link, li.current{
+		text-align:center;
+	}
+	
+	.content h3{
+		position:static;
+	}
+	
+	.draghirazze{
+		margin:0.1em;
+		margin-bottom:1em;
+		width:30%;
+	}
+	
+	.idrago{
+		max-width:80%;
+		height:auto;
+	}
+	
+	.irazzal, .irazzar{
+		display:inline-block;
+		max-width:60%;
+		height:auto;
+	}
+}
+
+@media screen and (max-width:650px){
+	.sdrago{
+		width:90%;
+		height:auto;
 	}
 }
