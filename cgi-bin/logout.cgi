@@ -8,4 +8,4 @@ require funzioni;
 
 my $page = CGI->new;						#creazione oggetto CGI
 destroySession();							#distruggo la sessione
-print $page->redirect("/populon/Home.html");	#reindirizzo alla home
+print $page->redirect("../Home.html");	#reindirizzo alla home

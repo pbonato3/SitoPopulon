@@ -21,25 +21,29 @@ $page->start_html( # inizio pagina HTML
 ],
 -lang =>'it',											# Lingua del documento
 -meta => {'title' => 'Populon',							# Tutti i meta
-'description' => 'Le notizie in dettaglio',
+'description' => 'Le notizie nel dettaglio',
 'keywords' => 'Gioco, ruolo, gdr, fantasy, dadi',
 'author' => 'Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato',
 'language' => 'italian it'},
--style =>{'src' => '/populon/PopStyle.css'},			# Link al CSS
+-style =>{'src' => '../PopStyle.css'},			# Link al CSS
 -author => 'paolo.bonato.12@gmail.com');				# Mail all'autore
 
 #################		header		#################
 
-print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png", -alt => "Populon"})), "\n";
+print $page->div({-class => 'sbarra'}), "\n";
+
+print $page->div({-id => 'header'}, h1("Populon"), img({-class => 'head', -src => "../img/titolo.png", -alt => "Populon"}), a({-class => 'saltamenu', -href => '#saltamenu'}, "Salta il menu di navigazione")), "\n";
 
 #################		nav		#################
 
-print $page->div({-id => 'nav'}, ul(
-li(a({-href => '/populon/Home.html'},"Home")),
-li(a({-href => '/populon/IlMondoDiGioco.html'},"Il mondo di gioco")),
-li(a({-href => '/populon/IPersonaggi.html'},"I personaggi")),
-li(a({-href => 'Notizie.cgi'},"Notizie")),
-li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n"; 
+print $page->div({-class => 'nav'}, ul({-class => 'navbar'},
+li({-class => 'button link', -onclick => 'location.href="../Home.html";'}, a({-href => '../Home.html', -class => 'link'},"Home")),
+li({-class => 'button link', -onclick => 'location.href="../IlMondoDiGioco.html";'}, a({-href => '../IlMondoDiGioco.html', -class => 'link'},"Il mondo di gioco")),
+li({-class => 'button link', -onclick => 'location.href="../cgi-bin/personaggi.cgi";'}, a({-href => '../cgi-bin/personaggi.cgi', -class => 'link'},"Personaggi")),
+li({-class => 'button link', -onclick => 'location.href="../cgi-bin/Notizie.cgi";'}, a({-href => '../cgi-bin/Notizie.cgi', -class => 'link'},"Notizie")),
+li({-class => 'button link', -onclick => 'location.href="../Chi.html";'}, a({-href => '../Chi.html', -class => 'link'},"Chi siamo")))), "\n"; 
+
+print $page->div({-class => 'breadcrumbs'}, a({-name => 'saltamenu'}), strong("Ti trovi in: "), a({-href => 'Notizie.cgi'}, "Notizie"), "&gt &gt Dettagli Notizia"), "\n";
 
 
 #################		content		#################
@@ -60,7 +64,7 @@ $descrizione=$descrizione->string_value();
 
 
 print<<END;
-<div id='content'>
+<div class='content'>
 <h2> Notizie </h2>
 END
 
@@ -74,7 +78,7 @@ print"
 		if($luogo){ print "<p><span class='newsTag'>Luogo:</span><span class='newsValue'>$luogo</span></p>";}
 		if($descrizione){ print "<span class='newsTag'>Descrizione:</span><p class='newsValue'>$descrizione</p>";}
 print	"</div>
-	</div>";
+	<a href='#header' class='goup'>Vai a inizio pagina</a></div>";
 
 } else {
 print<<END;
@@ -103,17 +107,23 @@ print<<END;
 END
 };
 
-
-
-
-
-
-
-
-
-
-
-
+print "<div id='footer'>Contatti: populon(at)gmail.com
+		<div class='login'>
+			<span>Login Amministratori</span>
+			<form action='login.cgi' method='post'>
+				<p>Username:
+					<input name='username' type='text' />
+					Password:
+					<input name='password' type='password' />
+					<input value='Login' type='submit' />
+				</p>
+			</form>
+			<form action='logout.cgi' method='post'>
+				<p><input value='Logout' type='submit' /></p>
+			</form>
+		</div>
+	</div>
+	</div>";
 
 
 print $page->end_html, "\n"; # fine pagina HTML

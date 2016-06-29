@@ -56,25 +56,30 @@ $page->start_html( # inizio pagina HTML
 'keywords' => 'Gioco, ruolo, gdr, fantasy, dadi',
 'author' => 'Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato',
 'language' => 'italian it'},
--style =>{'src' => '/populon/PopStyle.css'},			# Link al CSS
+-style =>{'src' => '../PopStyle.css'},			# Link al CSS
 -author => 'paolo.bonato.12@gmail.com');				# Mail all'autore
 
 #################		header		#################
 
-print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png", -alt => "Populon"})), "\n";
+print $page->div({-class => 'sbarra'}), "\n";
+
+print $page->div({-id => 'header'}, h1("Populon"), img({-class => 'head', -src => "../img/titolo.png", -alt => "Populon"}), a({-class => 'saltamenu', -href => '#saltamenu'}, "Salta il menu di navigazione")), "\n";
 
 #################		nav		#################
 
-print $page->div({-id => 'nav'}, ul(
-li(a({-href => '/populon/Home.html'},"Home")),
-li(a({-href => '/populon/IlMondoDiGioco.html'},"Il mondo di gioco")),
-li(span("I Personaggi")),
-li(a({-href => '/populon/cgi-bin/Notizie.cgi'},"Notizie")),
-li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n"; 
+print $page->div({-class => 'nav'}, ul({-class => 'navbar'},
+li({-class => 'button link', -onclick => 'location.href="../Home.html";'}, a({-href => '../Home.html', -class => 'link'},"Home")),
+li({-class => 'button link', -onclick => 'location.href="../IlMondoDiGioco.html";'}, a({-href => '../IlMondoDiGioco.html', -class => 'link'},"Il mondo di gioco")),
+li({-class => 'button current'}, span("I Personaggi")),
+li({-class => 'button link', -onclick => 'location.href="../cgi-bin/Notizie.cgi";'}, a({-href => '../cgi-bin/Notizie.cgi', -class => 'link'},"Notizie")),
+li({-class => 'button link', -onclick => 'location.href="../Chi.html";'}, a({-href => '../Chi.html', -class => 'link'},"Chi siamo")))), "\n"; 
+
+print $page->div({-class => 'breadcrumbs'}, a({-name => 'saltamenu'}), strong("Ti trovi in: "), "Personaggi"), "\n";
+
 
 #################		content		#################
 
-print "<div id='content'>";
+print "<div class='content'>";
 #genero l'array contenete i link per la paginazione delle notizie
 my $totNotizie=0;
 foreach(@characters) {$totNotizie+=1;}
@@ -131,11 +136,11 @@ foreach(@arrLink) {
 }
 
 print "<h2> I Vostri Personaggi </h2>";
-print "<h4>Filtro personaggi</h4>";
-print "<form action='/populon/cgi-bin/aggiungiPersonaggio.cgi' method='post'>";
+print "<h3>Filtro personaggi</h3>";
+print "<form action='aggiungiPersonaggio.cgi' method='post'>";
 print "<p><input type='submit' value='Compila la tua scheda'/></p>";
 print "</form>";
-print "<form action='/populon/cgi-bin/personaggi.cgi' method='get'>";
+print "<form action='personaggi.cgi' method='get'>";
 print "<p>Nome: <input name='nome' type='text'/></p>";
 print "<p>Razza: <select name='razza'>",
 	"<option value=''>Tutti</option>",
@@ -184,7 +189,26 @@ foreach(@arrLink) {
 	print " | ";
 }
 
-print "</div>";
+print "<a href='#header' class='goup'>Vai a inizio pagina</a>
+</div>";
+
+print "<div id='footer'>Contatti: populon(at)gmail.com
+		<div class='login'>
+			<span>Login Amministratori</span>
+			<form action='login.cgi' method='post'>
+				<p>Username:
+					<input name='username' type='text' />
+					Password:
+					<input name='password' type='password' />
+					<input value='Login' type='submit' />
+				</p>
+			</form>
+			<form action='logout.cgi' method='post'>
+				<p><input value='Logout' type='submit' /></p>
+			</form>
+		</div>
+	</div>
+	</div>";
 
 	
 print $page->end_html, "\n"; # fine pagina HTML

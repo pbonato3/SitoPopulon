@@ -19,25 +19,29 @@ $page->start_html( # inizio pagina HTML
 ],
 -lang =>'it',											# Lingua del documento
 -meta => {'title' => 'Populon',							# Tutti i meta
-'description' => 'Le vostre schede',
+'description' => 'Osserva le caratteristiche del personaggio selezionato',
 'keywords' => 'Gioco, ruolo, gdr, fantasy, dadi',
 'author' => 'Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato',
 'language' => 'italian it'},
--style =>{'src' => '/populon/PopStyle.css'},			# Link al CSS
+-style =>{'src' => '../PopStyle.css'},			# Link al CSS
 -author => 'paolo.bonato.12@gmail.com');				# Mail all'autore
 
 #################		header		#################
 
-print $page->div({-id => 'header'}, h1("Populon"), img({-src => "/populon/img/titolo.png", -alt => "Populon"})), "\n";
+print $page->div({-class => 'sbarra'}), "\n";
+
+print $page->div({-id => 'header'}, h1("Populon"), img({-class => 'head', -src => "../img/titolo.png", -alt => "Populon"}), a({-class => 'saltamenu', -href => '#saltamenu'}, "Salta il menu di navigazione")), "\n";
 
 #################		nav		#################
 
-print $page->div({-id => 'nav'}, ul(
-li(a({-href => '/populon/Home.html'},"Home")),
-li(a({-href => '/populon/IlMondoDiGioco.html'},"Il mondo di gioco")),
-li(a({-href => '/populon/cgi-bin/personaggi.cgi'},"I personaggi")),
-li(a({-href => '/populon/cgi-bin/Notizie.cgi'},"Notizie")),
-li(a({-href => '/populon/Chi.html'},"Chi Siamo")))), "\n"; 
+print $page->div({-class => 'nav'}, ul({-class => 'navbar'},
+li({-class => 'button link', -onclick => 'location.href="../Home.html";'}, a({-href => '../Home.html', -class => 'link'},"Home")),
+li({-class => 'button link', -onclick => 'location.href="../IlMondoDiGioco.html";'}, a({-href => '../IlMondoDiGioco.html', -class => 'link'},"Il mondo di gioco")),
+li({-class => 'button link', -onclick => 'location.href="../cgi-bin/personaggi.cgi";'}, a({-href => '../cgi-bin/personaggi.cgi', -class => 'link'},"Personaggi")),
+li({-class => 'button link', -onclick => 'location.href="../cgi-bin/Notizie.cgi";'}, a({-href => '../cgi-bin/Notizie.cgi', -class => 'link'},"Notizie")),
+li({-class => 'button link', -onclick => 'location.href="../Chi.html";'}, a({-href => '../Chi.html', -class => 'link'},"Chi siamo")))), "\n"; 
+
+print $page->div({-class => 'breadcrumbs'}, a({-name => 'saltamenu'}), strong("Ti trovi in: "), a({-href => 'personaggi.cgi'}, "Personaggi"), "&gt &gt Dettagli Personaggio"), "\n";
 
 
 #################		content		#################
@@ -58,7 +62,7 @@ my @abilitaHeart=$personaggio->findnodes('heart/ability');
 my $biografia=$personaggio->findnodes('bio');
 
 print<<END;
-<div id='content'>
+<div class='content'>
 END
 
 print"
@@ -71,23 +75,41 @@ print"
 		foreach(@abilitaCorpo){
 			my $nomeAbilita = $_->findnodes('@name');
 			my $livelloAbilita = $_->findnodes('@level');
-			print "<p><span class='abilita'>$nomeAbilita   Livello: $livelloAbilita</span></p>";
+			print "<p><span class='abilita'><span class='schedaTag'>$nomeAbilita</span>   Livello $livelloAbilita</span></p>";
 		}
 		print "<p><span class='schedaTag'>Punti Mente: </span><span class='schedaValue'>$puntiMente</span></p>";
 		foreach(@abilitaMente){
 			my $nomeAbilita = $_->findnodes('@name');
 			my $livelloAbilita = $_->findnodes('@level');
-			print "<p><span class='abilita'>$nomeAbilita   Livello: $livelloAbilita</span></p>";
+			print "<p><span class='abilita'><span class='schedaTag'>$nomeAbilita</span>   Livello $livelloAbilita</span></p>";
 		}
 		print "<p><span class='schedaTag'>Punti Spirito: </span><span class='schedaValue'>$puntiHeart</span></p>";
 		foreach(@abilitaHeart){
 			my $nomeAbilita = $_->findnodes('@name');
 			my $livelloAbilita = $_->findnodes('@level');
-			print "<p><span class='abilita'>$nomeAbilita   Livello: $livelloAbilita</span></p>";
+			print "<p><span class='abilita'><span class='schedaTag'>$nomeAbilita</span>   Livello $livelloAbilita</span></p>";
 		}
 		
 print "</div><div class='bio'><h4>Biografia:</h4><p>".$biografia."</p></div>";
-print "<form action='personaggi.cgi' method='post'><p><input type='submit' value='Indietro' /></p></form></div>";
+print "<form action='personaggi.cgi' method='post'><p><input type='submit' value='Indietro' /></p></form><a href='#header' class='goup'>Vai a inizio pagina</a>
+</div>";
 
+print "<div id='footer'>Contatti: populon(at)gmail.com
+		<div class='login'>
+			<span>Login Amministratori</span>
+			<form action='login.cgi' method='post'>
+				<p>Username:
+					<input name='username' type='text' />
+					Password:
+					<input name='password' type='password' />
+					<input value='Login' type='submit' />
+				</p>
+			</form>
+			<form action='logout.cgi' method='post'>
+				<p><input value='Logout' type='submit' /></p>
+			</form>
+		</div>
+	</div>
+	</div>";
 
 print $page->end_html, "\n"; # fine pagina HTML
