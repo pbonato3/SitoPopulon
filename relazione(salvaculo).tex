@@ -45,13 +45,25 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 %----------------------------------------------------------------------------------------
 
 \section{Abstract}
-
+	Il progetto consiste nella realizzazione di un sito internet basato su Populon, un gioco di ruolo ideato da uno dei
+	componenti del gruppo assieme ad amici. Il sito ha lo scopo di far conoscere questo gioco e di aiutare a creare una comunità
+	attorno ad esso e il gruppo ha quindi progettato il sito in quest'ottica. Le componenti essenziali scelte sono:
+	\begin{itemize}
+		\item Regole del gioco;
+		\item Contenuti narrativi riguardanti il mondo di gioco;
+		\item Possibilità di pubblicare notizie per gli utenti;
+		\item Possibilità per gli utenti di condividere i personaggi da loro ideati.	
+	\end{itemize}
+	Queste componenti sono secondo il gruppo le più interessanti per gli utenti ma è stato lasciato spazio per future aggiunte.
  
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
 
 \section{Utenti destinatari}
+	Il sito si propone a tutti gli utenti interessati ai giochi di ruolo. Siano essi dei curiosi inesperti o giocatori 
+	abituali possono trovare facilmente tutte le informazioni che possono interessare. Inoltre il sito è pensato per gli
+	utenti che già conoscono il gioco e sono interessati a notizie che lo riguardano e a condividere le loro avventure.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 3
@@ -60,10 +72,22 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 \section{Accessibilità}
 
 \subsection{Separazione tra contenuto, presentazione e struttura}
+	Il sito è stato realizzato tenendo sempre ben separati contenuto, presentazione e struttura.
+	Il codice HTML non contiene script nè impostazioni di stile, anche quando viene generato da funzioni in Perl.
+	Tutte le regole di stile sono racchiuse all'interno di un unico file apposito.
+	Le pagine che fanno uso di funzioni in Perl si trovano tutte in un'apposita cartella separata.
+	Anche i file \texttt{.xml} e \texttt{.xsd} che formano il database sono separati dal resto del sito.
+	In questo modo il sito è più facile da estendere e mantenere in quanto facile da comprendere.
+	Inoltre queste attenzioni contribuiscono ad evitare la ripetizione di codice e a diminuire le dimensioni totali,
+	velocizzando così le ricerche degli utenti.
 
 \subsection{Schema colori}
 
 \subsection{Tag meta}
+	Sono stati inseriti per ogni pagina i tag meta: Content-Type, keywords, description, author e languages e il tag title, 
+	il quale descrive la pagina corrente dal particolare al generale. 
+	Il tag languages indica che il sito è stato interamente scritto in italiano ma compaiono alcune parole inglesi, 
+	le quali sono state affiancate dall'attributo: xml:lang="en".
 
 \subsection{Screen reader}
 
@@ -121,8 +145,7 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 	
 	\subsection{XSD}
 		Per verificare la validità dei dati sono stati creati degli appositi schemi che definiscono i vari tag che possono
-		comparire nei file XML e, quando necessario, i vincoli di unicità.
-		Inoltre definiscono quali sono gli elementi e gli attributi obbligatori.
+		comparire nei file XML e quali sono gli elementi e gli attributi obbligatori.
 		
 	\subsection{XSLT}
 		Inizialmente era stato ipotizzato di utilizzare dei fogli di trasformazione per visualizzare le notizie ma l'idea 

@@ -48,7 +48,7 @@
 		<xs:sequence>
 			<xs:element name="ability" type="abilityT" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
-		<xs:attribute name="value" type="xs:integer" />
+		<xs:attribute name="value" type="xs:integer" use="required"/>
 	</xs:complexType>
 	
 	<xs:complexType name="abilityT">
