@@ -105,7 +105,7 @@ print "<div class='scheda'>";
 	print "<p id='errMente' style='display: none'>I punti mente devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p id='am$i'>Abilit&agrave;: <input name='name_m$i' type='text' oninput='checkM($i) id='amInput$i'' />";
+			print "<p id='am$i'>Abilit&agrave;: <input name='name_m$i' type='text' oninput='checkM($i)' id='amInput$i' />";
 			print "Livello: <select name='value_m$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
@@ -118,7 +118,7 @@ print "<div class='scheda'>";
 	print "<p id='errSpirito' style='display: none'>I punti spirito devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p id='as$i'>Abilit&agrave;: <input name='name_s$i' type='text' oninput='checkS($i) id='asInput$i''/>";
+			print "<p id='as$i'>Abilit&agrave;: <input name='name_s$i' type='text' oninput='checkS($i)' id='asInput$i'/>";
 			print "Livello: <select name='value_s$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
