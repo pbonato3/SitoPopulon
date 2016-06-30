@@ -262,10 +262,8 @@ input[type=submit]{
 
 div.news{
 	margin-bottom:2em;
-	padding:1em;
-	border: 0.2em solid black;
-	background-color:white;
-	
+	padding:0.4em;
+	border: 0.2em solid #0066ff;	
 }
 
 div.news img{
@@ -280,7 +278,23 @@ span.newsTag{
 	display: inline-block;
 	width:10em;
 }
-span.newsValue{
+.schedaTag{
+	font-weight:bold;
+}
+
+.abilita{
+	position:relative;
+	left:1.1em;
+}
+
+.bio{
+	border:0.1em solid #0066ff;
+}
+
+.bio h4{
+	padding-top:0.1em;
+	margin-top:0.1em;
+	font-style:italic;
 }
 
 /* -- Modalità di stampa -- */
