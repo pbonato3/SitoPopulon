@@ -9,9 +9,8 @@
     <meta name="keywords" content="Gioco, ruolo, gdr, fantasy, dadi" />
     <meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
     <meta name="language" content="italian it" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
     <link href="PopStyle.css" rel="stylesheet" type="text/css" media="screen"/>
-	<link href="PopScripts.js" rel="javascript" type="text/javascript" />
-	<script type="text/javascript" src="scriptini.js"></script>
 </head>
 <body>
 	<div class="sbarra">
@@ -42,13 +41,13 @@
 		
 		<p>Populon è anche il nome stesso del mondo di gioco.</p>
 		
-		<h2>Regolamento</h3>
-		<h3>La creazione di un personaggio</h4>
+		<h2>Regolamento</h2>
+		<h3>La creazione di un personaggio</h3>
 		<p>Prima di avventurarsi nel mondo di gioco il giocatore deve scegliere un personaggio da interpretare durante tutta l'avventura. Dopo aver scelto le caratteristeche basilari come la razza, il sesso e l'età,
 		il giocatore dovrà passare alla parte più importante, cioè tutti gli avvenimenti che il personaggio ha vissuto prima di addentrarsi nella nuova avventura. Questi avvenimenti, oltre a dare suggerimenti
 		al <a href="https://it.wikipedia.org/wiki/Dungeon_master">Master</a> sugli sviluppi dell'avventura, sono fondamentali per definire il carattere e le abilità iniziali del personaggio, che ovviamente potra possedere
 		solo abilità apprese nel corso della sua storia.</p>
-		<h3>Il grado di sfida</h5>
+		<h3>Il grado di sfida</h3>
 		<p>Per ogni azione che il giocatore vuole compiere il Master dovrà definire un grado di sfida. Se il giocatore vuole ancora compiere l'azione lancerà il dado, al cui risultato andranno sommate l'abilità del personaggio,
 		se inerente all'azione che vuole compiere, e la difficoltà. I gradi di sfida sono i seguenti:</p>
 		<ol>
@@ -71,7 +70,7 @@
 		<li>5: Successo  - Il personaggio arriva senza problemi dall’altra parte </li>
 		<li>6 o maggiore: Successo Migliorato - Il personaggio salta causando una frana che complica il salto agli inseguitori.</li>
 		</ul>
-		<h3>Il tiro del drago</h6>
+		<h3>Il tiro del drago</h3>
 		<p>Quando un giocatore ottiene un 1 o un 6 con il lancio del dado deve rilanciarlo. Questa volta il valore uscito andrà considerato come uno dei 6 draghi e, se uscira il drago della razza del personaggio,
 		esso aiutera il giocatore a salvarsi la pelle (nel caso fosse uscito 1), trasformando il risultato in un mezzo fallimento, o a rendere la sua azione ancora più leggendaria (nel caso fosse uscito 6):
 		in questo caso il risultato viene trasformato in un successo più che migliorato indipendentemente dalla difficoltà.</p>
@@ -81,15 +80,15 @@
 	<div id="footer">Contatti: populon@gmail.com
 		<div class="login">
 			<span>Login Amministratori</span>
-			<form action="cgi-bin/login.cgi" method="post">
+			<form action="cgi-bin/login.cgi" method="post" title="usernameandpassword">
 				<p>Username:
-					<input name="username" type="text" />
+					<input title="username" name="username" type="text" />
 					Password:
-					<input name="password" type="password" />
+					<input title="passwoed" name="password" type="password" />
 					<input value="Login" type="submit" />
 				</p>
 			</form>
-			<form action="cgi-bin/logout.cgi" method="post">
+			<form action="cgi-bin/logout.cgi" method="post" title="logout">
 				<p><input value="Logout" type="submit" /></p>
 			</form>
 		</div>

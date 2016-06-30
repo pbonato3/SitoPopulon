@@ -9,9 +9,8 @@
     <meta name="keywords" content="Gioco, ruolo, gdr, fantasy, dadi" />
     <meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
     <meta name="language" content="italian it" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
     <link href="PopStyle.css" rel="stylesheet" type="text/css" media="screen"/>
-	<link href="PopScripts.js" rel="javascript" type="text/javascript" />
-	<script type="text/javascript" src="scriptini.js"></script>
 </head>
 <body>
 	<div class="sbarra">
@@ -66,9 +65,11 @@
 		le razze senzienti, i “Drakan”.
 		Drakan è il termine usato su Populon per significare “individuo”, “persona”. Un drakan è un qualunque membro delle razze generate dai Cinque.
 		Ognuno dei Cinque è il Drago Patrono delle razze dai lui create. </p>
+
+		<a class="saltamenu" href="#saltadraghi">Salta il menu dei draghi</a>
 	
 	</div>
-	<span class="dragowrapper">
+	<div class="dragowrapper">
 	<div class="draghirazze">
 		<a href="miorning.html">
 		<img class="sdrago" src="img/simbolomiorning.png" alt="Simbolo di Myiorning" />
@@ -104,21 +105,23 @@
 		<img class="sdrago"  src="img/simboloartechnai.png" alt="Simbolo dell'Artechnai"/>
 		</a>
 		<span><a href="artechnai.html">Artechnai</a></span>
-	
+	<a name="saltadraghi"></a>
 	<a href="#header" class="goup">Vai a inizio pagina</a>
 	</div>
-	</span>
+	</div>
+
 	<div id="footer">Contatti: populon@gmail.com
 		<div class="login">
 			<span>Login Amministratori</span>
-			<form action="cgi-bin/login.cgi" method="post">
+			<form action="cgi-bin/login.cgi" method="post" title="usernameandpassword">
 				<p>Username:
-					<input name="username" type="text" />Password:
-					<input name="password" type="password" />
+					<input title="username" name="username" type="text" />
+					Password:
+					<input title="passwoed" name="password" type="password" />
 					<input value="Login" type="submit" />
 				</p>
 			</form>
-			<form action="cgi-bin/logout.cgi" method="post">
+			<form action="cgi-bin/logout.cgi" method="post" title="logout">
 				<p><input value="Logout" type="submit" /></p>
 			</form>
 		</div>

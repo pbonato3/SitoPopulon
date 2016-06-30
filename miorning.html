@@ -9,9 +9,8 @@
     <meta name="keywords" content="Gioco, ruolo, gdr, fantasy, dadi" />
     <meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
     <meta name="language" content="italian it" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
     <link href="PopStyle.css" rel="stylesheet" type="text/css" media="screen"/>
-	<link href="PopScripts.js" rel="javascript" type="text/javascript" />
-	<script type="text/javascript" src="scriptini.js"></script>
 </head>
 <body>
 	<div class="sbarra">
@@ -33,7 +32,7 @@
 	</div>
 	<div class="breadcrumbs">
 	<a name="saltamenu"></a>
-		<strong>Ti trovi in:</strong> <a href="IlMondoDiGioco.html">Mondo di Gioco</a> &gt&gt Myiorning
+		<strong>Ti trovi in:</strong> <a href="IlMondoDiGioco.html">Mondo di Gioco</a> &gt;&gt; Myiorning
 	</div>
 	<div class="content">
 		<img class="idrago" src="img/D_miorning_t.png" alt="Raffigurazione di Myorning" />
@@ -50,9 +49,11 @@
 		le loro città sono l'apogeo del commercio, della ricchezza, della tecnologia e dell' organizzaizone politica e sociale.
 		Sono maestri nel nuoto e nella navigazione, ma soprattutto la discendenza dagli Shoal conferisce loro un'incredibile capacità cooperativa, 
 		grazie alla quale ogni Akquor aumenta la sua forza e le sue abilità quando compie un'azione assieme ad altri membri della sua razza. </p>
+
+		<a class="saltamenu" href="#saltadraghi">Salta il menu dei draghi</a>
 		
 	</div>
-	<span class="dragowrapper">
+	<div class="dragowrapper">
 	<div class="draghirazze">
 		<img class="sdrago" src="img/simbolomiorning.png" alt="Simbolo di Myiorning" />
 		<p>Myiorning</p>
@@ -86,21 +87,24 @@
 		<img class="sdrago"  src="img/simboloartechnai.png" alt="Simbolo dell'Artechnai"/>
 		</a>
 		<span><a href="artechnai.html">Artechnai</a></span>
-
+	
+	<a name="saltadraghi"></a>
 	<a href="#header"  class="goup">Vai a inizio pagina</a>
 	</div>
-	</span>
+	</div>
+
 	<div id="footer">Contatti: populon@gmail.com
 		<div class="login">
 			<span>Login Amministratori</span>
-			<form action="cgi-bin/login.cgi" method="post">
+			<form action="cgi-bin/login.cgi" method="post" title="usernameandpassword">
 				<p>Username:
-					<input name="username" type="text" />Password:
-					<input name="password" type="password" />
+					<input title="username" name="username" type="text" />
+					Password:
+					<input title="passwoed" name="password" type="password" />
 					<input value="Login" type="submit" />
 				</p>
 			</form>
-			<form action="cgi-bin/logout.cgi" method="post">
+			<form action="cgi-bin/logout.cgi" method="post" title="logout">
 				<p><input value="Logout" type="submit" /></p>
 			</form>
 		</div>
