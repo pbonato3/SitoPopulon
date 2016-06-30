@@ -74,7 +74,7 @@ print '
     <meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
     <meta name="language" content="italian it" />
     <meta http-equiv="Content-Script-Type" content="text/javascript"/>
-    <link href="../PopStyle.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="../PopStyle.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 ';

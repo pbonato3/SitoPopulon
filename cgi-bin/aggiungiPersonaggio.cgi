@@ -11,25 +11,25 @@ my $page = CGI->new;					#creazione oggetto CGI
 
 my $admin = getSession();
 
-print "
+print '
 <!DOCTYPE html
-	PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
-	 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
-<html xmlns='http://www.w3.org/1999/xhtml' lang='it' xml:lang='it'>
+	PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it">
 <head>
 <title>Populon</title>
-<link rev='made' href='mailto:paolo.bonato.12%40gmail.com' />
-<meta name='keywords' content='Gioco, ruolo, gdr, fantasy, dadi' />
-<meta name='language' content='italian it' />
-<meta name='author' content='Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato' />
-<meta name='title' content='Populon' />
-<meta name='description' content='Compila sul sito la tua scheda e falla conoscere a tutti!' />
-<link rel='stylesheet' type='text/css' href='../PopStyle.css' />
-<meta http-equiv='Content-Script-Type' content='text/javascript'/>
-<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1' />
+<link rev="made" href="mailto:paolo.bonato.12%40gmail.com" />
+<meta name="keywords" content="Gioco, ruolo, gdr, fantasy, dadi" />
+<meta name="language" content="italian it" />
+<meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
+<meta name="title" content="Populon" />
+<meta name="description" content="Compila la tua scheda online" />
+<link rel="stylesheet" type="text/css" href="../PopStyle.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 </head>
 <body onload=\'clearRedundant()\'>
-";
+';
 
 #################		header		#################
 
@@ -46,8 +46,16 @@ li({-class => 'button link', -onclick => 'location.href="../cgi-bin/personaggi.c
 li({-class => 'button link', -onclick => 'location.href="../cgi-bin/Notizie.cgi";'}, a({-href => '../cgi-bin/Notizie.cgi', -class => 'link'},"Notizie")),
 li({-class => 'button link', -onclick => 'location.href="../Chi.html";'}, a({-href => '../Chi.html', -class => 'link'},"Chi siamo")))), "\n"; 
 
-print $page->div({-class => 'breadcrumbs'}, a({-name => 'saltamenu'}), strong("Ti trovi in: "), a({-href => 'personaggi.cgi'}, "Personaggi"), "&gt &gt Aggiungi Personaggio"), "\n";
-
+print "
+<div class=\"breadcrumbs\">
+ <a name=\"saltamenu\"></a>
+  <strong>
+    Ti trovi in:
+  </strong>
+  <a href=\"personaggi.cgi\"> Personaggi </a>
+  &gt; &gt; Aggiungi Personaggio
+</div>
+";
 
 #################		content		#################
 #massimo numero di abilità

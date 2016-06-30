@@ -13,24 +13,30 @@ my $admin = getSession();
 
 
 
-print $page->header,
-$page->start_html( # inizio pagina HTML
--title => 'Populon',									# Qui va il titolo
--dtd=>[ '-//W3C//DTD XHTML 1.0 Strict//EN',				# DTD
-'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'
-],
--lang =>'it',											# Lingua del documento
--meta => {'title' => 'Populon',							# Tutti i meta
-'description' => 'Le notizie nel dettaglio',
-'keywords' => 'Gioco, ruolo, gdr, fantasy, dadi',
-'author' => 'Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato',
-'language' => 'italian it'},
--style =>{'src' => '../PopStyle.css'},			# Link al CSS
--author => 'paolo.bonato.12@gmail.com');				# Mail all'autore
+print '
+
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it">
+<head>
+<title>Populon</title>
+<link rev="made" href="mailto:paolo.bonato.12%40gmail.com" />
+<meta name="keywords" content="Gioco, ruolo, gdr, fantasy, dadi" />
+<meta name="language" content="italian it" />
+<meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
+<meta name="title" content="Populon" />
+<meta name="description" content="Le notizie nel dettaglio" />
+<link rel="stylesheet" type="text/css" href="../PopStyle.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+</head>
+<body>
+';
 
 #################		header		#################
 
-print $page->div({-class => 'sbarra'}), "\n";
+print "<div class=\"sbarra\" >\n";
 
 print $page->div({-id => 'header'}, h1("Populon"), img({-class => 'head', -src => "../img/titolo.png", -alt => "Populon"}), a({-class => 'saltamenu', -href => '#saltamenu'}, "Salta il menu di navigazione")), "\n";
 
@@ -43,7 +49,16 @@ li({-class => 'button link', -onclick => 'location.href="../cgi-bin/personaggi.c
 li({-class => 'button link', -onclick => 'location.href="../cgi-bin/Notizie.cgi";'}, a({-href => '../cgi-bin/Notizie.cgi', -class => 'link'},"Notizie")),
 li({-class => 'button link', -onclick => 'location.href="../Chi.html";'}, a({-href => '../Chi.html', -class => 'link'},"Chi siamo")))), "\n"; 
 
-print $page->div({-class => 'breadcrumbs'}, a({-name => 'saltamenu'}), strong("Ti trovi in: "), a({-href => 'Notizie.cgi'}, "Notizie"), "&gt &gt Dettagli Notizia"), "\n";
+print "
+<div class=\"breadcrumbs\">
+ <a name=\"saltamenu\"></a>
+  <strong>
+    Ti trovi in:
+  </strong>
+  <a href=\"Notizie.cgi\"> Notizie </a>
+  &gt; &gt; Dettagli Notizia
+</div>
+";
 
 
 #################		content		#################
