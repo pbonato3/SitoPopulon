@@ -221,6 +221,7 @@ input[type=submit]{
 }
 
 /* -- Link alle pagine dei singoli draghi -- */
+
 .draghirazze{
 	width:16%;
     vertical-align: center;
@@ -257,7 +258,7 @@ input[type=submit]{
 	float:right;
 }
 
-/* ----------------------- News della home------------------------------*/
+/* -- Classi per pagine dinamiche -- */
 
 
 div.news{
@@ -295,6 +296,10 @@ span.newsTag{
 	padding-top:0.1em;
 	margin-top:0.1em;
 	font-style:italic;
+}
+
+.errore{ 
+	color:red;
 }
 
 /* -- Modalità di stampa -- */
