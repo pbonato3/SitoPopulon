@@ -10,7 +10,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage{url}
 \usepackage{graphicx}
-\graphicspath{{../Immagini/}}
 \usepackage[hidelinks]{hyperref}
 \usepackage{booktabs}
 
@@ -49,6 +48,9 @@ http://tecnologie-web.studenti.math.unipd.it/tecweb/~mbiggeri/\\[0.2cm]
 \textbf{Anno accademico 2015/2016}
 \end{center}
 
+\newpage
+\tableofcontents %Generazione indice
+\newpage
 
  \newpage
 %----------------------------------------------------------------------------------------
@@ -66,7 +68,7 @@ http://tecnologie-web.studenti.math.unipd.it/tecweb/~mbiggeri/\\[0.2cm]
 		\item Possibilità per gli utenti di condividere i personaggi da loro ideati.	
 	\end{itemize}
 	Queste componenti sono secondo il gruppo le più interessanti per gli utenti ma è stato lasciato spazio per future aggiunte.
- \newpage
+	
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
@@ -76,7 +78,6 @@ http://tecnologie-web.studenti.math.unipd.it/tecweb/~mbiggeri/\\[0.2cm]
 	abituali possono trovare facilmente tutte le informazioni che possono interessare. Inoltre il sito è pensato per gli
 	utenti che già conoscono il gioco e sono interessati a notizie che lo riguardano e a condividere le loro avventure.
 
- \newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 3
 %----------------------------------------------------------------------------------------
@@ -93,20 +94,17 @@ http://tecnologie-web.studenti.math.unipd.it/tecweb/~mbiggeri/\\[0.2cm]
 	Inoltre queste attenzioni contribuiscono ad evitare la ripetizione di codice e a diminuire le dimensioni totali,
 	velocizzando così le ricerche degli utenti.
 
+\newpage
 \subsection{Schema colori}
 
 I colori utilizzati sono principalmente sui toni del blu, con un tono scuro per la struttura (header, footer e contorno) ed un azzurro molto più chiaro per lo sfondo ed il testo interno alle zone scure. La scelta di questi due colori è stata fatta per rendere il sito piuttosto gradevole alla vista senza affaticare gli occhi con colori molto brillanti senza però dimenticare la necessità di contrasti elevati per una buona comprensione del contenuto.
 	Tutti i colori utilizzati sono considerati "WebSafe", quindi rappresentati con le stesse tonalità anche su monitor e browsers molto vecchi.
 	L'accostamento di colori scelto risulta ad alto contrasto anche per persone affette da disturbi nella percezione dei colori, come dimostrato dagli screenshot di seguito, ottenuti grazie al programma gratuito ColorOracle. \\
-	SCREENSHOT NORMALE \\
-	SCREENSHOT DEUTERANOPIA (cecità verde) \\
-	SCREENSHOT PROTANOPIA (cecità rossa)  \\
-	SCREENSHOT TRITANOPIA (cecità blu)  \\
-	
-	
+
+\newpage	
 	 \begin{figure}
 				\centering
-				\includegraphics[scale=0.20]{img/"all4".png}
+				\includegraphics[scale=0.20]{all4.png}
 				\caption{Percezione colori per le principali forme di daltonismo.}
 			\end{figure}
 			\newpage
@@ -127,7 +125,6 @@ Sono stati presi provvedimenti volti a facilitare la fruizione del sito a utenti
 		Link per tornare all'inizio: in ogni pagina è presente un link che consente di tornare all'inizio della pagina. Per gli utenti normovedenti, esso è stato collocato in posizione fissa in basso a destra nella pagina. Tale link è presente sia nella versione desktop che in quella mobile.
 
 
- \newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -144,7 +141,7 @@ La home page del sito si propone di rispettare la maggior parte dei sei assi inf
 \end{itemize}
 
 \subsection{Barra di navigazione}
-
+ Viene sempre evidenziata la voce della barra di navigazione che indica la pagina corrente. Essa non è cliccabile, evitando così di ricaricare inutilmente la pagina. Inoltre quando una voce è puntata dal mouse viene evidenziata, suggerendo all’utente che può essere premuta, e questo non avviene per la pagina corrente.
 	
 \subsection{Breadcrumbs}
 In ogni pagina, appena sotto la barra di navigazione, è presente il percorso che porta a quella pagina dalla relativa sezione principale del sito. Dato lo scarsissimo annidamento delle pagine, però, si raggiunge soltanto il secondo livello. I livelli precedenti a quello corrente sono presenti nella forma di link cliccabili, che riportano a quella pagina.
@@ -154,20 +151,23 @@ Il sito rispetta alcune delle principali convenzioni visive in grado di aumentar
 			Inoltre, se ci si trova in una delle sezioni principali il corrispondente pulsante non è cliccabile.
 			Le immagini risultano nitide anche su schermi di modeste dimensioni ed è possibile, volendo, visualizzarle a dimensione completa cliccandole col tasto destro del mouse e selezionando "Visualizza immagine" o tramite il metodo standard del long tap in ambiente mobile. Tale scelta è stata preferita al collegamento diretto per evitare eventuali aperture involontarie dovute a click inconsci sulle immagini, con conseguente confusione dell'utente.\newline
 \subsection{Link}
+I link utilizzati rispettano la colorazione tipica, compresa la colorazione differente una volta visitati. Inoltre il gruppo ha
+posto attenzione a non utilizzare colori simili in altre parole del testo per evitare di confondere l'utente.
 
- \newpage
+
 %----------------------------------------------------------------------------------------
 %	SECTION 5
 %----------------------------------------------------------------------------------------
 
 \section{File}
 \subsection{Gerarchia}
-
-	I files che compongono il sito sono divisi su varie cartelle in base alla loro\\ funzione:\\
-		CGI-BIN contiene tutte le pagine dinamiche scritte in Perl
-		DATABASE contiene i file .xml di database ed i relativi schemi
-		IMG contiene tutte le immagini presenti nel sito
-		La root folder contiene tutti i file .html ed il file .css. 
+	I file sono stati organizzati tenendo le pagine HTML il file dei css e degli script nella cartella principale 
+	\texttt{populon}. Al suo interno ci sono le cartelle: 
+		\begin{itemize}
+			\item \texttt{cgi-bin} che contiene tutte le pagine che fanno uso di funzioni in Perl;
+			\item \texttt{database} che contiene tutti i file XML e i relativi schemi;
+			\item \texttt{img} che contiene tutte le immagini del sito.
+		\end{itemize}
 \subsection{Struttura}
 
 	Le pagine statiche sono state scritte rispettando lo standard XHTML 1.0 Strict e si trovano nella root folder del sito. Esse sono:\\
@@ -199,19 +199,24 @@ Il sito rispetta alcune delle principali convenzioni visive in grado di aumentar
 	Tutte le regole CSS sono contenute in un singolo file all'interno del quale si trova una suddivisione in "sezioni" determinata da commenti, onde facilitare eventuali modifiche o interventi mirati in caso di errori.\\
 	
 
- \newpage
-
 %----------------------------------------------------------------------------------------
 %	SECTION 7
 %----------------------------------------------------------------------------------------
 
 \section{Comportamento}
+	Perché il sito fosse più facile da utilizzare dagli utenti si è fatto un uso sostanzioso della tecnologia JavasScript, senza
+	però renderla essenziale per il corretto funzionamento. La funzionalità più utile consiste nel controllo degli input delle 
+	form. Il sito non accetta che vengano inseriti dati di tipo sbagliato o che ne manchino di obbligatori ma per fare questo è 
+	costretto ad annullare l'operazione dell'utente. Grazie a JavaScript l'utente ha la conferma che i dati inseriti siano
+	corretti prima di avviare la procedura. \\
+	Nella form di inserimento di un nuovo personaggio sono messi a disposizione dell'utente ben 68 diversi dati in input di 
+	cui solo 7 obbligatori e questo può disorientare l'utente. Grazie a JavaScript è stato possibile ridurre i campi visibili
+	a 14 con la possibilità di aggiungerne alla necessità.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 8
 %----------------------------------------------------------------------------------------
 
- \newpage
 \section{Gestione dei dati}
 	\subsection{XML}
 		Il sito necessita di tre tipologie di dati:
@@ -235,7 +240,6 @@ Il sito rispetta alcune delle principali convenzioni visive in grado di aumentar
 		Inizialmente era stato ipotizzato di utilizzare dei fogli di trasformazione per visualizzare le notizie ma l'idea 
 		è stata successivamente abbandonata per favorire delle ricerche più mirate e facili per l'utente.
 
- \newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 9
 %----------------------------------------------------------------------------------------
@@ -309,12 +313,24 @@ Il sito rispetta alcune delle principali convenzioni visive in grado di aumentar
 		sessione. Inoltre viene anche inviato un cookie all'amministratore, contenente l'id della sessione. Quindi ad ogni
 		richiesta l'amministratore invia il codice della sessione e si controlla che questo esista.
 
- \newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 10
 %----------------------------------------------------------------------------------------
 
 \section{Test e validazione}
+
+	Per garantire che il sito sia correttamente visualizzato e che rimanga accessibile sul maggior numero di browser possibili 
+	si è verificata la validità di tutte le pagine,sia quelle statiche che quelle generate dal Perl, e sono stati effettuati 
+	dei test di visualizzazione su browser meno recenti. \\
+	Per la validazione il gruppo ha utilizzato lo strumento Total Validator, impostato per verificare che le pagine rispettassero
+	lo standard texbf{XHTML 1.0 strict}. Tutte le pagine che compongono il sito sono state sottoposte alla verifica e sono 
+	risultate approvate.
+	
+	Il sito è stato testato sui seguenti browser:
+	\begin{itemize}
+		\item \textbf{\dots}
+	\end{itemize}
+	
 
 
  \newpage
