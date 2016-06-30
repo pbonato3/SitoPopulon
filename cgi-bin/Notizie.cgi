@@ -61,24 +61,28 @@ if(!$titolo and !$data and !$luogo){								#non è stato inserito nessun parame
 
 
 
-print $page->header,
-$page->start_html( # inizio pagina HTML
--title => 'Populon',									# Qui va il titolo
--dtd=>[ '-//W3C//DTD XHTML 1.0 Strict//EN',				# DTD
-'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'
-],
--lang =>'it',											# Lingua del documento
--meta => {'title' => 'Populon',							# Tutti i meta
-'description' => 'Le ultime notizie dal nostro staff!',
-'keywords' => 'Gioco, ruolo, gdr, fantasy, dadi',
-'author' => 'Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato',
-'language' => 'italian it'},
--style =>{'src' => '../PopStyle.css'},			# Link al CSS
--author => 'paolo.bonato.12@gmail.com');				# Mail all'autore
+print '
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
+<head>
+    <title>Populon - Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="title" content="Populon - Home" />
+    <meta name="description" content="Gioco di ruolo ambientato in un mondo di fantasia, richiede solo dadi, carta, penna e una buona compagnia!" />
+    <meta name="keywords" content="Gioco, ruolo, gdr, fantasy, dadi" />
+    <meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
+    <meta name="language" content="italian it" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+    <link href="../PopStyle.css" rel="stylesheet" type="text/css" media="screen"/>
+</head>
+<body>
+';
 
 #################		header		#################
 
-print $page->div({-class => 'sbarra'}), "\n";
+print "<div class=\"sbarra\" >\n";
+
 
 print $page->div({-id => 'header'}, h1("Populon"), img({-class => 'head', -src => "../img/titolo.png", -alt => "Populon"}), a({-class => 'saltamenu', -href => '#saltamenu'}, "Salta il menu di navigazione")), "\n";
 
@@ -91,7 +95,15 @@ li({-class => 'button link', -onclick => 'location.href="../cgi-bin/personaggi.c
 li({-class => 'button current'},"Notizie"),
 li({-class => 'button link', -onclick => 'location.href="../Chi.html";'}, a({-href => '../Chi.html', -class => 'link'},"Chi siamo")))), "\n"; 
 
-print $page->div({-class => 'breadcrumbs'}, a({-name => 'saltamenu'}), strong("Ti trovi in: "), "Notizie"), "\n";
+print "
+<div class=\"breadcrumbs\">
+ <a name=\"saltamenu\"></a>
+  <strong>
+    Ti trovi in:
+  </strong>
+  Personaggi
+</div>
+";
 
 #################		content		#################
 
@@ -163,11 +175,11 @@ foreach(@arrLink) {
 
 print "<h2> Notizie dalla $from alla $to</h2>";
 
-print "<h4>Filtro notizie</h4>";
+print "<h3>Filtro notizie</h3>";
 print "<form action='Notizie.cgi' method='get'>";
-print "<p>Titolo: <input name='titolo' type='text'/></p>";
-print "<p>Data: <input name='data' type='text'/> (YYYY-MM-DD)</p>";
-print "<p>Luogo: <input name='luogo' type='text'/></p>";
+print "<p>Titolo: <input title='titolo' name='titolo' type='text'/></p>";
+print "<p>Data: <input title='data' name='data' type='text'/> (YYYY-MM-DD)</p>";
+print "<p>Luogo: <input title='luogo' name='luogo' type='text'/></p>";
 print "<p><input type='submit' value='Filtra'/></p>";
 print "</form>";
 
@@ -235,9 +247,9 @@ print "<div id='footer'>Contatti: populon(at)gmail.com
 			<span>Login Amministratori</span>
 			<form action='login.cgi' method='post'>
 				<p>Username:
-					<input name='username' type='text' />
+					<input title='username' name='username' type='text' />
 					Password:
-					<input name='password' type='password' />
+					<input title='password' name='password' type='password' />
 					<input value='Login' type='submit' />
 				</p>
 			</form>

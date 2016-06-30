@@ -25,6 +25,7 @@ print "
 <meta name='title' content='Populon' />
 <meta name='description' content='Compila sul sito la tua scheda e falla conoscere a tutti!' />
 <link rel='stylesheet' type='text/css' href='../PopStyle.css' />
+<meta http-equiv='Content-Script-Type' content='text/javascript'/>
 <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1' />
 </head>
 <body onload=\'clearRedundant()\'>
@@ -32,7 +33,7 @@ print "
 
 #################		header		#################
 
-print $page->div({-class => 'sbarra'}), "\n";
+print "<div class=\"sbarra\" >\n";
 
 print $page->div({-id => 'header'}, h1("Populon"), img({-class => 'head', -src => "../img/titolo.png", -alt => "Populon"}), a({-class => 'saltamenu', -href => '#saltamenu'}, "Salta il menu di navigazione")), "\n";
 
@@ -69,7 +70,7 @@ print "<div class='scheda'>";
 # form per l'input dei dati di un personaggio
 	print "<form action='inserimentoPersonaggio.cgi' method='post' enctype='multipart/form-data'>";
 	# Insermento nome
-	print "<p> Nome: <input name='nome' type='text' oninput='checkNome()'/></p>";
+	print "<p> Nome: <input title='nome' name='nome' type='text' oninput='checkNome()'/></p>";
 	print "<p class='errore' id='errNome' style='display: none'>Il nome &egrave; obbligatorio</p>";
 	# Inserimento razza
 	print "<p>Razza: <select name='razza'>",
@@ -84,17 +85,17 @@ print "<div class='scheda'>";
 		"<option value='Ur-Aluk'>Ur-Aluk</option>",
 		"</select></p>";
 	# Inserimento sesso
-	print "<p>Sesso: <input type='radio' name='sesso' value='M' checked='checked' /> M",
-		"<input type='radio' name='gender' value='F' /> F </p>";
+	print "<p>Sesso: <input title='sesso' type='radio' name='sesso' value='M' checked='checked' /> M",
+		"<input title='gender' type='radio' name='gender' value='F' /> F </p>";
 	# Inserimento età
-	print "<p>Et&agrave;: <input name='eta' type='text' oninput='checkEta()' /></p>";
+	print "<p>Et&agrave;: <input title='eta' name='eta' type='text' oninput='checkEta()' /></p>";
 	print "<p class='errore' id='errEta' style='display: none'>L'et&agrave; deve essere un numero di massimo tre cifre</p>";
 	# Inserimento punti corpo
-	print "<p>Punti corpo: <input name='corpo' type='text' oninput='checkCorpo()'/></p>";
+	print "<p>Punti corpo: <input title='corpo' name='corpo' type='text' oninput='checkCorpo()'/></p>";
 	print "<p class='errore' id='errCorpo' style='display: none'>I punti corpo devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p id='ac$i'>Abilit&agrave;: <input name='name_c$i' type='text' oninput='checkC($i)' id='acInput$i' />";
+			print "<p id='ac$i'>Abilit&agrave;: <input title='name_c$i' name='name_c$i' type='text' oninput='checkC($i)' id='acInput$i' />";
 			print "Livello: <select name='value_c$i' id='lc$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
@@ -103,11 +104,11 @@ print "<div class='scheda'>";
 		}
 		print "</div>";
 	# Inserimento punti mente
-	print "<p>Punti mente: <input name='mente' type='text' oninput='checkMente()' /></p>";
+	print "<p>Punti mente: <input title='mente' name='mente' type='text' oninput='checkMente()' /></p>";
 	print "<p class='errore' id='errMente' style='display: none'>I punti mente devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p id='am$i'>Abilit&agrave;: <input name='name_m$i' type='text' oninput='checkM($i)' id='amInput$i' />";
+			print "<p id='am$i'>Abilit&agrave;: <input title='name_m$i' name='name_m$i' type='text' oninput='checkM($i)' id='amInput$i' />";
 			print "Livello: <select name='value_m$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
@@ -116,11 +117,11 @@ print "<div class='scheda'>";
 		}
 		print "</div>";
 	# Inserimento punti spirito
-	print "<p>Punti spirito: <input name='spirito' type='text' oninput='checkSpirito()'/></p>";
+	print "<p>Punti spirito: <input title='spirito' name='spirito' type='text' oninput='checkSpirito()'/></p>";
 	print "<p class='errore' id='errSpirito' style='display: none'>I punti spirito devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p id='as$i'>Abilit&agrave;: <input name='name_s$i' type='text' oninput='checkS($i)' id='asInput$i'/>";
+			print "<p id='as$i'>Abilit&agrave;: <input title='name_s$i' name='name_s$i' type='text' oninput='checkS($i)' id='asInput$i'/>";
 			print "Livello: <select name='value_s$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
@@ -140,9 +141,9 @@ print "<div id='footer'>Contatti: populon(at)gmail.com
 			<span>Login Amministratori</span>
 			<form action='login.cgi' method='post'>
 				<p>Username:
-					<input name='username' type='text' />
+					<input title='username' name='username' type='text' />
 					Password:
-					<input name='password' type='password' />
+					<input title='password' name='password' type='password' />
 					<input value='Login' type='submit' />
 				</p>
 			</form>

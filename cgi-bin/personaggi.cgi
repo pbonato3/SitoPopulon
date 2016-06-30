@@ -44,24 +44,27 @@ if($razza){													#se il parametro è vuoto non lo considero
 	@characters=@temp;										#l'array dei personaggi è stato filtrato
 }
 
-print $page->header,
-$page->start_html( # inizio pagina HTML
--title => 'Populon',									# Qui va il titolo
--dtd=>[ '-//W3C//DTD XHTML 1.0 Strict//EN',				# DTD
-'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'
-],
--lang =>'it',											# Lingua del documento
--meta => {'title' => 'Populon',							# Tutti i meta
-'description' => 'Non sono le sole terre a costituire Populon, ci sono infiniti abitanti tutti diversi. Vieni a conoscere i frutti della fantasia dei nostri utenti e condividi i tuoi!',
-'keywords' => 'Gioco, ruolo, gdr, fantasy, dadi',
-'author' => 'Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato',
-'language' => 'italian it'},
--style =>{'src' => '../PopStyle.css'},			# Link al CSS
--author => 'paolo.bonato.12@gmail.com');				# Mail all'autore
+print '
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
+<head>
+    <title>Populon - Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="title" content="Populon - Home" />
+    <meta name="description" content="Gioco di ruolo ambientato in un mondo di fantasia, richiede solo dadi, carta, penna e una buona compagnia!" />
+    <meta name="keywords" content="Gioco, ruolo, gdr, fantasy, dadi" />
+    <meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
+    <meta name="language" content="italian it" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+    <link href="../PopStyle.css" rel="stylesheet" type="text/css" media="screen"/>
+</head>
+<body>
+';
 
 #################		header		#################
 
-print $page->div({-class => 'sbarra'}), "\n";
+print "<div class=\"sbarra\" >\n";
 
 print $page->div({-id => 'header'}, h1("Populon"), img({-class => 'head', -src => "../img/titolo.png", -alt => "Populon"}), a({-class => 'saltamenu', -href => '#saltamenu'}, "Salta il menu di navigazione")), "\n";
 
@@ -74,7 +77,15 @@ li({-class => 'button current'}, span("I Personaggi")),
 li({-class => 'button link', -onclick => 'location.href="../cgi-bin/Notizie.cgi";'}, a({-href => '../cgi-bin/Notizie.cgi', -class => 'link'},"Notizie")),
 li({-class => 'button link', -onclick => 'location.href="../Chi.html";'}, a({-href => '../Chi.html', -class => 'link'},"Chi siamo")))), "\n"; 
 
-print $page->div({-class => 'breadcrumbs'}, a({-name => 'saltamenu'}), strong("Ti trovi in: "), "Personaggi"), "\n";
+print "
+<div class=\"breadcrumbs\">
+ <a name=\"saltamenu\"></a>
+  <strong>
+    Ti trovi in:
+  </strong>
+  Personaggi
+</div>
+";
 
 
 #################		content		#################
@@ -141,8 +152,8 @@ print "<form action='aggiungiPersonaggio.cgi' method='post'>";
 print "<p><input type='submit' value='Compila la tua scheda'/></p>";
 print "</form>";
 print "<form action='personaggi.cgi' method='get'>";
-print "<p>Nome: <input name='nome' type='text'/></p>";
-print "<p>Razza: <select name='razza'>",
+print "<p>Nome: <input title='name' name='nome' type='text'/></p>";
+print "<p>Razza: <select title='razza' name='razza'>",
 	"<option value=''>Tutti</option>",
 	"<option value='Akquor'>Akquor</option>",
 	"<option value='Elfo'>Elfo</option>",
@@ -197,9 +208,9 @@ print "<div id='footer'>Contatti: populon(at)gmail.com
 			<span>Login Amministratori</span>
 			<form action='login.cgi' method='post'>
 				<p>Username:
-					<input name='username' type='text' />
+					<input title='username' name='username' type='text' />
 					Password:
-					<input name='password' type='password' />
+					<input title='password' name='password' type='password' />
 					<input value='Login' type='submit' />
 				</p>
 			</form>
@@ -210,5 +221,4 @@ print "<div id='footer'>Contatti: populon(at)gmail.com
 	</div>
 	</div>";
 
-	
 print $page->end_html, "\n"; # fine pagina HTML
