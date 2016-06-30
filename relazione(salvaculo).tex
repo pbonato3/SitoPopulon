@@ -31,15 +31,26 @@
 \maketitle % Insert the title, author and date
 
 \begin{center}
-\begin{tabular}{l r}
-Componenti del gruppo: & Diego Baratto \\ % Partner names
-& Mattia Biggeri \\
-& Paolo Bonato \\
-& Tommaso Padovan \\
-\end{tabular}
+\textsc{\LARGE Componenti del gruppo:}\\[0.2cm]
+ Diego Baratto \\ % Partner names
+Mattia Biggeri \\
+Paolo Bonato \\
+Tommaso Padovan \\[0.2cm]
+\textsc{\LARGE Referente:}\\[0.2cm]
+ Mattia Biggeri\\[0.2cm]
+ \textsc{\LARGE Informazioni sul sito:}\\ [0.2cm]
+http://tecnologie-web.studenti.math.unipd.it/tecweb/~mbiggeri/\\[0.2cm]
+\textsc{\LARGE Informazioni di login}\\[0.2cm]
+
+\begin{tabular}{l r} 
+ Username: & admin\\
+ Password: & admin\\
+\end{tabular}\\[0.2cm]
+\textbf{Anno accademico 2015/2016}
 \end{center}
 
 
+ \newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
@@ -55,7 +66,7 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 		\item Possibilità per gli utenti di condividere i personaggi da loro ideati.	
 	\end{itemize}
 	Queste componenti sono secondo il gruppo le più interessanti per gli utenti ma è stato lasciato spazio per future aggiunte.
- 
+ \newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
@@ -65,6 +76,7 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 	abituali possono trovare facilmente tutte le informazioni che possono interessare. Inoltre il sito è pensato per gli
 	utenti che già conoscono il gioco e sono interessati a notizie che lo riguardano e a condividere le loro avventure.
 
+ \newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 3
 %----------------------------------------------------------------------------------------
@@ -83,6 +95,22 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 
 \subsection{Schema colori}
 
+I colori utilizzati sono principalmente sui toni del blu, con un tono scuro per la struttura (header, footer e contorno) ed un azzurro molto più chiaro per lo sfondo ed il testo interno alle zone scure. La scelta di questi due colori è stata fatta per rendere il sito piuttosto gradevole alla vista senza affaticare gli occhi con colori molto brillanti senza però dimenticare la necessità di contrasti elevati per una buona comprensione del contenuto.
+	Tutti i colori utilizzati sono considerati "WebSafe", quindi rappresentati con le stesse tonalità anche su monitor e browsers molto vecchi.
+	L'accostamento di colori scelto risulta ad alto contrasto anche per persone affette da disturbi nella percezione dei colori, come dimostrato dagli screenshot di seguito, ottenuti grazie al programma gratuito ColorOracle. \\
+	SCREENSHOT NORMALE \\
+	SCREENSHOT DEUTERANOPIA (cecità verde) \\
+	SCREENSHOT PROTANOPIA (cecità rossa)  \\
+	SCREENSHOT TRITANOPIA (cecità blu)  \\
+	
+	
+	 \begin{figure}
+				\centering
+				\includegraphics[scale=0.20]{img/"all4".png}
+				\caption{Percezione colori per le principali forme di daltonismo.}
+			\end{figure}
+			\newpage
+
 \subsection{Tag meta}
 	Sono stati inseriti per ogni pagina i tag meta: Content-Type, keywords, description, author e languages e il tag title, 
 	il quale descrive la pagina corrente dal particolare al generale. 
@@ -90,9 +118,16 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 	le quali sono state affiancate dall'attributo: xml:lang="en".
 
 \subsection{Screen reader}
+Tutte le immagini di contenuto possiedono attributi ALT e TITLE volti a spiegarne il soggetto nel modo più esaustivo possibile. Oltre a quelle non sono presenti altre immagini o altri oggetti in grado di ostacolare la fruizione del sito ad eventuali utenti non vedenti.
 
 \subsection{Facilitazioni per la navigazione}
+Sono stati presi provvedimenti volti a facilitare la fruizione del sito a utenti inabili:
+		Link per saltare i menu: sono stati inseriti due link nascosti all'utenza normale ma visibili tramite screen reader che consentono di saltare i due menu presenti, quello di navigazione tra le sezioni del sito e quello interno alle spiegazioni del mondo di gioco;
+		
+		Link per tornare all'inizio: in ogni pagina è presente un link che consente di tornare all'inizio della pagina. Per gli utenti normovedenti, esso è stato collocato in posizione fissa in basso a destra nella pagina. Tale link è presente sia nella versione desktop che in quella mobile.
 
+
+ \newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -100,23 +135,71 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 \section{Usabilità}
 
 \subsection{Le sei W}
+La home page del sito si propone di rispettare la maggior parte dei sei assi informativi principali:
+\begin{itemize}
+\item \textbf{WHO:} Come da convenzioni del web design, il logo del sito è stato posto in alto a sinistra;
+\item \textbf{WHERE e WHAT:} Il testo presente nella home page si prefigge lo scopo di spiegare ad nuovo utente di cosa tratti il sito e offre un'infarinatura di base sul regolamento del gioco di ruolo descritto. Inoltre sono presenti link a pagine esterne esplicative di determinati concetti che potrebbero non essere noti ai neofiti;
+\item \textbf{WHEN:} Tale asse non è presente nella home page. Le sue funzioni di informazione sulle ultime novità sono state demandate alla pagina Notizie accessibile tramite la barra di navigazione; 
+\item \textbf{HOW:} Tale asse è spezzato in due parti: la barra di navigazione illustra tutte le sezioni principali della pagina le quali, al loro interno, contengono collegamenti alle sezioni secondarie.
+\end{itemize}
+
 \subsection{Barra di navigazione}
-\subsection{Percorso}
+
+	
+\subsection{Breadcrumbs}
+In ogni pagina, appena sotto la barra di navigazione, è presente il percorso che porta a quella pagina dalla relativa sezione principale del sito. Dato lo scarsissimo annidamento delle pagine, però, si raggiunge soltanto il secondo livello. I livelli precedenti a quello corrente sono presenti nella forma di link cliccabili, che riportano a quella pagina.
+\subsection{Convenzioni e metafore visive}
+Il sito rispetta alcune delle principali convenzioni visive in grado di aumentare l'usabilità:\newline
+			I pulsanti della barra di navigazione sono colorati in modo diverso per evidenziare la sezione corrente. Inoltre, sono stati lasciati i link come da standard del browser, senza modificare l'aspetto dei link per lasciare un'idea di familiarità all'utente.\newline
+			Inoltre, se ci si trova in una delle sezioni principali il corrispondente pulsante non è cliccabile.
+			Le immagini risultano nitide anche su schermi di modeste dimensioni ed è possibile, volendo, visualizzarle a dimensione completa cliccandole col tasto destro del mouse e selezionando "Visualizza immagine" o tramite il metodo standard del long tap in ambiente mobile. Tale scelta è stata preferita al collegamento diretto per evitare eventuali aperture involontarie dovute a click inconsci sulle immagini, con conseguente confusione dell'utente.\newline
 \subsection{Link}
 
+ \newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 5
 %----------------------------------------------------------------------------------------
 
 \section{File}
 \subsection{Gerarchia}
+
+	I files che compongono il sito sono divisi su varie cartelle in base alla loro\\ funzione:\\
+		CGI-BIN contiene tutte le pagine dinamiche scritte in Perl
+		DATABASE contiene i file .xml di database ed i relativi schemi
+		IMG contiene tutte le immagini presenti nel sito
+		La root folder contiene tutti i file .html ed il file .css. 
 \subsection{Struttura}
 
+	Le pagine statiche sono state scritte rispettando lo standard XHTML 1.0 Strict e si trovano nella root folder del sito. Esse sono:\\
+	
+			\begin{itemize}
+		\item Home.html: la home page del sito, contenente tutte le informazioni di base;\\
+		\item IlMondoDiGioco.html: pagina contenente le informazioni principali sull'ambientazione del gioco di ruolo soggetto del sito.\\
+		 Tale pagina contiene collegamenti a pagine interne in grado di descrivere meglio l'ambientazione:\\
+		 \begin{itemize}
+			\item artechnai.html\\
+			\item eoyu.html\\
+			\item glamordir.html\\
+			\item miorning.html\\
+			\item morte.html\\
+			\item oros.html\\
+			
+		\end{itemize}
+		\item Chi.html: contiene informazioni riguardanti i creatori del sito e qualche informazione sommaria sui creatori del gioco di ruolo.\\
+		\item restricted.html: pagina di errore che compare se l'utente inserisce dati di login errati\\
+		\end{itemize}
+
+ \newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 6
 %----------------------------------------------------------------------------------------
 
 \section{Presentazione}
+	Per la presentazione grafica del sito è stato utilizzato lo standard CSS, arricchito da alcune funzioni proprie dello standard CSS3.\\ Tali funzioni riguardano principalmente l'arrotondamento dei bordi, la cui compatibilità con browsers più arretrati è stata aumentata tramite uso dei prefissi -webkit- e -moz-, e le media queries, utilizzate per determinare regole d'aspetto su dispositivi diversi dal normale PC quali smartphones o stampanti.\\
+	Tutte le regole CSS sono contenute in un singolo file all'interno del quale si trova una suddivisione in "sezioni" determinata da commenti, onde facilitare eventuali modifiche o interventi mirati in caso di errori.\\
+	
+
+ \newpage
 
 %----------------------------------------------------------------------------------------
 %	SECTION 7
@@ -128,6 +211,7 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 %	SECTION 8
 %----------------------------------------------------------------------------------------
 
+ \newpage
 \section{Gestione dei dati}
 	\subsection{XML}
 		Il sito necessita di tre tipologie di dati:
@@ -151,6 +235,7 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 		Inizialmente era stato ipotizzato di utilizzare dei fogli di trasformazione per visualizzare le notizie ma l'idea 
 		è stata successivamente abbandonata per favorire delle ricerche più mirate e facili per l'utente.
 
+ \newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 9
 %----------------------------------------------------------------------------------------
@@ -224,6 +309,7 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 		sessione. Inoltre viene anche inviato un cookie all'amministratore, contenente l'id della sessione. Quindi ad ogni
 		richiesta l'amministratore invia il codice della sessione e si controlla che questo esista.
 
+ \newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 10
 %----------------------------------------------------------------------------------------
@@ -231,6 +317,7 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 \section{Test e validazione}
 
 
+ \newpage
 
 %----------------------------------------------------------------------------------------
 %	APPENDIX
@@ -238,7 +325,30 @@ Componenti del gruppo: & Diego Baratto \\ % Partner names
 
 \appendix
 	\section{Organizzazione del lavoro}
-
+	
+	\textbf{Diego Baratto:}\\
+	\begin{itemize}
+	\item Scrittura del file CSS
+	\item Adattamento delle pagine statiche e dinamiche
+	\item Stesura di parte della relazione
+	\end{itemize}
+\textbf{Mattia Biggeri:}\\
+	\begin{itemize}
+	\item Scrittura delle pagine statiche
+	\item Validazione e correzione del codice
+	\item Recupero delle informazioni per il contenuto
+	\end{itemize}
+\textbf{Paolo Bonato:}\\
+	\begin{itemize}
+	\item Scrittura dei file XML e XMLSchema
+	\item Scrittura di parte delle pagine dinamiche in Perl
+	\item Stesura di parte della relazione
+	\end{itemize}
+\textbf{Tommaso Padovan:}\\
+	\begin{itemize}
+	\item Scrittura di parte delle pagine dinamiche in Perl
+	\item Scrittura degli script in JavaScript
+	\end{itemize}
 %----------------------------------------------------------------------------------------
 
 
