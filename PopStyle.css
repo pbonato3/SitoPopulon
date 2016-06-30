@@ -310,6 +310,27 @@ span.newsTag{
 	.head, .saltamenu, .nav, .breadcrumbs, .goup, .dragowrapper, #footer{
 		display: none;
 	}
+	
+	#header{
+		background-color: white;
+	}
+	
+	#header h1{
+		position:initial;
+	}
+	
+	body{
+		background-color: white;
+	}
+	
+	a{
+		color:black;
+		text-decoration: none;
+	}
+	
+	.sbarra{
+		border:0;
+	}
 }
 
 /* -- Regole per mobile -- */
