@@ -59,24 +59,24 @@ if(!$titolo and !$data and !$luogo){								#non è stato inserito nessun parame
 	@notizie = $root->findnodes("notizia[0<=position()<=$n_notizie]");		#l'array delle notizie contiene solo le ultime n_notizie
 }
 
-
-
 print '
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it">
 <head>
-    <title>Populon - Home</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="title" content="Populon - Home" />
-    <meta name="description" content="Gioco di ruolo ambientato in un mondo di fantasia, richiede solo dadi, carta, penna e una buona compagnia!" />
-    <meta name="keywords" content="Gioco, ruolo, gdr, fantasy, dadi" />
-    <meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
-    <meta name="language" content="italian it" />
-    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
-    <link href="../PopStyle.css" rel="stylesheet" type="text/css"/>
+<title>Populon</title>
+<link rev="made" href="mailto:paolo.bonato.12%40gmail.com" />
+<meta name="keywords" content="Gioco, ruolo, gdr, fantasy, dadi" />
+<meta name="language" content="italian it" />
+<meta name="author" content="Mattia Biggeri, Tommaso Padovan, Diego Baratto, Paolo Bonato" />
+<meta name="title" content="Populon" />
+<meta name="description" content="Gioco di ruolo ambientato in un mondo di fantasia, richiede solo dadi, carta, penna e una buona compagnia!" />
+<link rel="stylesheet" type="text/css" href="../PopStyle.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 </head>
-<body>
+<body onload=\'clearRedundant()\'>
 ';
 
 #################		header		#################
