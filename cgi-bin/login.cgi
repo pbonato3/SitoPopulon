@@ -62,7 +62,7 @@ print $page->div({-id => 'header'}, h1("Populon"), img({-class => 'head', -src =
 #################		nav		#################
 
 print $page->div({-class => 'nav'}, ul({-class => 'navbar'},
-li({-class => 'button link', -onclick => 'location.href="../Home.html";'}, a({-href => '../Home.html', -class => 'link'},"Home")),
+li({-class => 'button link', -onclick => 'location.href="../index.html";'}, a({-href => '../index.html', -class => 'link'},"Home")),
 li({-class => 'button link', -onclick => 'location.href="../IlMondoDiGioco.html";'}, a({-href => '../IlMondoDiGioco.html', -class => 'link'},"Il mondo di gioco")),
 li({-class => 'button link', -onclick => 'location.href="../cgi-bin/personaggi.cgi";'}, a({-href => '../cgi-bin/personaggi.cgi', -class => 'link'},"Personaggi")),
 li({-class => 'button link', -onclick => 'location.href="../cgi-bin/Notizie.cgi";'}, a({-href => '../cgi-bin/Notizie.cgi', -class => 'link'},"Notizie")),
@@ -86,13 +86,13 @@ print "<div class='content'>";
 if($esito){
 	print "<h2>Login avvenuto con successo</h2>";
 	print "<h3>Benvenuto $usn</h3>";
-	print "<form action='../Home.html' method='post'>";
+	print "<form action='../index.html' method='post'>";
 	print "<p><input type='submit' value='Continua'/></p>";
 	print "</form>";
 }
 else{														#altrimenti le credenziali non erano valide
 	print "<h2>Login fallito</h2>";
-	print "<form action='../Home.html' method='post'>";
+	print "<form action='../index.html' method='post'>";
 	print "</p><input type='submit' value='Indietro'/></p>";
 	print "</form>";
 };

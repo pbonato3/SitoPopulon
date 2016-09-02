@@ -302,6 +302,7 @@ span.newsTag{
 
 .errore{ 
 	color:red;
+	display: none;
 }
 
 /* -- Modalità di stampa -- */
