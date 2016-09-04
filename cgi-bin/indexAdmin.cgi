@@ -69,7 +69,7 @@ else{														#questo perchè non si sa mai
 
 print "<a href='#header' class='goup'>Vai a inizio pagina</a></div>";
 
-print "<div id='footer'>Contatti: populon(at)gmail.com
+print "<div id='footer'>Contatti: populon&#64;gmail.com
 		<div class='login'>
 			<span>Login Amministratori</span>
 			<form action='login.cgi' method='post'>

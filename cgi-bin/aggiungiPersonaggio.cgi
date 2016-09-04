@@ -78,7 +78,7 @@ print "<div class='scheda'>";
 # form per l'input dei dati di un personaggio
 	print "<form action='inserimentoPersonaggio.cgi' method='post' enctype='multipart/form-data'>";
 	# Insermento nome
-	print "<p> Nome: <input title='nome' name='nome' type='text' oninput='checkNome()'/></p>";
+	print "<p> Nome: <input title='nome' name='nome' type='text' onchange='checkNome()'/></p>";
 	print "<p class='errore' id='errNome'>Il nome &egrave; obbligatorio</p>";
 	# Inserimento razza
 	print "<p>Razza: <select name='razza'>",
@@ -96,14 +96,14 @@ print "<div class='scheda'>";
 	print "<p>Sesso: <input title='sesso' type='radio' name='sesso' value='M' checked='checked' /> M",
 		"<input title='gender' type='radio' name='gender' value='F' /> F </p>";
 	# Inserimento età
-	print "<p>Et&agrave;: <input title='eta' name='eta' type='text' oninput='checkEta()' /></p>";
+	print "<p>Et&agrave;: <input title='eta' name='eta' type='text' onchange='checkEta()' /></p>";
 	print "<p class='errore' id='errEta'>L'et&agrave; deve essere un numero di massimo tre cifre</p>";
 	# Inserimento punti corpo
-	print "<p>Punti corpo: <input title='corpo' name='corpo' type='text' oninput='checkCorpo()'/></p>";
+	print "<p>Punti corpo: <input title='corpo' name='corpo' type='text' onchange='checkCorpo()'/></p>";
 	print "<p class='errore' id='errCorpo'>I punti corpo devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p id='ac$i'>Abilit&agrave;: <input title='name_c$i' name='name_c$i' type='text' oninput='checkC($i)' id='acInput$i' />";
+			print "<p id='ac$i'>Abilit&agrave;: <input title='name_c$i' name='name_c$i' type='text' onchange='checkC($i)' id='acInput$i' />";
 			print "Livello: <select name='value_c$i' id='lc$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
@@ -112,11 +112,11 @@ print "<div class='scheda'>";
 		}
 		print "</div>";
 	# Inserimento punti mente
-	print "<p>Punti mente: <input title='mente' name='mente' type='text' oninput='checkMente()' /></p>";
+	print "<p>Punti mente: <input title='mente' name='mente' type='text' onchange='checkMente()' /></p>";
 	print "<p class='errore' id='errMente'>I punti mente devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p id='am$i'>Abilit&agrave;: <input title='name_m$i' name='name_m$i' type='text' oninput='checkM($i)' id='amInput$i' />";
+			print "<p id='am$i'>Abilit&agrave;: <input title='name_m$i' name='name_m$i' type='text' onchange='checkM($i)' id='amInput$i' />";
 			print "Livello: <select name='value_m$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
@@ -125,11 +125,11 @@ print "<div class='scheda'>";
 		}
 		print "</div>";
 	# Inserimento punti spirito
-	print "<p>Punti spirito: <input title='spirito' name='spirito' type='text' oninput='checkSpirito()'/></p>";
+	print "<p>Punti spirito: <input title='spirito' name='spirito' type='text' onchange='checkSpirito()'/></p>";
 	print "<p class='errore' id='errSpirito'>I punti spirito devono essere un numero di massimo tre cifre</p>";
 		print "<div class='elencoFormAbilita'>";
 		for(my $i=0; $i < $max; $i++){
-			print "<p id='as$i'>Abilit&agrave;: <input title='name_s$i' name='name_s$i' type='text' oninput='checkS($i)' id='asInput$i'/>";
+			print "<p id='as$i'>Abilit&agrave;: <input title='name_s$i' name='name_s$i' type='text' onchange='checkS($i)' id='asInput$i'/>";
 			print "Livello: <select name='value_s$i'>";
 			for(my $j=1; $j<=5; $j++){
 				print"<option value=\"$j\">$j</option>";
@@ -144,7 +144,7 @@ print "<div class='scheda'>";
 print "</div><a href='#header' class='goup'>Vai a inizio pagina</a>
 </div>";
 
-print "<div id='footer'>Contatti: populon(at)gmail.com
+print "<div id='footer'>Contatti: populon&#64;gmail.com
 		<div class='login'>
 			<span>Login Amministratori</span>
 			<form action='login.cgi' method='post'>
